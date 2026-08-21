@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 25c374afb1f955749ac689a8017ec04a
+guid: 0a4b8c0d75316c04f84329778e151742
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1991292576668710104
-    second: DUCK_SPRITESHEET_IDLE_FINAL_0
-  - first:
-      213: -3758455368843748312
-    second: DUCK_SPRITESHEET_IDLE_FINAL_1
-  - first:
-      213: 7905203084120912565
-    second: DUCK_SPRITESHEET_IDLE_FINAL_2
+      213: -8143085834234237993
+    second: Item_CursedSword_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DUCK_SPRITESHEET_IDLE_FINAL_0
+      name: Item_CursedSword_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 15
-        width: 102
-        height: 98
+        x: 39
+        y: 39
+        width: 54
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,52 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8d4f5345c0e72ab10800000000000000
-      internalID: 1991292576668710104
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DUCK_SPRITESHEET_IDLE_FINAL_1
-      rect:
-        serializedVersion: 2
-        x: 143
-        y: 15
-        width: 102
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 82c98e351c847dbc0800000000000000
-      internalID: -3758455368843748312
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DUCK_SPRITESHEET_IDLE_FINAL_2
-      rect:
-        serializedVersion: 2
-        x: 271
-        y: 15
-        width: 102
-        height: 102
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5b2795a425ce4bd60800000000000000
-      internalID: 7905203084120912565
+      spriteID: 7dbe3f2e392fdfe80800000000000000
+      internalID: -8143085834234237993
       vertices: []
       indices: 
       edges: []
@@ -198,9 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DUCK_SPRITESHEET_IDLE_FINAL_0: 1991292576668710104
-      DUCK_SPRITESHEET_IDLE_FINAL_1: -3758455368843748312
-      DUCK_SPRITESHEET_IDLE_FINAL_2: 7905203084120912565
+      Item_CursedSword_0: -8143085834234237993
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

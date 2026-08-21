@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: ac043b741ffcc6b488e25af167994946
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 687707446731694594
+    second: VFX_Hit_Impact_Spritesheet_0
+  - first:
+      213: 8401142877384600155
+    second: VFX_Hit_Impact_Spritesheet_1
+  - first:
+      213: -7170261245317991640
+    second: VFX_Hit_Impact_Spritesheet_2
+  - first:
+      213: -2706851076247236966
+    second: VFX_Hit_Impact_Spritesheet_3
+  - first:
+      213: -512988542400688201
+    second: VFX_Hit_Impact_Spritesheet_4
+  - first:
+      213: 8564997667994808421
+    second: VFX_Hit_Impact_Spritesheet_5
+  - first:
+      213: 6704969824334581552
+    second: VFX_Hit_Impact_Spritesheet_6
+  - first:
+      213: 3151891143238020256
+    second: VFX_Hit_Impact_Spritesheet_7
+  - first:
+      213: 7593226774408478745
+    second: VFX_Hit_Impact_Spritesheet_8
+  - first:
+      213: -5178501390693907956
+    second: VFX_Hit_Impact_Spritesheet_9
+  - first:
+      213: -2922936726562550085
+    second: VFX_Hit_Impact_Spritesheet_10
+  - first:
+      213: -3396736050941149879
+    second: VFX_Hit_Impact_Spritesheet_11
+  - first:
+      213: -4591968959896227349
+    second: VFX_Hit_Impact_Spritesheet_12
+  - first:
+      213: 6262884162947364776
+    second: VFX_Hit_Impact_Spritesheet_13
+  - first:
+      213: -6223401777961758200
+    second: VFX_Hit_Impact_Spritesheet_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 12
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_Hit_Impact_Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 43
+        width: 34
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20265d7774a3b8900800000000000000
+      internalID: 687707446731694594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Hit_Impact_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 43
+        width: 34
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5aefc19fead69470800000000000000
+      internalID: 8401142877384600155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Hit_Impact_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 83
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8233216136d1e7c90800000000000000
+      internalID: -7170261245317991640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Hit_Impact_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 67
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9e4664a9455f6ad0800000000000000
+      internalID: -2706851076247236966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Hit_Impact_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 83
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bf8c5c73af71e8f0800000000000000
+      internalID: -512988542400688201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Hit_Impact_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 75
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56031eeeffbfcd670800000000000000
+      internalID: 8564997667994808421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Hit_Impact_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 63
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03f0d21e786dc0d50800000000000000
+      internalID: 6704969824334581552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Hit_Impact_Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 63
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ace66b9b44cdbb20800000000000000
+      internalID: 3151891143238020256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Hit_Impact_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 59
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9104a9b458f806960800000000000000
+      internalID: 7593226774408478745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Hit_Impact_Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 59
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c02c2da0c644228b0800000000000000
+      internalID: -5178501390693907956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Hit_Impact_Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 51
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbecb489884af67d0800000000000000
+      internalID: -2922936726562550085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Hit_Impact_Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 43
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94db3efee8e5cd0d0800000000000000
+      internalID: -3396736050941149879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Hit_Impact_Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 43
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be1f3cd6f8c0640c0800000000000000
+      internalID: -4591968959896227349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Hit_Impact_Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 35
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a7b5e9c6fb3ae650800000000000000
+      internalID: 6262884162947364776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Hit_Impact_Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 39
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8021e025e0902a9a0800000000000000
+      internalID: -6223401777961758200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_Hit_Impact_Spritesheet_0: 687707446731694594
+      VFX_Hit_Impact_Spritesheet_1: 8401142877384600155
+      VFX_Hit_Impact_Spritesheet_10: -2922936726562550085
+      VFX_Hit_Impact_Spritesheet_11: -3396736050941149879
+      VFX_Hit_Impact_Spritesheet_12: -4591968959896227349
+      VFX_Hit_Impact_Spritesheet_13: 6262884162947364776
+      VFX_Hit_Impact_Spritesheet_14: -6223401777961758200
+      VFX_Hit_Impact_Spritesheet_2: -7170261245317991640
+      VFX_Hit_Impact_Spritesheet_3: -2706851076247236966
+      VFX_Hit_Impact_Spritesheet_4: -512988542400688201
+      VFX_Hit_Impact_Spritesheet_5: 8564997667994808421
+      VFX_Hit_Impact_Spritesheet_6: 6704969824334581552
+      VFX_Hit_Impact_Spritesheet_7: 3151891143238020256
+      VFX_Hit_Impact_Spritesheet_8: 7593226774408478745
+      VFX_Hit_Impact_Spritesheet_9: -5178501390693907956
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
