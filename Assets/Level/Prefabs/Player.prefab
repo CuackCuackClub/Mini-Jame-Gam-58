@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7547301865974133922}
   - component: {fileID: 1407663215374960975}
   - component: {fileID: 8667630645035062633}
+  - component: {fileID: 1961213016421948592}
+  - component: {fileID: 89209493095469793}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -180,3 +182,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_PlayerManagement
   speed: 2.5
+  jumpSpeed: 5
+--- !u!114 &1961213016421948592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400724558789629874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d06d2f5ee93c95842a5fc19716a1fb5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_PlayerBlood
+  maxBlood: 100
+  startingBlood: 100
+  passiveDrainPerSecond: 1
+--- !u!114 &89209493095469793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400724558789629874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162d034ae384bcd4fa0580f3203b59ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_PlayerDeath
+  playerBlood: {fileID: 0}
+  playerManagement: {fileID: 0}
+  playerBody: {fileID: 0}
