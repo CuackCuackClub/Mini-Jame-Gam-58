@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: cc6dbc47bac770641bbfd557eefadb90
+AssetOrigin:
+  serializedVersion: 1
+  productId: 379160
+  packageName: Monsters_Creatures_Fantasy 2
+  packageVersion: 1.0
+  assetPath: Assets/Monsters Creatures Fantasy 2/Sprites/Mimic/death.png
+  uploadId: 914690
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -113,6 +120,32 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -286,10 +319,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 379160
-  packageName: Monsters_Creatures_Fantasy 2
-  packageVersion: 1.0
-  assetPath: Assets/Monsters Creatures Fantasy 2/Sprites/Mimic/death.png
-  uploadId: 914690
