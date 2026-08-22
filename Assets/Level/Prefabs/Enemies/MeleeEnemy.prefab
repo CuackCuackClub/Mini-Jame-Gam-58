@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5789453324671032433}
   - component: {fileID: 8225286853523086149}
   - component: {fileID: 5706914969152803907}
+  - component: {fileID: 3948172056381927461}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -221,3 +222,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef49a3a6d338a94899258dc8db607e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyPatrol
+--- !u!114 &3948172056381927461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5517080900444548112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cdb50c68aeed647a3619387fb43509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_EnemyContactDamage
+  enemyManagement: {fileID: 8225286853523086149}
