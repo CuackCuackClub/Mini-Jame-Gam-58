@@ -12,6 +12,7 @@ public class S_PlayerManagement : MonoBehaviour
     [SerializeField] private float attackDamage = 10f;
     [SerializeField] private float attackCooldown = 1f;
     [SerializeField] private float attackRange = 1f;
+    [SerializeField] private GameObject hitImpactPrefab;
 
     private float lastAttackTime;
     private float horizontal;
@@ -104,6 +105,7 @@ public class S_PlayerManagement : MonoBehaviour
                 if (enemyScript != null)
                 {
                     enemyScript.TakeDamage(attackDamage);
+                    S_HitImpact.Spawn(hitImpactPrefab, enemy.transform.position);
                 }
             }
         }

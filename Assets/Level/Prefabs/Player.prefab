@@ -189,6 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::S_PlayerManagement
   speed: 2.5
   jumpSpeed: 5
+  hitImpactPrefab: {fileID: 4011001001001001001, guid: 15dae8e1c4e9b673152dfe809235679e, type: 3}
 --- !u!114 &1961213016421948592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,5 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_PlayerAnimation
   attackDuration: 0.75
+  hurtDuration: 0.25
   walkSpeedThreshold: 0.1
-  jumpSpeedThreshold: 0.2
+  groundCheckDistance: 0.08
+  groundCheckHeight: 0.12
