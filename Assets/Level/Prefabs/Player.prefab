@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5847392018462910573}
   - component: {fileID: 6958473829103847561}
   - component: {fileID: 7069584930214958672}
+  - component: {fileID: 4182736450918273645}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -256,3 +257,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7a0c3f6b9d12e5a8c1f4d7b0e39516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_RoomTracker
+--- !u!114 &4182736450918273645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400724558789629874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a4d7e0b3c6f8295d2e5a8c1f4b73062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_PlayerAbilities
+  playerBlood: {fileID: 0}
+  playerManagement: {fileID: 0}
+  playerDeath: {fileID: 0}
+  playerBody: {fileID: 0}
+  playerCollider: {fileID: 0}
+  bloodCrescentPrefab: {fileID: 1548293018472938476, guid: e8b1c4d7a0f32596b4e7a1c4d8f06273, type: 3}
+  bloodstepCost: 5
+  bloodstepDuration: 0.15
+  bloodstepDistance: 3.5
+  bloodstepCooldown: 0.5
+  bloodCrescentCost: 15
+  bloodCrescentDamage: 25
+  bloodCrescentSpeed: 14
+  bloodCrescentRange: 4
+  bloodCrescentCooldown: 0.7

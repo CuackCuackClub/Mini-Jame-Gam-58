@@ -121,6 +121,26 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""initialStateCheck"": false,
                     ""priority"": 0
+                },
+                {
+                    ""name"": ""Bloodstep"",
+                    ""type"": ""Button"",
+                    ""id"": ""6f1a2b3c-4d5e-6789-abcd-ef0123456789"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
+                },
+                {
+                    ""name"": ""BloodCrescent"",
+                    ""type"": ""Button"",
+                    ""id"": ""7a2b3c4d-5e6f-7890-bcde-f01234567890"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
                 }
             ],
             ""bindings"": [
@@ -211,6 +231,50 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8b3c4d5e-6f70-8901-cdef-012345678901"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Bloodstep"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9c4d5e6f-7081-9012-def0-123456789012"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Bloodstep"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad5e6f70-8192-0123-ef01-234567890123"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BloodCrescent"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be6f7081-9203-1234-f012-345678901234"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BloodCrescent"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -222,6 +286,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_Bloodstep = m_Player.FindAction("Bloodstep", throwIfNotFound: true);
+        m_Player_BloodCrescent = m_Player.FindAction("BloodCrescent", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -305,6 +371,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_Bloodstep;
+    private readonly InputAction m_Player_BloodCrescent;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -328,6 +396,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Attack".
         /// </summary>
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Bloodstep".
+        /// </summary>
+        public InputAction @Bloodstep => m_Wrapper.m_Player_Bloodstep;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/BloodCrescent".
+        /// </summary>
+        public InputAction @BloodCrescent => m_Wrapper.m_Player_BloodCrescent;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>

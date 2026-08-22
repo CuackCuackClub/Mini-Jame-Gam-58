@@ -9,6 +9,7 @@ public class S_PlayerDeath : MonoBehaviour
     [SerializeField] private Rigidbody2D playerBody;
     [SerializeField] private S_BloodVialInventory vialInventory;
     [SerializeField] private S_RoomTracker roomTracker;
+    [SerializeField] private S_PlayerAbilities playerAbilities;
 
     public bool IsDead { get; private set; }
 
@@ -43,6 +44,11 @@ public class S_PlayerDeath : MonoBehaviour
         {
             roomTracker = GetComponent<S_RoomTracker>();
         }
+
+        if (playerAbilities == null)
+        {
+            playerAbilities = GetComponent<S_PlayerAbilities>();
+        }
     }
 
     private void OnEnable()
@@ -70,6 +76,11 @@ public class S_PlayerDeath : MonoBehaviour
         if (IsDead)
         {
             return;
+        }
+
+        if (playerAbilities != null)
+        {
+            playerAbilities.ResetTransientState();
         }
 
         ApplyDeathFreeze();

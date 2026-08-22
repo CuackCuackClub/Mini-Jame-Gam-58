@@ -17,6 +17,8 @@ public class S_PlayerManagement : MonoBehaviour
 
     private Rigidbody2D rBody;
 
+    public bool AbilityLocksMovement { get; set; }
+
     private PlayerControls playerControls;
 
     private void Awake()
@@ -49,6 +51,11 @@ public class S_PlayerManagement : MonoBehaviour
 
     private void PlayerMovement()
     {
+        if (AbilityLocksMovement)
+        {
+            return;
+        }
+
         horizontal = playerControls.Player.Move.ReadValue<Vector2>().x;
 
         rBody.linearVelocity = new Vector2(horizontal * speed, rBody.linearVelocity.y);
