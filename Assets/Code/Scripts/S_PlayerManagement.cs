@@ -12,6 +12,11 @@ public class S_PlayerManagement : MonoBehaviour
     [SerializeField] private float attackCooldown = 1f;
     [SerializeField] private float attackRange = 1f;
 
+    [Header("Ground Check")]
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundCheckRadius = 0.2f;
+    [SerializeField] private LayerMask groundLayer;
+
     private float lastAttackTime;
     private float horizontal;
 
@@ -72,10 +77,12 @@ public class S_PlayerManagement : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext context)
     {
-        if (Mathf.Abs(rBody.linearVelocity.y) < 0.001f)
-        {
-            rBody.AddForce(new Vector2(0f, jumpSpeed), ForceMode2D.Impulse);
-        }
+        bool isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+    if (isGrounded)
+    {
+        rBody.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+    }
     }
 
     private void OnAttack(InputAction.CallbackContext context)
