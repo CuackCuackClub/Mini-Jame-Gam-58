@@ -14,6 +14,7 @@ public class S_PlayerDeath : MonoBehaviour
     public bool IsDead { get; private set; }
 
     public event Action PlayerDied;
+    public event Action Respawned;
 
     private bool wasMovementEnabled;
     private bool wasBodySimulated;
@@ -124,6 +125,15 @@ public class S_PlayerDeath : MonoBehaviour
         Die();
     }
 
+    private static void SnapCameraToPlayer()
+    {
+        S_CameraFollow cameraFollow = FindFirstObjectByType<S_CameraFollow>();
+        if (cameraFollow != null)
+        {
+            cameraFollow.SnapToTarget();
+        }
+    }
+
     private void ApplyDeathFreeze()
     {
         IsDead = true;
@@ -169,6 +179,8 @@ public class S_PlayerDeath : MonoBehaviour
         }
 
         Revive();
+        SnapCameraToPlayer();
+        Respawned?.Invoke();
         return true;
     }
 }
