@@ -1,19 +1,52 @@
 fileFormatVersion: 2
-guid: 62fa0d74f04b55943947c8666340c52b
+guid: ac043b741ffcc6b488e25af167994946
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1113841517868815231
-    second: DUCK_SPRITESHEET_WALK_FINAL_0
+      213: 687707446731694594
+    second: VFX_Hit_Impact_Spritesheet_0
   - first:
-      213: 1615593417758941098
-    second: DUCK_SPRITESHEET_WALK_FINAL_1
+      213: 8401142877384600155
+    second: VFX_Hit_Impact_Spritesheet_1
   - first:
-      213: 1079767354411472473
-    second: DUCK_SPRITESHEET_WALK_FINAL_2
+      213: -7170261245317991640
+    second: VFX_Hit_Impact_Spritesheet_2
   - first:
-      213: -1894457577637887381
-    second: DUCK_SPRITESHEET_WALK_FINAL_3
+      213: -2706851076247236966
+    second: VFX_Hit_Impact_Spritesheet_3
+  - first:
+      213: -512988542400688201
+    second: VFX_Hit_Impact_Spritesheet_4
+  - first:
+      213: 8564997667994808421
+    second: VFX_Hit_Impact_Spritesheet_5
+  - first:
+      213: 6704969824334581552
+    second: VFX_Hit_Impact_Spritesheet_6
+  - first:
+      213: 3151891143238020256
+    second: VFX_Hit_Impact_Spritesheet_7
+  - first:
+      213: 7593226774408478745
+    second: VFX_Hit_Impact_Spritesheet_8
+  - first:
+      213: -5178501390693907956
+    second: VFX_Hit_Impact_Spritesheet_9
+  - first:
+      213: -2922936726562550085
+    second: VFX_Hit_Impact_Spritesheet_10
+  - first:
+      213: -3396736050941149879
+    second: VFX_Hit_Impact_Spritesheet_11
+  - first:
+      213: -4591968959896227349
+    second: VFX_Hit_Impact_Spritesheet_12
+  - first:
+      213: 6262884162947364776
+    second: VFX_Hit_Impact_Spritesheet_13
+  - first:
+      213: -6223401777961758200
+    second: VFX_Hit_Impact_Spritesheet_14
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -148,13 +181,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DUCK_SPRITESHEET_WALK_FINAL_0
+      name: VFX_Hit_Impact_Spritesheet_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 15
-        width: 102
-        height: 102
+        x: 31
+        y: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f7317a885f8257f00800000000000000
-      internalID: 1113841517868815231
+      spriteID: 20265d7774a3b8900800000000000000
+      internalID: 687707446731694594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DUCK_SPRITESHEET_WALK_FINAL_1
+      name: VFX_Hit_Impact_Spritesheet_1
       rect:
         serializedVersion: 2
-        x: 143
-        y: 19
-        width: 102
-        height: 102
+        x: 173
+        y: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,52 +218,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aaf1bf657adbb6610800000000000000
-      internalID: 1615593417758941098
+      spriteID: b5aefc19fead69470800000000000000
+      internalID: 8401142877384600155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DUCK_SPRITESHEET_WALK_FINAL_2
+      name: VFX_Hit_Impact_Spritesheet_2
       rect:
         serializedVersion: 2
-        x: 271
-        y: 15
-        width: 102
-        height: 102
+        x: 309
+        y: 32
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 95652cf10ba1cfe00800000000000000
-      internalID: 1079767354411472473
+      spriteID: 8233216136d1e7c90800000000000000
+      internalID: -7170261245317991640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DUCK_SPRITESHEET_WALK_FINAL_3
+      name: VFX_Hit_Impact_Spritesheet_3
       rect:
         serializedVersion: 2
-        x: 399
-        y: 19
-        width: 102
-        height: 102
+        x: 436
+        y: 32
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b62c8d2ded885b5e0800000000000000
-      internalID: -1894457577637887381
+      spriteID: a9e4664a9455f6ad0800000000000000
+      internalID: -2706851076247236966
       vertices: []
       indices: 
       edges: []
@@ -239,7 +272,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c613eab70d390264384bb6ff9a1d39e3
+    spriteID: 15766c28a988ce4458939251f8bfaee0
     internalID: 0
     vertices: []
     indices: 
@@ -249,10 +282,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DUCK_SPRITESHEET_WALK_FINAL_0: 1113841517868815231
-      DUCK_SPRITESHEET_WALK_FINAL_1: 1615593417758941098
-      DUCK_SPRITESHEET_WALK_FINAL_2: 1079767354411472473
-      DUCK_SPRITESHEET_WALK_FINAL_3: -1894457577637887381
+      VFX_Hit_Impact_Spritesheet_0: 687707446731694594
+      VFX_Hit_Impact_Spritesheet_1: 8401142877384600155
+      VFX_Hit_Impact_Spritesheet_10: -2922936726562550085
+      VFX_Hit_Impact_Spritesheet_11: -3396736050941149879
+      VFX_Hit_Impact_Spritesheet_12: -4591968959896227349
+      VFX_Hit_Impact_Spritesheet_13: 6262884162947364776
+      VFX_Hit_Impact_Spritesheet_14: -6223401777961758200
+      VFX_Hit_Impact_Spritesheet_15: -1825320972
+      VFX_Hit_Impact_Spritesheet_2: -7170261245317991640
+      VFX_Hit_Impact_Spritesheet_3: -2706851076247236966
+      VFX_Hit_Impact_Spritesheet_4: -512988542400688201
+      VFX_Hit_Impact_Spritesheet_5: 8564997667994808421
+      VFX_Hit_Impact_Spritesheet_6: 6704969824334581552
+      VFX_Hit_Impact_Spritesheet_7: 3151891143238020256
+      VFX_Hit_Impact_Spritesheet_8: 7593226774408478745
+      VFX_Hit_Impact_Spritesheet_9: -5178501390693907956
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

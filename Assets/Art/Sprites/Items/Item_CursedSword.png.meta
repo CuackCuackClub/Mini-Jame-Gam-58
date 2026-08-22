@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 62fa0d74f04b55943947c8666340c52b
+guid: 0a4b8c0d75316c04f84329778e151742
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1113841517868815231
-    second: DUCK_SPRITESHEET_WALK_FINAL_0
-  - first:
-      213: 1615593417758941098
-    second: DUCK_SPRITESHEET_WALK_FINAL_1
-  - first:
-      213: 1079767354411472473
-    second: DUCK_SPRITESHEET_WALK_FINAL_2
-  - first:
-      213: -1894457577637887381
-    second: DUCK_SPRITESHEET_WALK_FINAL_3
+      213: -8143085834234237993
+    second: Item_CursedSword_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,119 +109,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DUCK_SPRITESHEET_WALK_FINAL_0
+      name: Item_CursedSword_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 15
-        width: 102
-        height: 102
+        x: 39
+        y: 39
+        width: 54
+        height: 54
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f7317a885f8257f00800000000000000
-      internalID: 1113841517868815231
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DUCK_SPRITESHEET_WALK_FINAL_1
-      rect:
-        serializedVersion: 2
-        x: 143
-        y: 19
-        width: 102
-        height: 102
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aaf1bf657adbb6610800000000000000
-      internalID: 1615593417758941098
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DUCK_SPRITESHEET_WALK_FINAL_2
-      rect:
-        serializedVersion: 2
-        x: 271
-        y: 15
-        width: 102
-        height: 102
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 95652cf10ba1cfe00800000000000000
-      internalID: 1079767354411472473
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DUCK_SPRITESHEET_WALK_FINAL_3
-      rect:
-        serializedVersion: 2
-        x: 399
-        y: 19
-        width: 102
-        height: 102
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b62c8d2ded885b5e0800000000000000
-      internalID: -1894457577637887381
+      spriteID: 7dbe3f2e392fdfe80800000000000000
+      internalID: -8143085834234237993
       vertices: []
       indices: 
       edges: []
@@ -239,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c613eab70d390264384bb6ff9a1d39e3
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -249,10 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DUCK_SPRITESHEET_WALK_FINAL_0: 1113841517868815231
-      DUCK_SPRITESHEET_WALK_FINAL_1: 1615593417758941098
-      DUCK_SPRITESHEET_WALK_FINAL_2: 1079767354411472473
-      DUCK_SPRITESHEET_WALK_FINAL_3: -1894457577637887381
+      Item_CursedSword_0: -8143085834234237993
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
