@@ -19,6 +19,23 @@ public class S_GameplayHUD : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if (playerBlood != null)
+        {
+            return;
+        }
+
+        playerBlood = FindFirstObjectByType<S_PlayerBlood>();
+        if (playerBlood == null)
+        {
+            return;
+        }
+
+        playerBlood.BloodChanged += HandleBloodChanged;
+        RefreshBloodBar(playerBlood.CurrentBlood, playerBlood.MaxBlood);
+    }
+
     private void OnEnable()
     {
         if (playerBlood != null)
