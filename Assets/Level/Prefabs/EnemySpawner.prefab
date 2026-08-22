@@ -43,6 +43,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb0b0ab7948f7454985d3c9015b9c587, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::S_EnemySpawner
+  m_EditorClassIdentifier: Assembly-CSharp::S_SpawnManagement
   enemyType: 1
+  patrol: 1
+  patrolDistance: 5
+  patrolWaitTime: 2.5
   enemyPrefab: {fileID: 5517080900444548112, guid: c274bc5ef619ee843abbb32528ec035f, type: 3}

@@ -13,6 +13,9 @@ public class S_EnemyManagement : MonoBehaviour
     [Header("Enemy Type")]
     [SerializeField] private EnemyType enemyType;
 
+    [SerializeField, HideInInspector]
+    private EnemyType lastAppliedType;
+
     [Header("Enemy Stats")]
     [SerializeField] private float maxHealth;
     [SerializeField] private float damage;
@@ -30,7 +33,23 @@ public class S_EnemyManagement : MonoBehaviour
 
     private void OnValidate()
     {
+        if (Application.isPlaying)
+        {
+            return;
+        }
+
+        bool uninitialized = maxHealth <= 0f;
+        if (uninitialized || lastAppliedType != enemyType)
+        {
+            ApplyTypeDefaults();
+        }
+    }
+
+    [ContextMenu("Apply Type Defaults")]
+    private void ApplyTypeDefaults()
+    {
         SetEnemySettings();
+        lastAppliedType = enemyType;
     }
 
     private void Awake()
