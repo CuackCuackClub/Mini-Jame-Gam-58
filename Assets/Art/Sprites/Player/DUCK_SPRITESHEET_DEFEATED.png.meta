@@ -1,0 +1,1534 @@
+fileFormatVersion: 2
+guid: d5c51f858334f194f8a9231b83ebd0a2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5095557936063283403
+    second: DUCK_SPRITESHEET_DEFEATED_0
+  - first:
+      213: 3846257825396884370
+    second: DUCK_SPRITESHEET_DEFEATED_1
+  - first:
+      213: -6303766037522964689
+    second: DUCK_SPRITESHEET_DEFEATED_2
+  - first:
+      213: 8752377899356930650
+    second: DUCK_SPRITESHEET_DEFEATED_3
+  - first:
+      213: 707460060789149551
+    second: DUCK_SPRITESHEET_DEFEATED_4
+  - first:
+      213: -5241966001344082718
+    second: DUCK_SPRITESHEET_DEFEATED_5
+  - first:
+      213: 486483887572808159
+    second: DUCK_SPRITESHEET_DEFEATED_6
+  - first:
+      213: -4207292321829675089
+    second: DUCK_SPRITESHEET_DEFEATED_7
+  - first:
+      213: -8974049450470904320
+    second: DUCK_SPRITESHEET_DEFEATED_8
+  - first:
+      213: -2602079579548977749
+    second: DUCK_SPRITESHEET_DEFEATED_9
+  - first:
+      213: -3808984111858424003
+    second: DUCK_SPRITESHEET_DEFEATED_10
+  - first:
+      213: -4666635806651177321
+    second: DUCK_SPRITESHEET_DEFEATED_11
+  - first:
+      213: -716007186846324426
+    second: DUCK_SPRITESHEET_DEFEATED_12
+  - first:
+      213: 6047836776353346860
+    second: DUCK_SPRITESHEET_DEFEATED_13
+  - first:
+      213: 5735120737889284718
+    second: DUCK_SPRITESHEET_DEFEATED_14
+  - first:
+      213: 8461851069786714378
+    second: DUCK_SPRITESHEET_DEFEATED_15
+  - first:
+      213: -5859084104105600671
+    second: DUCK_SPRITESHEET_DEFEATED_16
+  - first:
+      213: 2096556493064396446
+    second: DUCK_SPRITESHEET_DEFEATED_17
+  - first:
+      213: 6069801333973943165
+    second: DUCK_SPRITESHEET_DEFEATED_18
+  - first:
+      213: 6466641862812776983
+    second: DUCK_SPRITESHEET_DEFEATED_19
+  - first:
+      213: 4131290600658676259
+    second: DUCK_SPRITESHEET_DEFEATED_20
+  - first:
+      213: -4799243952837334291
+    second: DUCK_SPRITESHEET_DEFEATED_21
+  - first:
+      213: 5215634191741055741
+    second: DUCK_SPRITESHEET_DEFEATED_22
+  - first:
+      213: -6443368552452468041
+    second: DUCK_SPRITESHEET_DEFEATED_23
+  - first:
+      213: 7421802012354117690
+    second: DUCK_SPRITESHEET_DEFEATED_24
+  - first:
+      213: -3957107713318206402
+    second: DUCK_SPRITESHEET_DEFEATED_25
+  - first:
+      213: -570661112012360721
+    second: DUCK_SPRITESHEET_DEFEATED_26
+  - first:
+      213: -8432433928763502920
+    second: DUCK_SPRITESHEET_DEFEATED_27
+  - first:
+      213: 4751269771625356440
+    second: DUCK_SPRITESHEET_DEFEATED_28
+  - first:
+      213: 626370625260104973
+    second: DUCK_SPRITESHEET_DEFEATED_29
+  - first:
+      213: -3355135232218101300
+    second: DUCK_SPRITESHEET_DEFEATED_30
+  - first:
+      213: 9093393415212845586
+    second: DUCK_SPRITESHEET_DEFEATED_31
+  - first:
+      213: 2872804382171422703
+    second: DUCK_SPRITESHEET_DEFEATED_32
+  - first:
+      213: -3824668902448195887
+    second: DUCK_SPRITESHEET_DEFEATED_33
+  - first:
+      213: -788771867418439771
+    second: DUCK_SPRITESHEET_DEFEATED_34
+  - first:
+      213: -3808429206262211107
+    second: DUCK_SPRITESHEET_DEFEATED_35
+  - first:
+      213: -5298965797904268805
+    second: DUCK_SPRITESHEET_DEFEATED_36
+  - first:
+      213: 608669563195650674
+    second: DUCK_SPRITESHEET_DEFEATED_37
+  - first:
+      213: 6626078181048127855
+    second: DUCK_SPRITESHEET_DEFEATED_38
+  - first:
+      213: -7682686137366421550
+    second: DUCK_SPRITESHEET_DEFEATED_39
+  - first:
+      213: 4343118825430769034
+    second: DUCK_SPRITESHEET_DEFEATED_40
+  - first:
+      213: 1936202482139320329
+    second: DUCK_SPRITESHEET_DEFEATED_41
+  - first:
+      213: 5809491164909207687
+    second: DUCK_SPRITESHEET_DEFEATED_42
+  - first:
+      213: 615928202207264679
+    second: DUCK_SPRITESHEET_DEFEATED_43
+  - first:
+      213: -8410158900272716392
+    second: DUCK_SPRITESHEET_DEFEATED_44
+  - first:
+      213: 8191839562522685836
+    second: DUCK_SPRITESHEET_DEFEATED_45
+  - first:
+      213: -8053912454463916013
+    second: DUCK_SPRITESHEET_DEFEATED_46
+  - first:
+      213: -1925586427223165135
+    second: DUCK_SPRITESHEET_DEFEATED_47
+  - first:
+      213: 3224596798381793705
+    second: DUCK_SPRITESHEET_DEFEATED_48
+  - first:
+      213: -2180160591740968392
+    second: DUCK_SPRITESHEET_DEFEATED_49
+  - first:
+      213: 1611528404284493301
+    second: DUCK_SPRITESHEET_DEFEATED_50
+  - first:
+      213: 2814850989121493212
+    second: DUCK_SPRITESHEET_DEFEATED_51
+  - first:
+      213: -2013941606945722807
+    second: DUCK_SPRITESHEET_DEFEATED_52
+  - first:
+      213: -3097877804540759272
+    second: DUCK_SPRITESHEET_DEFEATED_53
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_0
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 119
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53f7688fd01f849b0800000000000000
+      internalID: -5095557936063283403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_1
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 111
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29309552d17a06530800000000000000
+      internalID: 3846257825396884370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_2
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 111
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2f954a00368488a0800000000000000
+      internalID: -6303766037522964689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_3
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 15
+        width: 102
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a52462fc351b67970800000000000000
+      internalID: 8752377899356930650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_4
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 99
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6f0d105d2761d900800000000000000
+      internalID: 707460060789149551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_5
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 99
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ec0635e1bbc047b0800000000000000
+      internalID: -5241966001344082718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_6
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 99
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd17abba48650c600800000000000000
+      internalID: 486483887572808159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_7
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 103
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faf1d1bace1bc95c0800000000000000
+      internalID: -4207292321829675089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_8
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 15
+        width: 114
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00e64e34295c57380800000000000000
+      internalID: -8974049450470904320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_9
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 87
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba57fa7a86e83ebd0800000000000000
+      internalID: -2602079579548977749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_10
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 91
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3762919125c32bc0800000000000000
+      internalID: -3808984111858424003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_11
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 91
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79620707577cc3fb0800000000000000
+      internalID: -4666635806651177321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_12
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 87
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 639e563d14b3016f0800000000000000
+      internalID: -716007186846324426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_13
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 87
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c25b51a518b3ee350800000000000000
+      internalID: 6047836776353346860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_14
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 79
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e62fdd5dced379f40800000000000000
+      internalID: 5735120737889284718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_15
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 79
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0175e417b88e6570800000000000000
+      internalID: 8461851069786714378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_16
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 79
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 169d5a1dc0a50bea0800000000000000
+      internalID: -5859084104105600671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_17
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 83
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9e54acb507781d10800000000000000
+      internalID: 2096556493064396446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_18
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 79
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7385b077244c3450800000000000000
+      internalID: 6069801333973943165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_19
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 71
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71a30a233802eb950800000000000000
+      internalID: 6466641862812776983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_20
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 67
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32aab2ca9ea455930800000000000000
+      internalID: 4131290600658676259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_21
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 75
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dea60b86d09a56db0800000000000000
+      internalID: -4799243952837334291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_22
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 71
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df27b1de9a7a16840800000000000000
+      internalID: 5215634191741055741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_23
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 63
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b2d522a07e8496a0800000000000000
+      internalID: -6443368552452468041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_24
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 71
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3085ab9b998ff660800000000000000
+      internalID: 7421802012354117690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_25
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 67
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e34c5b910878519c0800000000000000
+      internalID: -3957107713318206402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_26
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 15
+        width: 114
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe3bf5bfdba9418f0800000000000000
+      internalID: -570661112012360721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_27
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 63
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8be891cc40af9fa80800000000000000
+      internalID: -8432433928763502920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_28
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 67
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89cd7c91fa6efe140800000000000000
+      internalID: 4751269771625356440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_29
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 63
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0d2e58d3c051b800800000000000000
+      internalID: 626370625260104973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_30
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 59
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc90e36584a2071d0800000000000000
+      internalID: -3355135232218101300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_31
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 67
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21a43acd129323e70800000000000000
+      internalID: 9093393415212845586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_32
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 67
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fef53846d504ed720800000000000000
+      internalID: 2872804382171422703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_33
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 15
+        width: 98
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d6971ea5eb0ceac0800000000000000
+      internalID: -3824668902448195887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_34
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 55
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5afc3b96a28bd05f0800000000000000
+      internalID: -788771867418439771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_35
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 55
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddd948890ddb52bc0800000000000000
+      internalID: -3808429206262211107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_36
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 43
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf1c8f29eaa4676b0800000000000000
+      internalID: -5298965797904268805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_37
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 59
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2727edb2ebd627800800000000000000
+      internalID: 608669563195650674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_38
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 59
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f61175bcffe84fb50800000000000000
+      internalID: 6626078181048127855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_39
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 47
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dfd475a9ad916590800000000000000
+      internalID: -7682686137366421550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_40
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 39
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8ddc179f8bd54c30800000000000000
+      internalID: 4343118825430769034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_41
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 47
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 900d42926e5ceda10800000000000000
+      internalID: 1936202482139320329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_42
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 43
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7800f2a3f657f9050800000000000000
+      internalID: 5809491164909207687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_43
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 47
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7af75b3cf673c8800800000000000000
+      internalID: 615928202207264679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_44
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 35
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 895a7a40a0d194b80800000000000000
+      internalID: -8410158900272716392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_45
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 35
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c81f72d0ea24fa170800000000000000
+      internalID: 8191839562522685836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_46
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 15
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 318759b4b41ca3090800000000000000
+      internalID: -8053912454463916013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_47
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 35
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 137bc0db851f645e0800000000000000
+      internalID: -1925586427223165135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_48
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 31
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a1a86714b110cc20800000000000000
+      internalID: 3224596798381793705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_49
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 35
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83269f72e738eb1e0800000000000000
+      internalID: -2180160591740968392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_50
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 23
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fd44d2ab8c4d5610800000000000000
+      internalID: 1611528404284493301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_51
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 27
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd85e369f0c501720800000000000000
+      internalID: 2814850989121493212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_52
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 23
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94eee9f57ca0d04e0800000000000000
+      internalID: -2013941606945722807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DUCK_SPRITESHEET_DEFEATED_53
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 15
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 813f7cecc802205d0800000000000000
+      internalID: -3097877804540759272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      DUCK_SPRITESHEET_DEFEATED_0: -5095557936063283403
+      DUCK_SPRITESHEET_DEFEATED_1: 3846257825396884370
+      DUCK_SPRITESHEET_DEFEATED_10: -3808984111858424003
+      DUCK_SPRITESHEET_DEFEATED_11: -4666635806651177321
+      DUCK_SPRITESHEET_DEFEATED_12: -716007186846324426
+      DUCK_SPRITESHEET_DEFEATED_13: 6047836776353346860
+      DUCK_SPRITESHEET_DEFEATED_14: 5735120737889284718
+      DUCK_SPRITESHEET_DEFEATED_15: 8461851069786714378
+      DUCK_SPRITESHEET_DEFEATED_16: -5859084104105600671
+      DUCK_SPRITESHEET_DEFEATED_17: 2096556493064396446
+      DUCK_SPRITESHEET_DEFEATED_18: 6069801333973943165
+      DUCK_SPRITESHEET_DEFEATED_19: 6466641862812776983
+      DUCK_SPRITESHEET_DEFEATED_2: -6303766037522964689
+      DUCK_SPRITESHEET_DEFEATED_20: 4131290600658676259
+      DUCK_SPRITESHEET_DEFEATED_21: -4799243952837334291
+      DUCK_SPRITESHEET_DEFEATED_22: 5215634191741055741
+      DUCK_SPRITESHEET_DEFEATED_23: -6443368552452468041
+      DUCK_SPRITESHEET_DEFEATED_24: 7421802012354117690
+      DUCK_SPRITESHEET_DEFEATED_25: -3957107713318206402
+      DUCK_SPRITESHEET_DEFEATED_26: -570661112012360721
+      DUCK_SPRITESHEET_DEFEATED_27: -8432433928763502920
+      DUCK_SPRITESHEET_DEFEATED_28: 4751269771625356440
+      DUCK_SPRITESHEET_DEFEATED_29: 626370625260104973
+      DUCK_SPRITESHEET_DEFEATED_3: 8752377899356930650
+      DUCK_SPRITESHEET_DEFEATED_30: -3355135232218101300
+      DUCK_SPRITESHEET_DEFEATED_31: 9093393415212845586
+      DUCK_SPRITESHEET_DEFEATED_32: 2872804382171422703
+      DUCK_SPRITESHEET_DEFEATED_33: -3824668902448195887
+      DUCK_SPRITESHEET_DEFEATED_34: -788771867418439771
+      DUCK_SPRITESHEET_DEFEATED_35: -3808429206262211107
+      DUCK_SPRITESHEET_DEFEATED_36: -5298965797904268805
+      DUCK_SPRITESHEET_DEFEATED_37: 608669563195650674
+      DUCK_SPRITESHEET_DEFEATED_38: 6626078181048127855
+      DUCK_SPRITESHEET_DEFEATED_39: -7682686137366421550
+      DUCK_SPRITESHEET_DEFEATED_4: 707460060789149551
+      DUCK_SPRITESHEET_DEFEATED_40: 4343118825430769034
+      DUCK_SPRITESHEET_DEFEATED_41: 1936202482139320329
+      DUCK_SPRITESHEET_DEFEATED_42: 5809491164909207687
+      DUCK_SPRITESHEET_DEFEATED_43: 615928202207264679
+      DUCK_SPRITESHEET_DEFEATED_44: -8410158900272716392
+      DUCK_SPRITESHEET_DEFEATED_45: 8191839562522685836
+      DUCK_SPRITESHEET_DEFEATED_46: -8053912454463916013
+      DUCK_SPRITESHEET_DEFEATED_47: -1925586427223165135
+      DUCK_SPRITESHEET_DEFEATED_48: 3224596798381793705
+      DUCK_SPRITESHEET_DEFEATED_49: -2180160591740968392
+      DUCK_SPRITESHEET_DEFEATED_5: -5241966001344082718
+      DUCK_SPRITESHEET_DEFEATED_50: 1611528404284493301
+      DUCK_SPRITESHEET_DEFEATED_51: 2814850989121493212
+      DUCK_SPRITESHEET_DEFEATED_52: -2013941606945722807
+      DUCK_SPRITESHEET_DEFEATED_53: -3097877804540759272
+      DUCK_SPRITESHEET_DEFEATED_6: 486483887572808159
+      DUCK_SPRITESHEET_DEFEATED_7: -4207292321829675089
+      DUCK_SPRITESHEET_DEFEATED_8: -8974049450470904320
+      DUCK_SPRITESHEET_DEFEATED_9: -2602079579548977749
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
