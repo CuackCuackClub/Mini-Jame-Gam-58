@@ -15,9 +15,14 @@ public class S_EnemyPatrol : MonoBehaviour
 
     private bool waiting;
     private bool configured;
+    private bool suspended;
 
     private Rigidbody2D rBody;
     private S_EnemyManagement enemyManagement;
+
+    public bool IsWaiting => waiting;
+    public bool IsMoving => patrolEnabled && !suspended && !waiting;
+    public bool HoverPatrol => hoverPatrol;
 
     public void Setup(bool patrol, float distance, float waitTime)
     {
@@ -27,6 +32,35 @@ public class S_EnemyPatrol : MonoBehaviour
         configured = true;
 
         ApplyPatrolOrigin();
+    }
+
+    public void SetSuspended(bool isSuspended)
+    {
+        suspended = isSuspended;
+    }
+
+    public void FaceDirection(float directionX)
+    {
+        if (Mathf.Abs(directionX) < 0.01f)
+        {
+            return;
+        }
+
+        Vector3 scale = transform.localScale;
+        float absX = Mathf.Abs(scale.x);
+        if (absX <= 0f)
+        {
+            return;
+        }
+
+        float desiredX = directionX > 0f ? absX : -absX;
+        if (Mathf.Approximately(scale.x, desiredX))
+        {
+            return;
+        }
+
+        scale.x = desiredX;
+        transform.localScale = scale;
     }
 
     private void Awake()
@@ -67,11 +101,12 @@ public class S_EnemyPatrol : MonoBehaviour
 
         startPosition = rBody.position;
         targetPosition = startPosition + Vector2.right * patrolDistance;
+        FaceDirection(patrolDistance);
     }
 
     private void Update()
     {
-        if (!patrolEnabled)
+        if (!patrolEnabled || suspended)
             return;
 
         if (waiting)
@@ -82,7 +117,7 @@ public class S_EnemyPatrol : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!patrolEnabled || waiting)
+        if (!patrolEnabled || waiting || suspended)
             return;
 
         Patrol();
@@ -108,7 +143,6 @@ public class S_EnemyPatrol : MonoBehaviour
 
         if (waitTimer <= 0f)
         {
-            TurnAround();
             if (Mathf.Abs(targetPosition.x - startPosition.x) < 0.1f)
             {
                 targetPosition =
@@ -119,23 +153,16 @@ public class S_EnemyPatrol : MonoBehaviour
                 targetPosition = startPosition;
             }
 
+            FaceDirection(targetPosition.x - rBody.position.x);
             waiting = false;
         }
-    }
-
-    private void TurnAround()
-    {
-        Vector3 scale = transform.localScale;
-
-        scale.x *= -1f;
-
-        transform.localScale = scale;
     }
 
     public void ResetPatrol()
     {
         waiting = false;
         waitTimer = 0f;
+        suspended = false;
 
         if (!patrolEnabled || rBody == null)
         {

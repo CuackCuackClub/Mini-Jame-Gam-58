@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5706914969152803907}
   - component: {fileID: 3948172056381927461}
   - component: {fileID: 2718394058172639401}
+  - component: {fileID: 6728491029384756101}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -242,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyContactDamage
   enemyManagement: {fileID: 8225286853523086149}
+  automaticContactDamage: 0
 --- !u!114 &2718394058172639401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,3 +256,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9c2e5f8b1d4e7a0c3f6b9d2e51830a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyReset
+--- !u!114 &6728491029384756101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5517080900444548112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2e8c4a7f1b46e0b3c5a8d6e4f2b170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_EnemyBehavior
+  detectionRange: 4
+  loseTargetRange: 5
+  attackWindup: 0.25
+  attackDuration: 0.67
