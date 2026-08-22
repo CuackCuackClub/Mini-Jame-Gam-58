@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +19,8 @@ public class S_PlayerManagement : MonoBehaviour
     private Rigidbody2D rBody;
 
     public bool AbilityLocksMovement { get; set; }
+
+    public event Action AttackPerformed;
 
     private PlayerControls playerControls;
 
@@ -84,6 +87,7 @@ public class S_PlayerManagement : MonoBehaviour
             return;
 
         lastAttackTime = Time.time;
+        AttackPerformed?.Invoke();
 
         float direction = transform.localScale.x > 0 ? 1f : -1f;
 
