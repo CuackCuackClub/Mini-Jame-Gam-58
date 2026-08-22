@@ -210,6 +210,7 @@ MonoBehaviour:
   speed: 1.5
   attackRange: 2
   attackCooldown: 2
+  bloodRewardOnDeath: 30
 --- !u!114 &9038174620184753926
 MonoBehaviour:
   m_ObjectHideFlags: 0
