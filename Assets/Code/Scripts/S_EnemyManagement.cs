@@ -68,7 +68,7 @@ public class S_EnemyManagement : MonoBehaviour
 
             case EnemyType.Boss:
 
-                maxHealth = 1000f;
+                maxHealth = 250f;
                 damage = 50f;
                 speed = 1.5f;
                 attackRange = 2f;

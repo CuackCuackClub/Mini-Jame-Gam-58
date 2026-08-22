@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1198426530310402699}
   - component: {fileID: 7376014910793006935}
   - component: {fileID: 8226305908278051299}
+  - component: {fileID: 8257933614170710202}
   m_Layer: 0
   m_Name: FlyEnemy
   m_TagString: Enemy
@@ -208,3 +209,15 @@ MonoBehaviour:
   speed: 4
   attackRange: 0.8
   attackCooldown: 1
+--- !u!114 &8257933614170710202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305817456131299868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef49a3a6d338a94899258dc8db607e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_EnemyPatrol

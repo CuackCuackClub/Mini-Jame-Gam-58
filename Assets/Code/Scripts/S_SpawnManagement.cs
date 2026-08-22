@@ -6,10 +6,15 @@ using UnityEditor;
 
 public class S_SpawnManagement : MonoBehaviour
 {
-    [Header("Enemy")]
+    [Header("Choose Enemy")]
     [SerializeField] private S_EnemyManagement.EnemyType enemyType;
 
-    [Header("Prefab")]
+    [Header("Patrol Settings")]
+    [SerializeField] private bool patrol = true;
+    [SerializeField] private float patrolDistance = 5f;
+    [SerializeField] private float patrolWaitTime = 2.5f;
+
+    [Header("Chose Prefab ")]
     [SerializeField] private GameObject enemyPrefab;
 
     private const string ENEMY_PREFAB_PATH =
@@ -68,10 +73,22 @@ public class S_SpawnManagement : MonoBehaviour
             return;
         }
 
-        Instantiate(
+        GameObject enemy = Instantiate(
             enemyPrefab,
             transform.position,
             Quaternion.identity
         );
+
+         S_EnemyPatrol enemyPatrol =
+            enemy.GetComponent<S_EnemyPatrol>();
+
+        if (enemyPatrol != null)
+        {
+            enemyPatrol.Setup(
+                patrol,
+                patrolDistance,
+                patrolWaitTime
+            );
+        }
     }
 }
