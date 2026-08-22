@@ -14,7 +14,7 @@ public class S_SpawnManagement : MonoBehaviour
     [SerializeField] private float patrolDistance = 5f;
     [SerializeField] private float patrolWaitTime = 2.5f;
 
-    [Header("Chose Prefab ")]
+    [Header("Choose Prefab")]
     [SerializeField] private GameObject enemyPrefab;
 
     private const string ENEMY_PREFAB_PATH = "Assets/Level/Prefabs/Enemies/";
@@ -75,7 +75,7 @@ public class S_SpawnManagement : MonoBehaviour
             transform
         );
 
-         S_EnemyPatrol enemyPatrol = enemy.GetComponent<S_EnemyPatrol>();
+        S_EnemyPatrol enemyPatrol = enemy.GetComponent<S_EnemyPatrol>();
 
         if (enemyPatrol != null)
         {
