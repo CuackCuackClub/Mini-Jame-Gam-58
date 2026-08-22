@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyManagement
   enemyType: 2
+  lastAppliedType: 2
   maxHealth: 150
   damage: 25
   speed: 1
@@ -224,6 +225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef49a3a6d338a94899258dc8db607e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyPatrol
+  patrolEnabled: 1
+  patrolDistance: 5
+  waitTime: 2.5
+  hoverPatrol: 0
 --- !u!114 &6182947301857463920
 MonoBehaviour:
   m_ObjectHideFlags: 0

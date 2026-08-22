@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class S_EnemyPatrol : MonoBehaviour
 {
-    private bool patrolEnabled;
-    private float patrolDistance;
-    private float waitTime;
+    [SerializeField] private bool patrolEnabled = true;
+    [SerializeField] private float patrolDistance = 5f;
+    [SerializeField] private float waitTime = 2.5f;
+    [SerializeField] private bool hoverPatrol;
 
     private Vector2 startPosition;
     private Vector2 targetPosition;
@@ -13,6 +14,7 @@ public class S_EnemyPatrol : MonoBehaviour
     private float waitTimer;
 
     private bool waiting;
+    private bool configured;
 
     private Rigidbody2D rBody;
     private S_EnemyManagement enemyManagement;
@@ -22,21 +24,49 @@ public class S_EnemyPatrol : MonoBehaviour
         patrolEnabled = patrol;
         patrolDistance = distance;
         this.waitTime = waitTime;
+        configured = true;
 
-        if (!patrolEnabled)
-            return;
-
-        speed = enemyManagement.GetSpeed();
-
-        startPosition = rBody.position;
-
-        targetPosition = startPosition + Vector2.right * patrolDistance;
+        ApplyPatrolOrigin();
     }
 
     private void Awake()
     {
         rBody = GetComponent<Rigidbody2D>();
         enemyManagement = GetComponent<S_EnemyManagement>();
+    }
+
+    private void Start()
+    {
+        if (!configured)
+        {
+            Setup(patrolEnabled, patrolDistance, waitTime);
+        }
+    }
+
+    private void ApplyPatrolOrigin()
+    {
+        if (rBody == null)
+        {
+            rBody = GetComponent<Rigidbody2D>();
+        }
+
+        if (enemyManagement == null)
+        {
+            enemyManagement = GetComponent<S_EnemyManagement>();
+        }
+
+        if (rBody == null)
+        {
+            return;
+        }
+
+        if (enemyManagement != null)
+        {
+            speed = enemyManagement.GetSpeed();
+        }
+
+        startPosition = rBody.position;
+        targetPosition = startPosition + Vector2.right * patrolDistance;
     }
 
     private void Update()
@@ -60,9 +90,10 @@ public class S_EnemyPatrol : MonoBehaviour
 
     private void Patrol()
     {
-        Vector2 target = new Vector2(targetPosition.x, rBody.position.y);
+        float targetY = hoverPatrol ? startPosition.y : rBody.position.y;
+        Vector2 target = new Vector2(targetPosition.x, targetY);
 
-        rBody.MovePosition(Vector2.MoveTowards(rBody.position,target, speed * Time.fixedDeltaTime));
+        rBody.MovePosition(Vector2.MoveTowards(rBody.position, target, speed * Time.fixedDeltaTime));
 
         if (Mathf.Abs(rBody.position.x - targetPosition.x) < 0.1f)
         {

@@ -170,7 +170,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!95 &7376014910793006935
 Animator:
   serializedVersion: 7
@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyManagement
   enemyType: 0
+  lastAppliedType: 0
   maxHealth: 30
   damage: 5
   speed: 4
@@ -224,6 +225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef49a3a6d338a94899258dc8db607e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyPatrol
+  patrolEnabled: 1
+  patrolDistance: 5
+  waitTime: 2.5
+  hoverPatrol: 1
 --- !u!114 &1473928501847293651
 MonoBehaviour:
   m_ObjectHideFlags: 0
