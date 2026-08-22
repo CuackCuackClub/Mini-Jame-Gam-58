@@ -21,6 +21,13 @@ public class S_EnemyBehavior : MonoBehaviour
     [SerializeField, Min(0.1f)]
     private float loseTargetRange = 5f;
 
+    [Header("Engagement")]
+    [SerializeField, Min(0.05f)]
+    private float groundedVerticalTolerance = 0.75f;
+
+    [SerializeField, Min(0f)]
+    private float chaseStopDistance = 0.05f;
+
     [Header("Attack Timing")]
     [SerializeField, Min(0f)]
     private float attackWindup = 0.25f;
@@ -28,14 +35,26 @@ public class S_EnemyBehavior : MonoBehaviour
     [SerializeField, Min(0.05f)]
     private float attackDuration = 0.67f;
 
+    [Header("Animation")]
+    [SerializeField, Min(0.01f)]
+    private float walkSpeedThreshold = 0.15f;
+
+    [SerializeField, Min(0f)]
+    private float walkAnimHold = 0.08f;
+
     private EnemyState state = EnemyState.Idle;
     private bool hasTarget;
     private float attackElapsed;
     private bool hitAttempted;
     private bool hasWalkingParameter;
     private bool hasAttackingParameter;
+    private bool isActuallyWalking;
+    private float stillHold;
+    private float lastX;
 
     private Rigidbody2D body;
+    private Collider2D enemyCollider;
+    private Collider2D playerCollider;
     private Animator enemyAnimator;
     private S_EnemyManagement enemyManagement;
     private S_EnemyPatrol enemyPatrol;
@@ -43,9 +62,12 @@ public class S_EnemyBehavior : MonoBehaviour
     private S_PlayerBlood playerBlood;
     private Transform playerTransform;
 
+    private bool IsHover => enemyPatrol != null && enemyPatrol.HoverPatrol;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
+        enemyCollider = GetComponent<Collider2D>();
         enemyAnimator = GetComponent<Animator>();
         enemyManagement = GetComponent<S_EnemyManagement>();
         enemyPatrol = GetComponent<S_EnemyPatrol>();
@@ -57,6 +79,7 @@ public class S_EnemyBehavior : MonoBehaviour
     {
         CacheAnimatorParameters();
         CachePlayer();
+        lastX = transform.position.x;
         UpdateAnimator();
     }
 
@@ -67,19 +90,25 @@ public class S_EnemyBehavior : MonoBehaviour
         if (state == EnemyState.Attack)
         {
             TickAttack();
-            UpdateAnimator();
-            return;
         }
-
-        UpdateTargetTracking();
-        UpdateNonAttackState();
-        UpdateAnimator();
+        else
+        {
+            UpdateTargetTracking();
+            UpdateNonAttackState();
+        }
     }
 
     private void FixedUpdate()
     {
         if (state != EnemyState.Chase || body == null || playerTransform == null || enemyManagement == null)
         {
+            return;
+        }
+
+        if (ShouldStopChaseMovement())
+        {
+            StopHorizontalChase();
+            FacePlayer();
             return;
         }
 
@@ -94,12 +123,21 @@ public class S_EnemyBehavior : MonoBehaviour
         FacePlayer();
     }
 
+    private void LateUpdate()
+    {
+        UpdateWalkFromDisplacement();
+        UpdateAnimator();
+    }
+
     public void ResetBehavior()
     {
         state = EnemyState.Idle;
         hasTarget = false;
         attackElapsed = 0f;
         hitAttempted = false;
+        isActuallyWalking = false;
+        stillHold = 0f;
+        lastX = transform.position.x;
 
         if (enemyPatrol != null)
         {
@@ -111,13 +149,21 @@ public class S_EnemyBehavior : MonoBehaviour
 
     private void CachePlayer()
     {
-        if (playerBlood != null && playerTransform != null)
+        if (playerBlood != null && playerTransform != null && playerCollider != null)
         {
             return;
         }
 
         playerBlood = FindFirstObjectByType<S_PlayerBlood>();
         playerTransform = playerBlood != null ? playerBlood.transform : null;
+        playerCollider = playerTransform != null
+            ? playerTransform.GetComponent<Collider2D>()
+            : null;
+
+        if (playerCollider == null && playerTransform != null)
+        {
+            playerCollider = playerTransform.GetComponentInChildren<Collider2D>();
+        }
     }
 
     private void UpdateTargetTracking()
@@ -146,6 +192,7 @@ public class S_EnemyBehavior : MonoBehaviour
         if (hasTarget && IsPlayerInAttackRange())
         {
             SetPatrolSuspended(true);
+            StopHorizontalChase();
             FacePlayer();
 
             if (contactDamage != null && contactDamage.CanDealDamage)
@@ -160,7 +207,7 @@ public class S_EnemyBehavior : MonoBehaviour
             return;
         }
 
-        if (hasTarget)
+        if (hasTarget && CanChasePlayer())
         {
             SetPatrolSuspended(true);
             state = EnemyState.Chase;
@@ -180,12 +227,8 @@ public class S_EnemyBehavior : MonoBehaviour
         attackElapsed = 0f;
         hitAttempted = false;
         SetPatrolSuspended(true);
+        StopHorizontalChase();
         FacePlayer();
-
-        if (contactDamage != null)
-        {
-            contactDamage.ConsumeCooldown();
-        }
     }
 
     private void TickAttack()
@@ -198,7 +241,7 @@ public class S_EnemyBehavior : MonoBehaviour
             hitAttempted = true;
             if (hasTarget && IsPlayerInAttackRange() && contactDamage != null)
             {
-                contactDamage.ApplyDamage(playerBlood);
+                contactDamage.TryDealDamage(playerBlood);
             }
         }
 
@@ -208,15 +251,116 @@ public class S_EnemyBehavior : MonoBehaviour
         }
     }
 
-    private bool IsPlayerInAttackRange()
+    private bool CanChasePlayer()
     {
-        if (playerTransform == null || enemyManagement == null)
+        if (IsHover)
+        {
+            return true;
+        }
+
+        return IsVerticallyReachable() && !IsStackedOnPlayer();
+    }
+
+    private bool ShouldStopChaseMovement()
+    {
+        if (!TryGetColliderDistance(out ColliderDistance2D distance))
         {
             return false;
         }
 
-        float distanceX = Mathf.Abs(playerTransform.position.x - transform.position.x);
-        return distanceX <= enemyManagement.GetAttackRange();
+        if (distance.isOverlapped)
+        {
+            return true;
+        }
+
+        return distance.distance <= chaseStopDistance;
+    }
+
+    private bool IsPlayerInAttackRange()
+    {
+        if (enemyManagement == null || !TryGetColliderDistance(out ColliderDistance2D distance))
+        {
+            return false;
+        }
+
+        if (!IsHover)
+        {
+            if (!IsVerticallyReachable() || IsStackedOnPlayer(distance))
+            {
+                return false;
+            }
+        }
+
+        float attackRange = enemyManagement.GetAttackRange();
+        return distance.isOverlapped || distance.distance <= attackRange;
+    }
+
+    private bool IsVerticallyReachable()
+    {
+        if (enemyCollider == null || playerCollider == null)
+        {
+            return false;
+        }
+
+        return GetVerticalSeparation(enemyCollider, playerCollider) <= groundedVerticalTolerance;
+    }
+
+    private bool IsStackedOnPlayer()
+    {
+        return TryGetColliderDistance(out ColliderDistance2D distance) && IsStackedOnPlayer(distance);
+    }
+
+    private bool IsStackedOnPlayer(ColliderDistance2D distance)
+    {
+        if (IsHover || !distance.isValid)
+        {
+            return false;
+        }
+
+        bool close = distance.isOverlapped || distance.distance <= chaseStopDistance + 0.02f;
+        return close && Mathf.Abs(distance.normal.y) > 0.75f;
+    }
+
+    private static float GetVerticalSeparation(Collider2D a, Collider2D b)
+    {
+        if (a.bounds.max.y < b.bounds.min.y)
+        {
+            return b.bounds.min.y - a.bounds.max.y;
+        }
+
+        if (b.bounds.max.y < a.bounds.min.y)
+        {
+            return a.bounds.min.y - b.bounds.max.y;
+        }
+
+        return 0f;
+    }
+
+    private bool TryGetColliderDistance(out ColliderDistance2D distance)
+    {
+        distance = default;
+        if (enemyCollider == null || playerCollider == null)
+        {
+            return false;
+        }
+
+        distance = enemyCollider.Distance(playerCollider);
+        return distance.isValid;
+    }
+
+    private void StopHorizontalChase()
+    {
+        if (body == null)
+        {
+            return;
+        }
+
+        Vector2 velocity = body.linearVelocity;
+        if (Mathf.Abs(velocity.x) > 0f)
+        {
+            velocity.x = 0f;
+            body.linearVelocity = velocity;
+        }
     }
 
     private void FacePlayer()
@@ -237,6 +381,31 @@ public class S_EnemyBehavior : MonoBehaviour
         }
     }
 
+    private void UpdateWalkFromDisplacement()
+    {
+        float dx = Mathf.Abs(transform.position.x - lastX);
+        float speed = Time.deltaTime > 0f ? dx / Time.deltaTime : 0f;
+        lastX = transform.position.x;
+
+        if (state == EnemyState.Attack)
+        {
+            stillHold = 0f;
+            isActuallyWalking = false;
+            return;
+        }
+
+        if (speed >= walkSpeedThreshold)
+        {
+            stillHold = walkAnimHold;
+        }
+        else
+        {
+            stillHold = Mathf.Max(0f, stillHold - Time.deltaTime);
+        }
+
+        isActuallyWalking = stillHold > 0f;
+    }
+
     private void UpdateAnimator()
     {
         if (enemyAnimator == null)
@@ -244,18 +413,14 @@ public class S_EnemyBehavior : MonoBehaviour
             return;
         }
 
-        bool walking = state == EnemyState.Chase ||
-                       (state == EnemyState.Patrol && enemyPatrol != null && enemyPatrol.IsMoving);
-        bool attacking = state == EnemyState.Attack;
-
         if (hasWalkingParameter)
         {
-            enemyAnimator.SetBool(WalkingHash, walking);
+            enemyAnimator.SetBool(WalkingHash, isActuallyWalking);
         }
 
         if (hasAttackingParameter)
         {
-            enemyAnimator.SetBool(AttackingHash, attacking);
+            enemyAnimator.SetBool(AttackingHash, state == EnemyState.Attack);
         }
     }
 

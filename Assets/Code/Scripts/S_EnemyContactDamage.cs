@@ -46,21 +46,18 @@ public class S_EnemyContactDamage : MonoBehaviour
 
     private void TryAutomaticContactDamage(Collider2D other)
     {
-        if (!automaticContactDamage || other == null || !CanDealDamage)
+        if (!automaticContactDamage || other == null)
         {
             return;
         }
 
         S_PlayerBlood playerBlood = other.GetComponentInParent<S_PlayerBlood>();
-        if (ApplyDamage(playerBlood))
-        {
-            ConsumeCooldown();
-        }
+        TryDealDamage(playerBlood);
     }
 
-    public bool ApplyDamage(S_PlayerBlood playerBlood)
+    public bool TryDealDamage(S_PlayerBlood target)
     {
-        if (playerBlood == null || enemyManagement == null)
+        if (target == null || enemyManagement == null || !CanDealDamage)
         {
             return false;
         }
@@ -71,11 +68,17 @@ public class S_EnemyContactDamage : MonoBehaviour
             return false;
         }
 
-        playerBlood.TakeDamage(damage);
+        target.TakeDamage(damage);
+        ConsumeCooldown();
         return true;
     }
 
-    public void ConsumeCooldown()
+    public void ResetAttackCooldown()
+    {
+        nextAttackTime = 0f;
+    }
+
+    private void ConsumeCooldown()
     {
         if (enemyManagement == null)
         {
@@ -83,10 +86,5 @@ public class S_EnemyContactDamage : MonoBehaviour
         }
 
         nextAttackTime = Time.time + enemyManagement.GetAttackCooldown();
-    }
-
-    public void ResetAttackCooldown()
-    {
-        nextAttackTime = 0f;
     }
 }

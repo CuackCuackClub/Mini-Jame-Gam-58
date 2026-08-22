@@ -270,5 +270,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyBehavior
   detectionRange: 5
   loseTargetRange: 6
+  groundedVerticalTolerance: 0.75
+  chaseStopDistance: 0.05
   attackWindup: 0.3
   attackDuration: 0.92
+  walkSpeedThreshold: 0.15
+  walkAnimHold: 0.08
