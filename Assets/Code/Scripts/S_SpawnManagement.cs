@@ -68,7 +68,12 @@ public class S_SpawnManagement : MonoBehaviour
             return;
         }
 
-        GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        GameObject enemy = Instantiate(
+            enemyPrefab,
+            transform.position,
+            Quaternion.identity,
+            transform
+        );
 
          S_EnemyPatrol enemyPatrol = enemy.GetComponent<S_EnemyPatrol>();
 

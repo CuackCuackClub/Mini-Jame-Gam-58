@@ -102,6 +102,13 @@ public class S_PlayerBlood : MonoBehaviour
         }
     }
 
+    public void RestoreToFull()
+    {
+        currentBlood = maxBlood;
+        depletionNotified = false;
+        NotifyBloodChanged();
+    }
+
     private void ChangeBlood(float amount)
     {
         float previousBlood = currentBlood;
