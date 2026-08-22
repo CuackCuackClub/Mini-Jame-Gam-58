@@ -100,4 +100,18 @@ public class S_EnemyPatrol : MonoBehaviour
 
         transform.localScale = scale;
     }
+
+    public void ResetPatrol()
+    {
+        waiting = false;
+        waitTimer = 0f;
+
+        if (!patrolEnabled || rBody == null)
+        {
+            return;
+        }
+
+        rBody.position = startPosition;
+        targetPosition = startPosition + Vector2.right * patrolDistance;
+    }
 }

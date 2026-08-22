@@ -80,6 +80,11 @@ public class S_EnemyManagement : MonoBehaviour
 
     public void TakeDamage(float damageTaken)
     {
+        if (damageTaken <= 0f || currentHealth <= 0f)
+        {
+            return;
+        }
+
         currentHealth -= damageTaken;
 
         Debug.Log(
@@ -92,8 +97,20 @@ public class S_EnemyManagement : MonoBehaviour
         }
     }
 
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+    }
+
     private void Die()
     {
+        S_EnemyReset enemyReset = GetComponent<S_EnemyReset>();
+        if (enemyReset != null)
+        {
+            enemyReset.HandleDeath();
+            return;
+        }
+
         Destroy(gameObject);
     }
 

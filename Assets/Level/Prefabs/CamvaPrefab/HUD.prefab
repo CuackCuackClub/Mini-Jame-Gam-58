@@ -724,6 +724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_GameplayHUD
   playerBlood: {fileID: 0}
+  vialInventory: {fileID: 0}
   bloodSlider: {fileID: 5945851434630183775}
   vialImages:
   - {fileID: 480558327756011489}

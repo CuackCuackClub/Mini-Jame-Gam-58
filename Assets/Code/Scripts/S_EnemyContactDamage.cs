@@ -66,4 +66,9 @@ public class S_EnemyContactDamage : MonoBehaviour
         playerBlood.TakeDamage(damage);
         nextAttackTime = Time.time + enemyManagement.GetAttackCooldown();
     }
+
+    public void ResetAttackCooldown()
+    {
+        nextAttackTime = 0f;
+    }
 }
