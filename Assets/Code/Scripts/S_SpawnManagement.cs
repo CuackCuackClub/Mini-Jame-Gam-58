@@ -17,8 +17,7 @@ public class S_SpawnManagement : MonoBehaviour
     [Header("Chose Prefab ")]
     [SerializeField] private GameObject enemyPrefab;
 
-    private const string ENEMY_PREFAB_PATH =
-        "Assets/Level/Prefabs/Enemies/";
+    private const string ENEMY_PREFAB_PATH = "Assets/Level/Prefabs/Enemies/";
 
 #if UNITY_EDITOR
 
@@ -43,15 +42,11 @@ public class S_SpawnManagement : MonoBehaviour
 
         string prefabPath = ENEMY_PREFAB_PATH + prefabName;
 
-        enemyPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(
-            prefabPath
-        );
+        enemyPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
 
         if (enemyPrefab == null)
         {
-            Debug.LogWarning(
-                $"Prefab not found at: {prefabPath}"
-            );
+            Debug.LogWarning($"Prefab not found at: {prefabPath}");
         }
     }
 
@@ -73,22 +68,13 @@ public class S_SpawnManagement : MonoBehaviour
             return;
         }
 
-        GameObject enemy = Instantiate(
-            enemyPrefab,
-            transform.position,
-            Quaternion.identity
-        );
+        GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
 
-         S_EnemyPatrol enemyPatrol =
-            enemy.GetComponent<S_EnemyPatrol>();
+         S_EnemyPatrol enemyPatrol = enemy.GetComponent<S_EnemyPatrol>();
 
         if (enemyPatrol != null)
         {
-            enemyPatrol.Setup(
-                patrol,
-                patrolDistance,
-                patrolWaitTime
-            );
+            enemyPatrol.Setup(patrol, patrolDistance, patrolWaitTime);
         }
     }
 }

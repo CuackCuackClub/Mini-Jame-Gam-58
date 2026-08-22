@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class S_PlayerManagement : MonoBehaviour
 {
     [Header("Player Movement")]
@@ -10,70 +11,94 @@ public class S_PlayerManagement : MonoBehaviour
     [SerializeField] private float attackDamage = 10f;
     [SerializeField] private float attackCooldown = 1f;
     [SerializeField] private float attackRange = 1f;
-    
+
     private float lastAttackTime;
-    float horizontal;
+    private float horizontal;
+
     private Rigidbody2D rBody;
-   
-   private void Awake()
-   {
-    rBody = GetComponent<Rigidbody2D>();
-  
-   }
+
+    private PlayerControls playerControls;
+
+    private void Awake()
+    {
+        rBody = GetComponent<Rigidbody2D>();
+
+        playerControls = new PlayerControls();
+    }
+
+    private void OnEnable()
+    {
+        playerControls.Enable();
+
+        playerControls.Player.Jump.performed += OnJump;
+        playerControls.Player.Attack.performed += OnAttack;
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Player.Jump.performed -= OnJump;
+        playerControls.Player.Attack.performed -= OnAttack;
+
+        playerControls.Disable();
+    }
 
     private void Update()
     {
-        playerMovment(speed, jumpSpeed);
-        playerAttack();
+        PlayerMovement();
     }
 
-    private void playerMovment(float speed, float jumpSpeed)
+    private void PlayerMovement()
     {
-        horizontal = Input.GetAxis("Horizontal");
+        horizontal = playerControls.Player.Move.ReadValue<Vector2>().x;
+
         rBody.linearVelocity = new Vector2(horizontal * speed, rBody.linearVelocity.y);
 
-        if (horizontal < 0){ transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);}
-        else if (horizontal > 0) { transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);}
+        if (horizontal < 0)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (horizontal > 0)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y,transform.localScale.z);
+        }
+    }
 
-        if (Input.GetButtonDown("Jump") && Mathf.Abs(rBody.linearVelocity.y) < 0.001f)
+    private void OnJump(InputAction.CallbackContext context)
+    {
+        if (Mathf.Abs(rBody.linearVelocity.y) < 0.001f)
         {
             rBody.AddForce(new Vector2(0f, jumpSpeed), ForceMode2D.Impulse);
         }
     }
 
-
-   private void playerAttack()
+    private void OnAttack(InputAction.CallbackContext context)
     {
-        if (Input.GetMouseButtonDown(0)) // Left click
+        if (Time.time < lastAttackTime + attackCooldown)
+            return;
+
+        lastAttackTime = Time.time;
+
+        float direction = transform.localScale.x > 0 ? 1f : -1f;
+
+        Vector2 attackPosition = new Vector2(transform.position.x + direction * attackRange, transform.position.y);
+
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPosition, attackRange);
+
+        foreach (Collider2D enemy in enemies)
         {
-            if (Time.time < lastAttackTime + attackCooldown)
-                return;
-
-            lastAttackTime = Time.time;
-
-            float direction = transform.localScale.x > 0 ? 1f : -1f;
-
-            Vector2 attackPosition = new Vector2(transform.position.x + direction * attackRange, transform.position.y);
-
-            // Buscar enemigos dentro del rango
-            Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPosition, attackRange);
-
-            foreach (Collider2D enemy in enemies)
+            if (enemy.CompareTag("Enemy"))
             {
-                if (enemy.CompareTag("Enemy"))
-                {
-                    S_EnemyManagement enemyScript = enemy.GetComponent<S_EnemyManagement>();
+                S_EnemyManagement enemyScript = enemy.GetComponent<S_EnemyManagement>();
 
-                    if (enemyScript != null)
-                    {
-                        enemyScript.TakeDamage(attackDamage);
-                    }
+                if (enemyScript != null)
+                {
+                    enemyScript.TakeDamage(attackDamage);
                 }
             }
         }
     }
 
-   private void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
         float direction = transform.localScale.x > 0 ? 1f : -1f;
 

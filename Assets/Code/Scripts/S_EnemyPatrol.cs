@@ -62,8 +62,7 @@ public class S_EnemyPatrol : MonoBehaviour
     {
         Vector2 target = new Vector2(targetPosition.x, rBody.position.y);
 
-        rBody.MovePosition(
-            Vector2.MoveTowards(rBody.position,target, speed * Time.fixedDeltaTime));
+        rBody.MovePosition(Vector2.MoveTowards(rBody.position,target, speed * Time.fixedDeltaTime));
 
         if (Mathf.Abs(rBody.position.x - targetPosition.x) < 0.1f)
         {
