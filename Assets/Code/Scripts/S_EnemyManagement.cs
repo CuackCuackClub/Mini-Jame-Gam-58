@@ -20,7 +20,13 @@ public class S_EnemyManagement : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private float attackCooldown;
 
+    [Header("Blood Reward")]
+    [SerializeField, Min(0f)]
+    private float bloodRewardOnDeath;
+
     private float currentHealth;
+    private bool deathProcessed;
+    private S_PlayerBlood playerBlood;
 
     private void OnValidate()
     {
@@ -30,6 +36,7 @@ public class S_EnemyManagement : MonoBehaviour
     private void Awake()
     {
         currentHealth = maxHealth;
+        CachePlayerBlood();
     }
 
     private void SetEnemySettings()
@@ -80,7 +87,7 @@ public class S_EnemyManagement : MonoBehaviour
 
     public void TakeDamage(float damageTaken)
     {
-        if (damageTaken <= 0f || currentHealth <= 0f)
+        if (damageTaken <= 0f || currentHealth <= 0f || deathProcessed)
         {
             return;
         }
@@ -100,10 +107,19 @@ public class S_EnemyManagement : MonoBehaviour
     public void ResetHealth()
     {
         currentHealth = maxHealth;
+        deathProcessed = false;
     }
 
     private void Die()
     {
+        if (deathProcessed)
+        {
+            return;
+        }
+
+        deathProcessed = true;
+        GrantBloodReward();
+
         S_EnemyReset enemyReset = GetComponent<S_EnemyReset>();
         if (enemyReset != null)
         {
@@ -112,6 +128,32 @@ public class S_EnemyManagement : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    private void GrantBloodReward()
+    {
+        if (bloodRewardOnDeath <= 0f)
+        {
+            return;
+        }
+
+        CachePlayerBlood();
+        if (playerBlood == null)
+        {
+            return;
+        }
+
+        playerBlood.RestoreBlood(bloodRewardOnDeath);
+    }
+
+    private void CachePlayerBlood()
+    {
+        if (playerBlood != null)
+        {
+            return;
+        }
+
+        playerBlood = FindFirstObjectByType<S_PlayerBlood>();
     }
 
     public float GetDamage()
