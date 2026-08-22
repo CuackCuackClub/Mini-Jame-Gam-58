@@ -11,6 +11,7 @@ public class S_EnemyReset : MonoBehaviour
     private S_EnemyManagement enemyManagement;
     private S_EnemyPatrol enemyPatrol;
     private S_EnemyContactDamage contactDamage;
+    private S_EnemyBehavior enemyBehavior;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class S_EnemyReset : MonoBehaviour
         enemyManagement = GetComponent<S_EnemyManagement>();
         enemyPatrol = GetComponent<S_EnemyPatrol>();
         contactDamage = GetComponent<S_EnemyContactDamage>();
+        enemyBehavior = GetComponent<S_EnemyBehavior>();
     }
 
     private void Start()
@@ -62,6 +64,11 @@ public class S_EnemyReset : MonoBehaviour
         if (enemyPatrol != null)
         {
             enemyPatrol.ResetPatrol();
+        }
+
+        if (enemyBehavior != null)
+        {
+            enemyBehavior.ResetBehavior();
         }
     }
 

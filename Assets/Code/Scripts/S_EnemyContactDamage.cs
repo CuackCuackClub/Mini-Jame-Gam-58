@@ -4,7 +4,12 @@ public class S_EnemyContactDamage : MonoBehaviour
 {
     [SerializeField] private S_EnemyManagement enemyManagement;
 
+    [SerializeField]
+    private bool automaticContactDamage = true;
+
     private float nextAttackTime;
+
+    public bool CanDealDamage => Time.time >= nextAttackTime;
 
     private void Awake()
     {
@@ -21,54 +26,65 @@ public class S_EnemyContactDamage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        TryDamagePlayer(collision.collider);
+        TryAutomaticContactDamage(collision.collider);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        TryDamagePlayer(collision.collider);
+        TryAutomaticContactDamage(collision.collider);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        TryDamagePlayer(other);
+        TryAutomaticContactDamage(other);
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        TryDamagePlayer(other);
+        TryAutomaticContactDamage(other);
     }
 
-    private void TryDamagePlayer(Collider2D other)
+    private void TryAutomaticContactDamage(Collider2D other)
     {
-        if (other == null || enemyManagement == null)
-        {
-            return;
-        }
-
-        if (Time.time < nextAttackTime)
+        if (!automaticContactDamage || other == null)
         {
             return;
         }
 
         S_PlayerBlood playerBlood = other.GetComponentInParent<S_PlayerBlood>();
-        if (playerBlood == null)
+        TryDealDamage(playerBlood);
+    }
+
+    public bool TryDealDamage(S_PlayerBlood target)
+    {
+        if (target == null || enemyManagement == null || !CanDealDamage)
         {
-            return;
+            return false;
         }
 
         float damage = enemyManagement.GetDamage();
         if (damage <= 0f)
         {
-            return;
+            return false;
         }
 
-        playerBlood.TakeDamage(damage);
-        nextAttackTime = Time.time + enemyManagement.GetAttackCooldown();
+        target.TakeDamage(damage);
+        ConsumeCooldown();
+        return true;
     }
 
     public void ResetAttackCooldown()
     {
         nextAttackTime = 0f;
+    }
+
+    private void ConsumeCooldown()
+    {
+        if (enemyManagement == null)
+        {
+            return;
+        }
+
+        nextAttackTime = Time.time + enemyManagement.GetAttackCooldown();
     }
 }
