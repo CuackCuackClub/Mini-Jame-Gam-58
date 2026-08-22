@@ -439,6 +439,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @Bloodstep.started += instance.OnBloodstep;
+            @Bloodstep.performed += instance.OnBloodstep;
+            @Bloodstep.canceled += instance.OnBloodstep;
+            @BloodCrescent.started += instance.OnBloodCrescent;
+            @BloodCrescent.performed += instance.OnBloodCrescent;
+            @BloodCrescent.canceled += instance.OnBloodCrescent;
         }
 
         /// <summary>
@@ -459,6 +465,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @Bloodstep.started -= instance.OnBloodstep;
+            @Bloodstep.performed -= instance.OnBloodstep;
+            @Bloodstep.canceled -= instance.OnBloodstep;
+            @BloodCrescent.started -= instance.OnBloodCrescent;
+            @BloodCrescent.performed -= instance.OnBloodCrescent;
+            @BloodCrescent.canceled -= instance.OnBloodCrescent;
         }
 
         /// <summary>
@@ -520,5 +532,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAttack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Bloodstep" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBloodstep(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "BloodCrescent" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBloodCrescent(InputAction.CallbackContext context);
     }
 }
