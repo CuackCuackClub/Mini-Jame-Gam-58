@@ -15,6 +15,10 @@ GameObject:
   - component: {fileID: 8667630645035062633}
   - component: {fileID: 1961213016421948592}
   - component: {fileID: 89209493095469793}
+  - component: {fileID: 5847392018462910573}
+  - component: {fileID: 6958473829103847561}
+  - component: {fileID: 7069584930214958672}
+  - component: {fileID: 4182736450918273645}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -213,3 +217,70 @@ MonoBehaviour:
   playerBlood: {fileID: 0}
   playerManagement: {fileID: 0}
   playerBody: {fileID: 0}
+  vialInventory: {fileID: 0}
+  roomTracker: {fileID: 0}
+--- !u!114 &5847392018462910573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400724558789629874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8f1c6e92b74d0a9e5c7b1d4f6a8c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_GameplayHUDBootstrap
+  hudPrefab: {fileID: 6739613514894035056, guid: a867a33e9ded1c94a805ab204fa51430, type: 3}
+--- !u!114 &6958473829103847561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400724558789629874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f3a1c5e7b924d6e9c0a2f4d6b8e1c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_BloodVialInventory
+  startingVials: 0
+--- !u!114 &7069584930214958672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400724558789629874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7a0c3f6b9d12e5a8c1f4d7b0e39516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_RoomTracker
+--- !u!114 &4182736450918273645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400724558789629874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a4d7e0b3c6f8295d2e5a8c1f4b73062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_PlayerAbilities
+  playerBlood: {fileID: 0}
+  playerManagement: {fileID: 0}
+  playerDeath: {fileID: 0}
+  playerBody: {fileID: 0}
+  playerCollider: {fileID: 0}
+  bloodCrescentPrefab: {fileID: 1548293018472938476, guid: e8b1c4d7a0f32596b4e7a1c4d8f06273, type: 3}
+  bloodstepCost: 5
+  bloodstepDuration: 0.15
+  bloodstepDistance: 3.5
+  bloodstepCooldown: 0.5
+  bloodCrescentCost: 15
+  bloodCrescentDamage: 25
+  bloodCrescentSpeed: 14
+  bloodCrescentRange: 4
+  bloodCrescentCooldown: 0.7

@@ -24,6 +24,7 @@ public class S_PlayerBlood : MonoBehaviour
     public event Action BloodDepleted;
 
     private bool depletionNotified;
+    private bool isDamageImmune;
 
     private void Awake()
     {
@@ -55,12 +56,22 @@ public class S_PlayerBlood : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        if (amount <= 0f || IsDepleted)
+        if (amount <= 0f || IsDepleted || isDamageImmune)
         {
             return;
         }
 
         ChangeBlood(-amount);
+    }
+
+    public void SetDamageImmune(bool immune)
+    {
+        isDamageImmune = immune;
+    }
+
+    public void ClearDamageImmunity()
+    {
+        isDamageImmune = false;
     }
 
     public void RestoreBlood(float amount)
@@ -89,6 +100,22 @@ public class S_PlayerBlood : MonoBehaviour
         return true;
     }
 
+    public bool CanSpendBloodLeavingOne(float amount)
+    {
+        return amount > 0f && currentBlood > amount;
+    }
+
+    public bool TrySpendBlood(float amount)
+    {
+        if (!CanSpendBloodLeavingOne(amount))
+        {
+            return false;
+        }
+
+        ChangeBlood(-amount);
+        return true;
+    }
+
     public void ResetBlood()
     {
         currentBlood = startingBlood;
@@ -100,6 +127,13 @@ public class S_PlayerBlood : MonoBehaviour
         {
             NotifyBloodDepleted();
         }
+    }
+
+    public void RestoreToFull()
+    {
+        currentBlood = maxBlood;
+        depletionNotified = false;
+        NotifyBloodChanged();
     }
 
     private void ChangeBlood(float amount)
