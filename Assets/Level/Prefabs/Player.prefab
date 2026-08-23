@@ -102,8 +102,8 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &7547301865974133922
-BoxCollider2D:
+--- !u!70 &7547301865974133922
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -112,7 +112,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7c1e4a92b6d0483f9e05c8d1a4b7e260, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -136,18 +136,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.14737713, y: -0.027774215}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.02, y: 0.98}
-    newSize: {x: 1.02, y: 0.98}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.58953166, y: 0.8916218}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.14737713, y: -0.0127027035}
+  m_Size: {x: 0.5, y: 0.8614788}
+  m_Direction: 0
 --- !u!50 &1407663215374960975
 Rigidbody2D:
   serializedVersion: 5
@@ -171,7 +162,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -189,6 +180,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::S_PlayerManagement
   speed: 2.5
   jumpSpeed: 5
+  attackDamage: 10
+  attackCooldown: 0.55
+  attackRange: 1
   hitImpactPrefab: {fileID: 4011001001001001001, guid: 15dae8e1c4e9b673152dfe809235679e, type: 3}
   groundCheck: {fileID: 0}
   groundCheckRadius: 0.2
@@ -227,6 +221,12 @@ MonoBehaviour:
   playerBody: {fileID: 0}
   vialInventory: {fileID: 0}
   roomTracker: {fileID: 0}
+  playerAbilities: {fileID: 0}
+  playerCollider: {fileID: 0}
+  playerAnimator: {fileID: 0}
+  playerAnimation: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  restartSceneOnNoVial: 0
 --- !u!114 &5847392018462910573
 MonoBehaviour:
   m_ObjectHideFlags: 0
