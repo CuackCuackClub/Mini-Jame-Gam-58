@@ -34,6 +34,8 @@ public class S_EnemyManagement : MonoBehaviour
 
     public event Action Damaged;
 
+    public bool IsAlive => currentHealth > 0f && !deathProcessed;
+
     private void OnValidate()
     {
         if (Application.isPlaying)
