@@ -19,6 +19,7 @@ public class S_PlayerAnimation : MonoBehaviour
     private float walkSpeedThreshold = 0.1f;
 
     private Animator playerAnimator;
+    private SpriteRenderer spriteRenderer;
     private Rigidbody2D playerBody;
     private S_PlayerManagement playerManagement;
     private S_PlayerAbilities playerAbilities;
@@ -26,15 +27,35 @@ public class S_PlayerAnimation : MonoBehaviour
     private S_PlayerDeath playerDeath;
     private float attackTimer;
     private float hurtTimer;
+    private float baseScaleX;
+    private float baseScaleY;
+    private Color baseSpriteColor = Color.white;
 
     private void Awake()
     {
         playerAnimator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         playerBody = GetComponent<Rigidbody2D>();
         playerManagement = GetComponent<S_PlayerManagement>();
         playerAbilities = GetComponent<S_PlayerAbilities>();
         playerBlood = GetComponent<S_PlayerBlood>();
         playerDeath = GetComponent<S_PlayerDeath>();
+        baseScaleX = Mathf.Abs(transform.localScale.x);
+        baseScaleY = Mathf.Abs(transform.localScale.y);
+        if (baseScaleX < 0.01f)
+        {
+            baseScaleX = 2f;
+        }
+
+        if (baseScaleY < 0.01f)
+        {
+            baseScaleY = 2f;
+        }
+
+        if (spriteRenderer != null)
+        {
+            baseSpriteColor = spriteRenderer.color;
+        }
     }
 
     private void OnEnable()
@@ -90,10 +111,11 @@ public class S_PlayerAnimation : MonoBehaviour
             hurtTimer -= Time.deltaTime;
         }
 
-        bool defeated = playerDeath != null && playerDeath.IsDead;
-        bool hurting = !defeated && hurtTimer > 0f;
-        bool dashing = !defeated && !hurting && playerAbilities != null && playerAbilities.IsDashing;
         AnimatorStateInfo currentState = playerAnimator.GetCurrentAnimatorStateInfo(0);
+        bool defeated = playerDeath != null && playerDeath.IsDead;
+        bool hurtClipPlaying = currentState.IsName("A_PlayerHurt") && currentState.normalizedTime < 1f;
+        bool hurting = !defeated && (hurtTimer > 0f || hurtClipPlaying);
+        bool dashing = !defeated && !hurting && playerAbilities != null && playerAbilities.IsDashing;
         bool attackClipPlaying = currentState.IsName("A_PlayerAttack") && currentState.normalizedTime < 1f;
         bool attacking = !defeated && !hurting && !dashing && (attackTimer > 0f || attackClipPlaying);
         bool grounded = playerManagement != null && playerManagement.IsGrounded;
@@ -109,6 +131,43 @@ public class S_PlayerAnimation : MonoBehaviour
         playerAnimator.SetBool(WalkingHash, walking);
     }
 
+    public void ResetToAlivePresentation()
+    {
+        hurtTimer = 0f;
+        attackTimer = 0f;
+        RestoreSpritePresentation();
+
+        if (playerAnimator == null)
+        {
+            return;
+        }
+
+        playerAnimator.enabled = true;
+        playerAnimator.SetBool(DefeatedHash, false);
+        playerAnimator.SetBool(HurtingHash, false);
+        playerAnimator.SetBool(DashingHash, false);
+        playerAnimator.SetBool(AttackingHash, false);
+        playerAnimator.SetBool(JumpingHash, false);
+        playerAnimator.SetBool(WalkingHash, false);
+        playerAnimator.Play("A_PlayerIdle", 0, 0f);
+        playerAnimator.Update(0f);
+        RestoreSpritePresentation();
+    }
+
+    private void RestoreSpritePresentation()
+    {
+        float facing = transform.localScale.x < 0f ? -1f : 1f;
+        transform.localScale = new Vector3(facing * baseScaleX, baseScaleY, transform.localScale.z);
+
+        if (spriteRenderer == null)
+        {
+            return;
+        }
+
+        spriteRenderer.enabled = true;
+        spriteRenderer.color = new Color(baseSpriteColor.r, baseSpriteColor.g, baseSpriteColor.b, 1f);
+    }
+
     private void OnAttackPerformed()
     {
         attackTimer = attackDuration;
@@ -118,11 +177,18 @@ public class S_PlayerAnimation : MonoBehaviour
     {
         hurtTimer = hurtDuration;
         attackTimer = 0f;
+
+        if (playerAnimator == null || (playerDeath != null && playerDeath.IsDead))
+        {
+            return;
+        }
+
+        playerAnimator.SetBool(HurtingHash, true);
+        playerAnimator.Play("A_PlayerHurt", 0, 0f);
     }
 
     private void OnRespawned()
     {
-        hurtTimer = 0f;
-        attackTimer = 0f;
+        ResetToAlivePresentation();
     }
 }

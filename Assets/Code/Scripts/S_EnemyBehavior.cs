@@ -13,6 +13,7 @@ public class S_EnemyBehavior : MonoBehaviour
 
     private static readonly int WalkingHash = Animator.StringToHash("IsWalking");
     private static readonly int AttackingHash = Animator.StringToHash("IsAttacking");
+    private static readonly int HurtingHash = Animator.StringToHash("IsHurting");
 
     [Header("Detection")]
     [SerializeField, Min(0.1f)]
@@ -42,15 +43,20 @@ public class S_EnemyBehavior : MonoBehaviour
     [SerializeField, Min(0f)]
     private float walkAnimHold = 0.08f;
 
+    [SerializeField, Min(0.05f)]
+    private float hurtDuration = 0.28f;
+
     private EnemyState state = EnemyState.Idle;
     private bool hasTarget;
     private float attackElapsed;
     private bool hitAttempted;
     private bool hasWalkingParameter;
     private bool hasAttackingParameter;
+    private bool hasHurtingParameter;
     private bool isActuallyWalking;
     private float stillHold;
     private float lastX;
+    private float hurtTimer;
 
     private Rigidbody2D body;
     private Collider2D enemyCollider;
@@ -83,8 +89,29 @@ public class S_EnemyBehavior : MonoBehaviour
         UpdateAnimator();
     }
 
+    private void OnEnable()
+    {
+        if (enemyManagement != null)
+        {
+            enemyManagement.Damaged += OnDamaged;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (enemyManagement != null)
+        {
+            enemyManagement.Damaged -= OnDamaged;
+        }
+    }
+
     private void Update()
     {
+        if (hurtTimer > 0f)
+        {
+            hurtTimer -= Time.deltaTime;
+        }
+
         CachePlayer();
 
         if (state == EnemyState.Attack)
@@ -137,6 +164,7 @@ public class S_EnemyBehavior : MonoBehaviour
         hitAttempted = false;
         isActuallyWalking = false;
         stillHold = 0f;
+        hurtTimer = 0f;
         lastX = transform.position.x;
 
         if (enemyPatrol != null)
@@ -413,14 +441,34 @@ public class S_EnemyBehavior : MonoBehaviour
             return;
         }
 
+        bool hurting = hurtTimer > 0f;
+        if (hasHurtingParameter)
+        {
+            enemyAnimator.SetBool(HurtingHash, hurting);
+        }
+
         if (hasWalkingParameter)
         {
-            enemyAnimator.SetBool(WalkingHash, isActuallyWalking);
+            enemyAnimator.SetBool(WalkingHash, !hurting && isActuallyWalking);
         }
 
         if (hasAttackingParameter)
         {
-            enemyAnimator.SetBool(AttackingHash, state == EnemyState.Attack);
+            enemyAnimator.SetBool(AttackingHash, !hurting && state == EnemyState.Attack);
+        }
+    }
+
+    private void OnDamaged()
+    {
+        if (enemyManagement != null && enemyManagement.GetEnemyType() == S_EnemyManagement.EnemyType.Boss)
+        {
+            return;
+        }
+
+        hurtTimer = hurtDuration;
+        if (hasHurtingParameter && enemyAnimator != null)
+        {
+            enemyAnimator.SetBool(HurtingHash, true);
         }
     }
 
@@ -441,6 +489,10 @@ public class S_EnemyBehavior : MonoBehaviour
             else if (parameter.nameHash == AttackingHash)
             {
                 hasAttackingParameter = true;
+            }
+            else if (parameter.nameHash == HurtingHash)
+            {
+                hasHurtingParameter = true;
             }
         }
     }

@@ -10,7 +10,7 @@ public class S_PlayerManagement : MonoBehaviour
 
     [Header("Player Attack")]
     [SerializeField] private float attackDamage = 10f;
-    [SerializeField] private float attackCooldown = 1f;
+    [SerializeField] private float attackCooldown = 0.55f;
     [SerializeField] private float attackRange = 1f;
     [SerializeField] private GameObject hitImpactPrefab;
 
