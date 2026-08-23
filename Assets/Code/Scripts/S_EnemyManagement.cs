@@ -143,6 +143,12 @@ public class S_EnemyManagement : MonoBehaviour
         deathProcessed = true;
         GrantBloodReward();
 
+        S_BossDefeatState bossDefeatState = GetComponent<S_BossDefeatState>();
+        if (bossDefeatState != null)
+        {
+            bossDefeatState.MarkBossDefeated();
+        }
+
         S_EnemyReset enemyReset = GetComponent<S_EnemyReset>();
         if (enemyReset != null)
         {
