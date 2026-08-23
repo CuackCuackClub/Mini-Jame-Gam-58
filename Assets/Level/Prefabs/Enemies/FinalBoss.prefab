@@ -16,12 +16,9 @@ GameObject:
   - component: {fileID: 5153558274985340167}
   - component: {fileID: 9038174620184753926}
   - component: {fileID: 5031426970314259684}
-<<<<<<< Updated upstream
   - component: {fileID: 211527036048395667}
   - component: {fileID: 2635143809779450181}
-=======
   - component: {fileID: 4280681981954085503}
->>>>>>> Stashed changes
   m_Layer: 0
   m_Name: FinalBoss
   m_TagString: Enemy
@@ -244,108 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9c2e5f8b1d4e7a0c3f6b9d2e51830a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyReset
-<<<<<<< Updated upstream
---- !u!82 &211527036048395667
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4862772538461131213}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 2
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 1
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &2635143809779450181
-=======
 --- !u!114 &4280681981954085503
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,7 +250,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4862772538461131213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: bd35e2a93f9ba004b842d90b8905dbf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossAudio
@@ -365,7 +260,6 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: dc7782fc8ec434a49b135f469c126213, type: 3}
   sfxVolume: 0.31
   pitchVariation: 0.05
-=======
   m_Script: {fileID: 11500000, guid: 9d2e8c4a7f1b46e0b3c5a8d6e4f2b170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyBehavior
@@ -399,4 +293,3 @@ MonoBehaviour:
   walkSpeedThreshold: 0.15
   walkAnimHold: 0.08
   hurtDuration: 0.3
->>>>>>> Stashed changes
