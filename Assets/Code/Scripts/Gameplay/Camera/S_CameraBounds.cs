@@ -6,6 +6,9 @@ public class S_CameraBounds : MonoBehaviour
     [SerializeField]
     private BoxCollider2D boundsCollider;
 
+    [SerializeField]
+    private bool activateOnPlayerEnter;
+
     private void Awake()
     {
         if (boundsCollider == null)
@@ -43,6 +46,25 @@ public class S_CameraBounds : MonoBehaviour
             : Mathf.Clamp(desiredCenter.y, minY, maxY);
 
         return new Vector3(clampedX, clampedY, desiredCenter.z);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!activateOnPlayerEnter || other == null)
+        {
+            return;
+        }
+
+        if (other.GetComponentInParent<S_PlayerManagement>() == null)
+        {
+            return;
+        }
+
+        S_CameraFollow cameraFollow = FindFirstObjectByType<S_CameraFollow>();
+        if (cameraFollow != null)
+        {
+            cameraFollow.SetActiveBounds(this);
+        }
     }
 
     private void OnDrawGizmos()

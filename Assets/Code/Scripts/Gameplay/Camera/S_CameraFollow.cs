@@ -13,22 +13,22 @@ public class S_CameraFollow : MonoBehaviour
     private Vector3 offset = new Vector3(0f, 0.9f, -5f);
 
     [SerializeField, Min(0.01f)]
-    private float horizontalSmoothTime = 0.22f;
+    private float horizontalSmoothTime = 0.16f;
 
     [SerializeField, Min(0.01f)]
-    private float verticalSmoothTime = 0.3f;
+    private float verticalSmoothTime = 0.22f;
 
     [SerializeField, Min(0f)]
-    private float deadZoneX = 0.65f;
+    private float deadZoneX = 0.5f;
 
     [SerializeField, Min(0f)]
-    private float deadZoneY = 0.45f;
+    private float deadZoneY = 0.55f;
 
     [SerializeField, Min(0f)]
-    private float lookAheadDistance = 1.35f;
+    private float lookAheadDistance = 1.2f;
 
     [SerializeField, Min(0.01f)]
-    private float lookAheadSmoothTime = 0.22f;
+    private float lookAheadSmoothTime = 0.18f;
 
     [SerializeField, Min(0f)]
     private float lookAheadMinSpeed = 0.8f;
@@ -127,6 +127,16 @@ public class S_CameraFollow : MonoBehaviour
         Vector3 snappedPosition = followTarget.position + offset;
         transform.position = ClampToBounds(snappedPosition);
         snappedThisFrame = true;
+    }
+
+    public void SetActiveBounds(S_CameraBounds bounds)
+    {
+        if (bounds == null || cameraBounds == bounds)
+        {
+            return;
+        }
+
+        cameraBounds = bounds;
     }
 
     private void CacheTargetBody()
