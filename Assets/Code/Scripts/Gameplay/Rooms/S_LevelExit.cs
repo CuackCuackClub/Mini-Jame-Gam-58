@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class S_LevelExit : MonoBehaviour
 {
     [SerializeField]
-    private string targetSceneName = "Lvl2";
+    private string targetSceneName = "Boss";
 
     [SerializeField]
     private bool loadEnabled;

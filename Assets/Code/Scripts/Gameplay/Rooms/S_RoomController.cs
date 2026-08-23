@@ -4,6 +4,9 @@ public class S_RoomController : MonoBehaviour
 {
     [SerializeField] private Transform respawnPoint;
 
+    [SerializeField]
+    private Transform[] extraResetRoots;
+
     private Vector3 runtimeRespawnPosition;
     private bool hasRuntimeRespawn;
 
@@ -35,11 +38,30 @@ public class S_RoomController : MonoBehaviour
 
     public void ResetRoom()
     {
-        S_EnemyReset[] childEnemies = GetComponentsInChildren<S_EnemyReset>(true);
-        S_EnemyReset[] enemies = childEnemies.Length > 0
-            ? childEnemies
-            : FindObjectsByType<S_EnemyReset>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        ResetEnemiesUnder(transform);
 
+        if (extraResetRoots == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < extraResetRoots.Length; i++)
+        {
+            if (extraResetRoots[i] != null)
+            {
+                ResetEnemiesUnder(extraResetRoots[i]);
+            }
+        }
+    }
+
+    private static void ResetEnemiesUnder(Transform root)
+    {
+        if (root == null)
+        {
+            return;
+        }
+
+        S_EnemyReset[] enemies = root.GetComponentsInChildren<S_EnemyReset>(true);
         for (int i = 0; i < enemies.Length; i++)
         {
             if (enemies[i] != null)
