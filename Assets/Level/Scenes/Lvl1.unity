@@ -920,12 +920,12 @@ MonoBehaviour:
   followTarget: {fileID: 868335936}
   cameraBounds: {fileID: 2100456784}
   offset: {x: 0, y: 0.9, z: -5}
-  horizontalSmoothTime: 0.18
-  verticalSmoothTime: 0.26
+  horizontalSmoothTime: 0.22
+  verticalSmoothTime: 0.3
   deadZoneX: 0.65
   deadZoneY: 0.45
   lookAheadDistance: 1.35
-  lookAheadSmoothTime: 0.2
+  lookAheadSmoothTime: 0.22
   lookAheadMinSpeed: 0.8
 --- !u!1 &2100456781
 GameObject:

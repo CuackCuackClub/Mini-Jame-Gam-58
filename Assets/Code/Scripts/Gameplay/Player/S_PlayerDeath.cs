@@ -1,15 +1,21 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class S_PlayerDeath : MonoBehaviour
 {
+    private const float DeathPresentationTimeout = 0.75f;
+    private const string DefeatedStateName = "A_PlayerDefeated";
+
     [SerializeField] private S_PlayerBlood playerBlood;
     [SerializeField] private S_PlayerManagement playerManagement;
     [SerializeField] private Rigidbody2D playerBody;
     [SerializeField] private S_BloodVialInventory vialInventory;
     [SerializeField] private S_RoomTracker roomTracker;
     [SerializeField] private S_PlayerAbilities playerAbilities;
+    [SerializeField] private Collider2D playerCollider;
+    [SerializeField] private Animator playerAnimator;
 
     public bool IsDead { get; private set; }
 
@@ -17,7 +23,8 @@ public class S_PlayerDeath : MonoBehaviour
     public event Action Respawned;
 
     private bool wasMovementEnabled;
-    private bool wasBodySimulated;
+    private RigidbodyType2D previousBodyType;
+    private Coroutine deathRoutine;
 
     private void Awake()
     {
@@ -49,6 +56,16 @@ public class S_PlayerDeath : MonoBehaviour
         if (playerAbilities == null)
         {
             playerAbilities = GetComponent<S_PlayerAbilities>();
+        }
+
+        if (playerCollider == null)
+        {
+            playerCollider = GetComponent<Collider2D>();
+        }
+
+        if (playerAnimator == null)
+        {
+            playerAnimator = GetComponent<Animator>();
         }
     }
 
@@ -86,12 +103,12 @@ public class S_PlayerDeath : MonoBehaviour
 
         ApplyDeathFreeze();
 
-        if (TryRecoverWithVial())
+        if (deathRoutine != null)
         {
-            return;
+            StopCoroutine(deathRoutine);
         }
 
-        PlayerDied?.Invoke();
+        deathRoutine = StartCoroutine(DeathSequence());
     }
 
     public void Revive()
@@ -105,7 +122,9 @@ public class S_PlayerDeath : MonoBehaviour
 
         if (playerBody != null)
         {
-            playerBody.simulated = wasBodySimulated;
+            playerBody.bodyType = previousBodyType;
+            playerBody.linearVelocity = Vector2.zero;
+            playerBody.angularVelocity = 0f;
         }
 
         if (playerManagement != null)
@@ -146,10 +165,67 @@ public class S_PlayerDeath : MonoBehaviour
 
         if (playerBody != null)
         {
-            wasBodySimulated = playerBody.simulated;
+            previousBodyType = playerBody.bodyType;
             playerBody.linearVelocity = Vector2.zero;
             playerBody.angularVelocity = 0f;
-            playerBody.simulated = false;
+            playerBody.bodyType = RigidbodyType2D.Kinematic;
+        }
+
+        if (playerAnimator != null)
+        {
+            playerAnimator.enabled = true;
+        }
+    }
+
+    private IEnumerator DeathSequence()
+    {
+        yield return WaitForDeathPresentation();
+
+        if (TryRecoverWithVial())
+        {
+            deathRoutine = null;
+            yield break;
+        }
+
+        PlayerDied?.Invoke();
+        deathRoutine = null;
+    }
+
+    private IEnumerator WaitForDeathPresentation()
+    {
+        float elapsed = 0f;
+
+        if (playerAnimator == null)
+        {
+            yield return new WaitForSeconds(0.45f);
+            yield break;
+        }
+
+        yield return null;
+        elapsed += Time.deltaTime;
+
+        while (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName(DefeatedStateName))
+        {
+            if (!IsDead || elapsed >= DeathPresentationTimeout)
+            {
+                yield break;
+            }
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        AnimatorStateInfo state = playerAnimator.GetCurrentAnimatorStateInfo(0);
+        while (state.IsName(DefeatedStateName) && state.normalizedTime < 1f)
+        {
+            if (!IsDead || elapsed >= DeathPresentationTimeout)
+            {
+                yield break;
+            }
+
+            elapsed += Time.deltaTime;
+            yield return null;
+            state = playerAnimator.GetCurrentAnimatorStateInfo(0);
         }
     }
 
@@ -160,18 +236,17 @@ public class S_PlayerDeath : MonoBehaviour
             return false;
         }
 
+        Vector3 spawnPosition = roomTracker != null
+            ? roomTracker.GetRespawnPosition()
+            : transform.position;
+
         if (roomTracker != null)
         {
             roomTracker.ResetCurrentRoom();
-            transform.position = roomTracker.GetRespawnPosition();
         }
 
-        if (playerBody != null)
-        {
-            playerBody.position = transform.position;
-            playerBody.linearVelocity = Vector2.zero;
-            playerBody.angularVelocity = 0f;
-        }
+        PlaceOnGround(spawnPosition);
+        ClearMotion();
 
         if (playerBlood != null)
         {
@@ -182,5 +257,93 @@ public class S_PlayerDeath : MonoBehaviour
         SnapCameraToPlayer();
         Respawned?.Invoke();
         return true;
+    }
+
+    private void PlaceOnGround(Vector3 spawnPosition)
+    {
+        Vector3 standingPosition = ResolveStandingPosition(spawnPosition);
+        transform.position = standingPosition;
+
+        if (playerBody != null)
+        {
+            playerBody.position = standingPosition;
+        }
+
+        Physics2D.SyncTransforms();
+    }
+
+    private Vector3 ResolveStandingPosition(Vector3 spawnPosition)
+    {
+        if (playerCollider == null)
+        {
+            return spawnPosition;
+        }
+
+        float scaleX = Mathf.Abs(transform.lossyScale.x);
+        float scaleY = Mathf.Abs(transform.lossyScale.y);
+        Vector2 boxSize;
+        Vector2 offset;
+
+        if (playerCollider is BoxCollider2D box)
+        {
+            boxSize = Vector2.Scale(box.size, new Vector2(scaleX, scaleY));
+            offset = Vector2.Scale(box.offset, new Vector2(scaleX, scaleY));
+        }
+        else
+        {
+            boxSize = playerCollider.bounds.size;
+            offset = Vector2.zero;
+        }
+
+        float bottomOffset = offset.y - boxSize.y * 0.5f;
+        Vector2 origin = new Vector2(spawnPosition.x, spawnPosition.y + 1.5f);
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(
+            origin,
+            new Vector2(Mathf.Max(0.08f, boxSize.x * 0.8f), 0.04f),
+            0f,
+            Vector2.down,
+            4f
+        );
+
+        float groundY = float.NegativeInfinity;
+        bool foundGround = false;
+        for (int i = 0; i < hits.Length; i++)
+        {
+            Collider2D hitCollider = hits[i].collider;
+            if (hitCollider == null || hitCollider.isTrigger || hitCollider == playerCollider)
+            {
+                continue;
+            }
+
+            if (hitCollider.transform == transform || hitCollider.transform.IsChildOf(transform))
+            {
+                continue;
+            }
+
+            if (hits[i].point.y > groundY)
+            {
+                groundY = hits[i].point.y;
+                foundGround = true;
+            }
+        }
+
+        if (!foundGround)
+        {
+            return spawnPosition;
+        }
+
+        const float skin = 0.02f;
+        return new Vector3(spawnPosition.x, groundY + skin - bottomOffset, spawnPosition.z);
+    }
+
+    private void ClearMotion()
+    {
+        if (playerBody == null)
+        {
+            return;
+        }
+
+        playerBody.linearVelocity = Vector2.zero;
+        playerBody.angularVelocity = 0f;
     }
 }

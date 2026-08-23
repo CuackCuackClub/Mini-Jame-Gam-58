@@ -13,10 +13,10 @@ public class S_CameraFollow : MonoBehaviour
     private Vector3 offset = new Vector3(0f, 0.9f, -5f);
 
     [SerializeField, Min(0.01f)]
-    private float horizontalSmoothTime = 0.18f;
+    private float horizontalSmoothTime = 0.22f;
 
     [SerializeField, Min(0.01f)]
-    private float verticalSmoothTime = 0.26f;
+    private float verticalSmoothTime = 0.3f;
 
     [SerializeField, Min(0f)]
     private float deadZoneX = 0.65f;
@@ -28,7 +28,7 @@ public class S_CameraFollow : MonoBehaviour
     private float lookAheadDistance = 1.35f;
 
     [SerializeField, Min(0.01f)]
-    private float lookAheadSmoothTime = 0.2f;
+    private float lookAheadSmoothTime = 0.22f;
 
     [SerializeField, Min(0f)]
     private float lookAheadMinSpeed = 0.8f;

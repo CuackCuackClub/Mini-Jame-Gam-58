@@ -93,7 +93,9 @@ public class S_PlayerAnimation : MonoBehaviour
         bool defeated = playerDeath != null && playerDeath.IsDead;
         bool hurting = !defeated && hurtTimer > 0f;
         bool dashing = !defeated && !hurting && playerAbilities != null && playerAbilities.IsDashing;
-        bool attacking = !defeated && !hurting && !dashing && attackTimer > 0f;
+        AnimatorStateInfo currentState = playerAnimator.GetCurrentAnimatorStateInfo(0);
+        bool attackClipPlaying = currentState.IsName("A_PlayerAttack") && currentState.normalizedTime < 1f;
+        bool attacking = !defeated && !hurting && !dashing && (attackTimer > 0f || attackClipPlaying);
         bool grounded = playerManagement != null && playerManagement.IsGrounded;
         bool jumping = !defeated && !hurting && !dashing && !grounded;
         float horizontalSpeed = playerBody != null ? Mathf.Abs(playerBody.linearVelocity.x) : 0f;
