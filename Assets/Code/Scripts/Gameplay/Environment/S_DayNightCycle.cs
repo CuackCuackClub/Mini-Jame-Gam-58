@@ -81,11 +81,6 @@ public class S_DayNightCycle : MonoBehaviour
         {
             playerDeath = FindFirstObjectByType<S_PlayerDeath>();
         }
-
-        if (skyRenderer == null)
-        {
-            skyRenderer = GetComponentInChildren<SpriteRenderer>();
-        }
     }
 
     private void ApplySkyTint(float progress)
@@ -101,17 +96,31 @@ public class S_DayNightCycle : MonoBehaviour
 
         if (dawnWashRenderer != null)
         {
-            float washAlpha = Mathf.InverseLerp(0.72f, 1f, progress) * 0.45f;
             Color wash = tint;
-            wash.a = washAlpha;
+            wash.a = EvaluateWashAlpha(progress);
             dawnWashRenderer.color = wash;
-            dawnWashRenderer.enabled = washAlpha > 0.01f;
+            dawnWashRenderer.enabled = wash.a > 0.01f;
         }
+    }
+
+    private static float EvaluateWashAlpha(float progress)
+    {
+        if (progress < 0.5f)
+        {
+            return Mathf.Lerp(0.35f, 0.40f, progress / 0.5f);
+        }
+
+        if (progress < 0.8f)
+        {
+            return Mathf.Lerp(0.40f, 0.45f, (progress - 0.5f) / 0.3f);
+        }
+
+        return Mathf.Lerp(0.45f, 0.25f, (progress - 0.8f) / 0.2f);
     }
 
     private void EnsureDefaultGradient()
     {
-        if (skyTintGradient != null && skyTintGradient.colorKeys != null && skyTintGradient.colorKeys.Length >= 7)
+        if (!NeedsDefaultGradient())
         {
             return;
         }
@@ -120,13 +129,13 @@ public class S_DayNightCycle : MonoBehaviour
         skyTintGradient.SetKeys(
             new[]
             {
-                new GradientColorKey(new Color(0.02f, 0.04f, 0.12f), 0.00f),
-                new GradientColorKey(new Color(0.04f, 0.07f, 0.18f), 0.25f),
-                new GradientColorKey(new Color(0.12f, 0.14f, 0.22f), 0.50f),
-                new GradientColorKey(new Color(0.18f, 0.12f, 0.28f), 0.65f),
-                new GradientColorKey(new Color(0.35f, 0.16f, 0.28f), 0.78f),
-                new GradientColorKey(new Color(0.75f, 0.38f, 0.22f), 0.88f),
-                new GradientColorKey(new Color(0.55f, 0.72f, 0.92f), 1.00f)
+                new GradientColorKey(new Color(0.10f, 0.14f, 0.30f), 0.00f),
+                new GradientColorKey(new Color(0.16f, 0.22f, 0.42f), 0.25f),
+                new GradientColorKey(new Color(0.32f, 0.30f, 0.50f), 0.50f),
+                new GradientColorKey(new Color(0.55f, 0.34f, 0.48f), 0.68f),
+                new GradientColorKey(new Color(0.85f, 0.50f, 0.32f), 0.80f),
+                new GradientColorKey(new Color(0.75f, 0.72f, 0.62f), 0.90f),
+                new GradientColorKey(new Color(0.70f, 0.82f, 1.00f), 1.00f)
             },
             new[]
             {
@@ -135,5 +144,17 @@ public class S_DayNightCycle : MonoBehaviour
             }
         );
         skyTintGradient.mode = GradientMode.Blend;
+    }
+
+    private bool NeedsDefaultGradient()
+    {
+        if (skyTintGradient == null || skyTintGradient.colorKeys == null || skyTintGradient.colorKeys.Length < 6)
+        {
+            return true;
+        }
+
+        Color night = skyTintGradient.colorKeys[0].color;
+        float luma = night.r * 0.299f + night.g * 0.587f + night.b * 0.114f;
+        return luma < 0.12f;
     }
 }
