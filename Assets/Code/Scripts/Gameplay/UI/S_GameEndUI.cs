@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[DefaultExecutionOrder(-50)]
 public class S_GameEndUI : MonoBehaviour
 {
     private enum GameEndState
@@ -44,29 +45,25 @@ public class S_GameEndUI : MonoBehaviour
     private GameEndState state;
     private GameObject gameOverPanel;
     private GameObject victoryPanel;
+    private bool subscribedToPlayerDied;
 
     private void Awake()
     {
         CachePlayerDeath();
         BuildUi();
         HidePanels();
+        SubscribeToPlayerDied();
     }
 
     private void OnEnable()
     {
         CachePlayerDeath();
-        if (playerDeath != null)
-        {
-            playerDeath.PlayerDied += HandlePlayerDied;
-        }
+        SubscribeToPlayerDied();
     }
 
     private void OnDisable()
     {
-        if (playerDeath != null)
-        {
-            playerDeath.PlayerDied -= HandlePlayerDied;
-        }
+        UnsubscribeFromPlayerDied();
     }
 
     public void ShowGameOver()
@@ -137,6 +134,28 @@ public class S_GameEndUI : MonoBehaviour
         {
             playerDeath = FindFirstObjectByType<S_PlayerDeath>();
         }
+    }
+
+    private void SubscribeToPlayerDied()
+    {
+        if (subscribedToPlayerDied || playerDeath == null)
+        {
+            return;
+        }
+
+        playerDeath.PlayerDied += HandlePlayerDied;
+        subscribedToPlayerDied = true;
+    }
+
+    private void UnsubscribeFromPlayerDied()
+    {
+        if (!subscribedToPlayerDied || playerDeath == null)
+        {
+            return;
+        }
+
+        playerDeath.PlayerDied -= HandlePlayerDied;
+        subscribedToPlayerDied = false;
     }
 
     private void HidePanels()

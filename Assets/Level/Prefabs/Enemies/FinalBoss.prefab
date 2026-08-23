@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 5153558274985340167}
   - component: {fileID: 9038174620184753926}
   - component: {fileID: 5031426970314259684}
-  - component: {fileID: 9100481913}
   m_Layer: 0
   m_Name: FinalBoss
   m_TagString: Enemy
@@ -238,15 +237,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9c2e5f8b1d4e7a0c3f6b9d2e51830a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyReset
---- !u!114 &9100481913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4862772538461131213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2e5f9a1b3c44d6e8f7a6b5c4d3e2f10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::S_BossDefeatState

@@ -3286,7 +3286,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 7
     m_NumAlphaKeys: 2
-  playerDeath: {fileID: 0}
+  playerDeath: {fileID: 9100480004}
 --- !u!1 &9100470031
 GameObject:
   m_ObjectHideFlags: 0
@@ -3378,6 +3378,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &9100480004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 89209493095469793, guid: 72108351763207d4c8f89e2cc9f03efd, type: 3}
+  m_PrefabInstance: {fileID: 3336932714180059246}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162d034ae384bcd4fa0580f3203b59ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_PlayerDeath
 --- !u!1 &9100480001
 GameObject:
   m_ObjectHideFlags: 0
@@ -3422,7 +3433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d4e8f0a2b34c5d9e7f6a5b4c3d2e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_GameEndUI
-  playerDeath: {fileID: 0}
+  playerDeath: {fileID: 9100480004}
   mainMenuSceneName: MainMenu
   gameOverPanelSprite: {fileID: 1999135069, guid: 84873522082196348b931e3f46de09e9, type: 3}
   victoryPanelSprite: {fileID: -456744677, guid: 84873522082196348b931e3f46de09e9, type: 3}
