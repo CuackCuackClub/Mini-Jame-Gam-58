@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class S_MenuManager : MonoBehaviour
 {
     [Header("Panels")]
     [SerializeField] private GameObject optionsPanel;
@@ -9,29 +9,31 @@ public class MainMenu : MonoBehaviour
 
     [Header("Scene Target")]
     [SerializeField] private string gameplaySceneName = "Lvl1";
+    [SerializeField] private string mainMenuSceneName = "MainMenu";
 
-    void Start()
-    {
-    if (MusicManager.Instance != null)
-    {
-        MusicManager.Instance.PlayMusic(MusicManager.Instance.musicMainMenu);
-    }
-    }
     public void PlayGame()
     {
         SceneManager.LoadScene(gameplaySceneName);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 
     public void OpenOptions()
     {
         if (optionsPanel != null)
             optionsPanel.SetActive(true);
+
+        Time.timeScale = 0f;
     }
 
     public void CloseOptions()
     {
         if (optionsPanel != null)
             optionsPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void OpenCredits()
@@ -54,4 +56,3 @@ public class MainMenu : MonoBehaviour
         #endif
     }
 }
-
