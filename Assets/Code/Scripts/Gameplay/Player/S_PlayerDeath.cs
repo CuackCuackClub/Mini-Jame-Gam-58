@@ -21,6 +21,7 @@ public class S_PlayerDeath : MonoBehaviour
     [SerializeField] private bool restartSceneOnNoVial;
 
     public bool IsDead { get; private set; }
+    public bool IsFinalDeath { get; private set; }
 
     public event Action PlayerDied;
     public event Action Respawned;
@@ -104,6 +105,21 @@ public class S_PlayerDeath : MonoBehaviour
 
     public void Die()
     {
+        BeginDeath(false);
+    }
+
+    public void DieFinal()
+    {
+        BeginDeath(true);
+    }
+
+    private void BeginDeath(bool finalDeath)
+    {
+        if (finalDeath)
+        {
+            IsFinalDeath = true;
+        }
+
         if (IsDead)
         {
             return;
@@ -132,6 +148,7 @@ public class S_PlayerDeath : MonoBehaviour
         }
 
         IsDead = false;
+        IsFinalDeath = false;
 
         if (playerCollider != null)
         {
@@ -207,13 +224,13 @@ public class S_PlayerDeath : MonoBehaviour
     {
         yield return WaitForDeathPresentation();
 
-        if (TryRecoverWithVial())
+        if (!IsFinalDeath && TryRecoverWithVial())
         {
             deathRoutine = null;
             yield break;
         }
 
-        if (restartSceneOnNoVial)
+        if (!IsFinalDeath && restartSceneOnNoVial)
         {
             RestartLevel();
             yield break;
