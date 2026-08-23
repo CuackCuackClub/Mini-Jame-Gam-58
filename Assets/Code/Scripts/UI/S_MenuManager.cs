@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class S_MenuManager : MonoBehaviour
 {
     [Header("Panels")]
     [SerializeField] private GameObject optionsPanel;
@@ -9,10 +9,16 @@ public class MainMenu : MonoBehaviour
 
     [Header("Scene Target")]
     [SerializeField] private string gameplaySceneName = "Lvl1";
+    [SerializeField] private string mainMenuSceneName = "MainMenu";
 
     public void PlayGame()
     {
         SceneManager.LoadScene(gameplaySceneName);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 
     public void OpenOptions()
