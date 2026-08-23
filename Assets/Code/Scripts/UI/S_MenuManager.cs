@@ -13,11 +13,13 @@ public class S_MenuManager : MonoBehaviour
 
     public void PlayGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(gameplaySceneName);
     }
 
     public void MainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(mainMenuSceneName);
     }
 
@@ -26,14 +28,19 @@ public class S_MenuManager : MonoBehaviour
         if (optionsPanel != null)
             optionsPanel.SetActive(true);
 
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
     }
 
     public void CloseOptions()
     {
         if (optionsPanel != null)
             optionsPanel.SetActive(false);
-        Time.timeScale = 1f;
+
+        S_GameEndUI gameEndUI = FindFirstObjectByType<S_GameEndUI>();
+        if (gameEndUI == null || !gameEndUI.IsShowing)
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     public void OpenCredits()

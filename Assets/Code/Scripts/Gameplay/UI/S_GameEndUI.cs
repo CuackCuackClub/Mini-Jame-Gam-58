@@ -47,6 +47,8 @@ public class S_GameEndUI : MonoBehaviour
     private GameObject victoryPanel;
     private bool subscribedToPlayerDied;
 
+    public bool IsShowing => state != GameEndState.None;
+
     private void Awake()
     {
         CachePlayerDeath();

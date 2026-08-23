@@ -36,6 +36,11 @@ public class S_VictoryDoor : MonoBehaviour
             return;
         }
 
+        if (!IsBossDefeated())
+        {
+            return;
+        }
+
         if (gameEndUI == null)
         {
             gameEndUI = FindFirstObjectByType<S_GameEndUI>();
@@ -45,5 +50,29 @@ public class S_VictoryDoor : MonoBehaviour
         {
             gameEndUI.ShowVictory();
         }
+    }
+
+    private static bool IsBossDefeated()
+    {
+        S_EnemyManagement[] enemies = FindObjectsByType<S_EnemyManagement>(
+            FindObjectsInactive.Exclude,
+            FindObjectsSortMode.None
+        );
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            S_EnemyManagement enemy = enemies[i];
+            if (enemy == null || enemy.GetEnemyType() != S_EnemyManagement.EnemyType.Boss)
+            {
+                continue;
+            }
+
+            if (enemy.IsAlive)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
