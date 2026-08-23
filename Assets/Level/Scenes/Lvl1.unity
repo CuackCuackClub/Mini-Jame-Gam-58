@@ -779,6 +779,7 @@ GameObject:
   - component: {fileID: 1067587159}
   - component: {fileID: 1067587158}
   - component: {fileID: 1067587161}
+  - component: {fileID: 1067587162}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -853,12 +854,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067587157}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.81, y: 1.015, z: -5}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.62, y: -1.13, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 868335936}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1067587161
 MonoBehaviour:
@@ -904,6 +905,120 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &1067587162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067587157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c3e1f4b7d24906ae5c8d1f3b6e9027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_CameraFollow
+  followTarget: {fileID: 868335936}
+  cameraBounds: {fileID: 2100456784}
+  offset: {x: 0, y: 0.9, z: -5}
+  horizontalSmoothTime: 0.18
+  verticalSmoothTime: 0.26
+  deadZoneX: 0.65
+  deadZoneY: 0.45
+  lookAheadDistance: 1.35
+  lookAheadSmoothTime: 0.2
+  lookAheadMinSpeed: 0.8
+--- !u!1 &2100456781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2100456782}
+  - component: {fileID: 2100456783}
+  - component: {fileID: 2100456784}
+  m_Layer: 2
+  m_Name: CameraBounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2100456782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100456781}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 100, y: 12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2100456783
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100456781}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 240, y: 52}
+  m_EdgeRadius: 0
+--- !u!114 &2100456784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100456781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d4f2e5c8e35017bf6d9e2a4c7f0138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_CameraBounds
+  boundsCollider: {fileID: 2100456783}
 --- !u!4 &1275643953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3560787810331665609, guid: be4eff8bc29e91848bf2a0a14911ec62, type: 3}
@@ -1663,9 +1778,6 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5593063530414592552, guid: 72108351763207d4c8f89e2cc9f03efd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1067587160}
-    - targetCorrespondingSourceObject: {fileID: 5593063530414592552, guid: 72108351763207d4c8f89e2cc9f03efd, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 473665968}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72108351763207d4c8f89e2cc9f03efd, type: 3}
@@ -1808,3 +1920,5 @@ SceneRoots:
   - {fileID: 753451585}
   - {fileID: 1576922727}
   - {fileID: 5624242517582861734}
+  - {fileID: 1067587160}
+  - {fileID: 2100456782}

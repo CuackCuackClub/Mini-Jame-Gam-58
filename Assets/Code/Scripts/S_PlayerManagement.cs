@@ -28,6 +28,19 @@ public class S_PlayerManagement : MonoBehaviour
 
     public event Action AttackPerformed;
 
+    public bool IsGrounded
+    {
+        get
+        {
+            if (groundCheck == null)
+            {
+                return false;
+            }
+
+            return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        }
+    }
+
     private PlayerControls playerControls;
 
     private void Awake()
@@ -81,12 +94,10 @@ public class S_PlayerManagement : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext context)
     {
-        bool isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-
-    if (isGrounded)
-    {
-        rBody.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-    }
+        if (IsGrounded)
+        {
+            rBody.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+        }
     }
 
     private void OnAttack(InputAction.CallbackContext context)
@@ -125,5 +136,10 @@ public class S_PlayerManagement : MonoBehaviour
         Vector2 attackPosition = new Vector2(transform.position.x + direction * attackRange, transform.position.y);
 
         Gizmos.DrawWireSphere(attackPosition, attackRange);
+
+        if (groundCheck != null)
+        {
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
     }
 }
