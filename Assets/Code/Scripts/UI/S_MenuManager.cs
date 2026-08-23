@@ -25,12 +25,15 @@ public class S_MenuManager : MonoBehaviour
     {
         if (optionsPanel != null)
             optionsPanel.SetActive(true);
+
+        Time.timeScale = 0f; 
     }
 
     public void CloseOptions()
     {
         if (optionsPanel != null)
             optionsPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void OpenCredits()
