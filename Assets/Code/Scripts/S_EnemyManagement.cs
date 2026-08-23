@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class S_EnemyManagement : MonoBehaviour
@@ -30,6 +31,8 @@ public class S_EnemyManagement : MonoBehaviour
     private float currentHealth;
     private bool deathProcessed;
     private S_PlayerBlood playerBlood;
+
+    public event Action Damaged;
 
     private void OnValidate()
     {
@@ -68,7 +71,7 @@ public class S_EnemyManagement : MonoBehaviour
                 damage = 5f;
                 speed = 4f;
                 attackRange = 0.8f;
-                attackCooldown = 1f;
+                attackCooldown = 1.45f;
 
                 break;
 
@@ -78,7 +81,7 @@ public class S_EnemyManagement : MonoBehaviour
                 damage = 10f;
                 speed = 2f;
                 attackRange = 1f;
-                attackCooldown = 1f;
+                attackCooldown = 1.45f;
 
                 break;
 
@@ -88,7 +91,7 @@ public class S_EnemyManagement : MonoBehaviour
                 damage = 25f;
                 speed = 1f;
                 attackRange = 1.5f;
-                attackCooldown = 1.5f;
+                attackCooldown = 1.9f;
 
                 break;
 
@@ -113,9 +116,10 @@ public class S_EnemyManagement : MonoBehaviour
 
         currentHealth -= damageTaken;
 
-        Debug.Log(
-            $"{enemyType} HP: {currentHealth}/{maxHealth}"
-        );
+        if (currentHealth > 0f)
+        {
+            Damaged?.Invoke();
+        }
 
         if (currentHealth <= 0)
         {

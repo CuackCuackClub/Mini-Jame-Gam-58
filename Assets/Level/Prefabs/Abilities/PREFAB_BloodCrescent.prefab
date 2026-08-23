@@ -183,3 +183,4 @@ MonoBehaviour:
   maxDistance: 4
   damage: 25
   safetyLifetime: 1
+  hitImpactPrefab: {fileID: 4011001001001001001, guid: 15dae8e1c4e9b673152dfe809235679e, type: 3}

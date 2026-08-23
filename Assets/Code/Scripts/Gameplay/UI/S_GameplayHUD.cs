@@ -10,6 +10,7 @@ public class S_GameplayHUD : MonoBehaviour
     [SerializeField] private Slider bloodSlider;
     [SerializeField] private Image[] vialImages = new Image[MaxVialSlots];
 
+    private Image bloodFillImage;
     private int displayedVialCount;
 
     private void Awake()
@@ -108,11 +109,46 @@ public class S_GameplayHUD : MonoBehaviour
             return;
         }
 
+        CacheBloodFill();
+
         bloodSlider.minValue = 0f;
         bloodSlider.maxValue = 1f;
-        bloodSlider.value = Mathf.Clamp01(
-            maxBlood > 0f ? currentBlood / maxBlood : 0f
-        );
+
+        float normalized = currentBlood <= 0f || maxBlood <= 0f
+            ? 0f
+            : Mathf.Clamp01(currentBlood / maxBlood);
+
+        bloodSlider.value = normalized;
+        ApplyBloodFillVisibility(normalized > 0f);
+    }
+
+    private void CacheBloodFill()
+    {
+        if (bloodFillImage != null || bloodSlider.fillRect == null)
+        {
+            return;
+        }
+
+        RectTransform fillRect = bloodSlider.fillRect;
+        Vector2 sizeDelta = fillRect.sizeDelta;
+        if (sizeDelta.x > 0f)
+        {
+            fillRect.sizeDelta = new Vector2(0f, sizeDelta.y);
+        }
+
+        bloodFillImage = fillRect.GetComponent<Image>();
+        if (bloodFillImage != null && bloodFillImage.type == Image.Type.Sliced)
+        {
+            bloodFillImage.type = Image.Type.Simple;
+        }
+    }
+
+    private void ApplyBloodFillVisibility(bool visible)
+    {
+        if (bloodFillImage != null)
+        {
+            bloodFillImage.enabled = visible;
+        }
     }
 
     private void ApplyVialVisuals(int count)

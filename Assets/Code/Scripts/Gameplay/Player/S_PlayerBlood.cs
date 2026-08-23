@@ -22,6 +22,7 @@ public class S_PlayerBlood : MonoBehaviour
 
     public event Action<float, float> BloodChanged;
     public event Action BloodDepleted;
+    public event Action DamageTaken;
 
     private bool depletionNotified;
     private bool isDamageImmune;
@@ -61,7 +62,13 @@ public class S_PlayerBlood : MonoBehaviour
             return;
         }
 
+        float previousBlood = currentBlood;
         ChangeBlood(-amount);
+
+        if (currentBlood < previousBlood)
+        {
+            DamageTaken?.Invoke();
+        }
     }
 
     public void SetDamageImmune(bool immune)

@@ -17,7 +17,8 @@ GameObject:
   - component: {fileID: 8257933614170710202}
   - component: {fileID: 1473928501847293651}
   - component: {fileID: 4920315869203148573}
-  m_Layer: 0
+  - component: {fileID: 6728491029384756102}
+  m_Layer: 7
   m_Name: FlyEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -170,7 +171,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!95 &7376014910793006935
 Animator:
   serializedVersion: 7
@@ -211,7 +212,7 @@ MonoBehaviour:
   damage: 5
   speed: 4
   attackRange: 0.8
-  attackCooldown: 1
+  attackCooldown: 1.45
   bloodRewardOnDeath: 5
 --- !u!114 &8257933614170710202
 MonoBehaviour:
@@ -242,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyContactDamage
   enemyManagement: {fileID: 8226305908278051299}
+  automaticContactDamage: 0
 --- !u!114 &4920315869203148573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,3 +256,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9c2e5f8b1d4e7a0c3f6b9d2e51830a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyReset
+--- !u!114 &6728491029384756102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305817456131299868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2e8c4a7f1b46e0b3c5a8d6e4f2b170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_EnemyBehavior
+  detectionRange: 5
+  loseTargetRange: 12
+  targetMemory: 2
+  groundedVerticalTolerance: 2.5
+  chaseStopDistance: 0.05
+  preferredAttackOffsetX: 1.5
+  preferredAttackOffsetY: 0.25
+  maxCombatVerticalSeparation: 0.75
+  flyDetectionRangeX: 6
+  flyDetectionRangeY: 11
+  flyLoseTargetRangeX: 9
+  flyLoseTargetRangeY: 14
+  flyHorizontalSpeed: 3.4
+  flyVerticalSpeed: 6.5
+  maxChaseDistanceFromOrigin: 9
+  flyRetreatDistance: 2.4
+  flyRetreatDuration: 0.8
+  flyRetreatVerticalOffset: 0.75
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  ledgeCheckDistance: 0.45
+  ledgeCheckDrop: 1.1
+  attackHitboxOffset: {x: 0.85, y: 0}
+  attackHitboxSize: {x: 1, y: 0.85}
+  attackWindup: 0.3
+  attackDuration: 0.92
+  walkSpeedThreshold: 0.15
+  walkAnimHold: 0.08
+  hurtDuration: 0.3
