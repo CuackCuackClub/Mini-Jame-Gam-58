@@ -26,7 +26,7 @@ public class S_MenuManager : MonoBehaviour
         if (optionsPanel != null)
             optionsPanel.SetActive(true);
 
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
     }
 
     public void CloseOptions()

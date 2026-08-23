@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 3948172056381927461}
   - component: {fileID: 2718394058172639401}
   - component: {fileID: 6728491029384756101}
+  - component: {fileID: 8717640734461783370}
+  - component: {fileID: 3643671341070865971}
   m_Layer: 7
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -274,7 +276,18 @@ MonoBehaviour:
   groundedVerticalTolerance: 2.5
   chaseStopDistance: 0.05
   preferredAttackOffsetX: 1.15
+  preferredAttackOffsetY: 0.25
+  maxCombatVerticalSeparation: 0.75
+  flyDetectionRangeX: 6
+  flyDetectionRangeY: 11
+  flyLoseTargetRangeX: 9
+  flyLoseTargetRangeY: 14
+  flyHorizontalSpeed: 3.4
+  flyVerticalSpeed: 6.5
   maxChaseDistanceFromOrigin: 6
+  flyRetreatDistance: 2.4
+  flyRetreatDuration: 0.8
+  flyRetreatVerticalOffset: 0.75
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -287,3 +300,118 @@ MonoBehaviour:
   walkSpeedThreshold: 0.15
   walkAnimHold: 0.08
   hurtDuration: 0.3
+--- !u!82 &8717640734461783370
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5517080900444548112}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 2
+  MaxDistance: 20
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &3643671341070865971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5517080900444548112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815231acbfaa6834d89de7bd414e4816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeAudio
+  attackClip: {fileID: 8300000, guid: 3c2929d67c0d6e64d8964371d0482898, type: 3}
+  deathClip: {fileID: 8300000, guid: 6d926f90e7eb77146aa7c359f04f0dac, type: 3}
+  walkClip: {fileID: 8300000, guid: 62cf8a14e1df91840adf6b7c30aa651e, type: 3}
+  hitClip: {fileID: 8300000, guid: 6d926f90e7eb77146aa7c359f04f0dac, type: 3}
+  sfxVolume: 0.4
+  pitchVariation: 0.08
