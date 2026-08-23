@@ -268,12 +268,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2e8c4a7f1b46e0b3c5a8d6e4f2b170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyBehavior
-  detectionRange: 3.75
-  loseTargetRange: 10
+  detectionRange: 3.5
+  loseTargetRange: 5.5
   targetMemory: 2.2
   groundedVerticalTolerance: 2.5
   chaseStopDistance: 0.05
   preferredAttackOffsetX: 1.4
+  maxChaseDistanceFromOrigin: 5.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 8

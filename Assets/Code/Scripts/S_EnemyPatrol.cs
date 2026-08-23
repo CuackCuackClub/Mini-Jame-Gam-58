@@ -23,6 +23,18 @@ public class S_EnemyPatrol : MonoBehaviour
     public bool IsWaiting => waiting;
     public bool IsMoving => patrolEnabled && !suspended && !waiting;
     public bool HoverPatrol => hoverPatrol;
+    public Vector2 Origin => startPosition;
+
+    public bool IsAtOrigin(float threshold = 0.3f)
+    {
+        Vector2 current = rBody != null ? rBody.position : (Vector2)transform.position;
+        if (hoverPatrol)
+        {
+            return Vector2.Distance(current, startPosition) <= threshold;
+        }
+
+        return Mathf.Abs(current.x - startPosition.x) <= threshold;
+    }
 
     public void Setup(bool patrol, float distance, float waitTime)
     {
