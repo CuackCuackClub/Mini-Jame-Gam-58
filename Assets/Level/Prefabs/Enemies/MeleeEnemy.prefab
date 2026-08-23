@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3948172056381927461}
   - component: {fileID: 2718394058172639401}
   - component: {fileID: 6728491029384756101}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MeleeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -269,10 +269,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyBehavior
   detectionRange: 4
-  loseTargetRange: 5
-  groundedVerticalTolerance: 0.75
+  loseTargetRange: 10
+  targetMemory: 2
+  groundedVerticalTolerance: 2.5
   chaseStopDistance: 0.05
+  preferredAttackOffsetX: 1.15
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  ledgeCheckDistance: 0.45
+  ledgeCheckDrop: 1.1
+  attackHitboxOffset: {x: 0.7, y: 0}
+  attackHitboxSize: {x: 1.15, y: 0.95}
   attackWindup: 0.25
   attackDuration: 0.67
   walkSpeedThreshold: 0.15
   walkAnimHold: 0.08
+  hurtDuration: 0.3

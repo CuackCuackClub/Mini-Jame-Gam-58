@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6182947301857463920}
   - component: {fileID: 3819204758192037462}
   - component: {fileID: 6728491029384756103}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BigMeleeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -269,10 +269,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyBehavior
   detectionRange: 3.75
-  loseTargetRange: 4.75
-  groundedVerticalTolerance: 0.85
+  loseTargetRange: 10
+  targetMemory: 2.2
+  groundedVerticalTolerance: 2.5
   chaseStopDistance: 0.05
+  preferredAttackOffsetX: 1.4
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  ledgeCheckDistance: 0.55
+  ledgeCheckDrop: 1.2
+  attackHitboxOffset: {x: 1.05, y: 0.1}
+  attackHitboxSize: {x: 1.7, y: 1.4}
   attackWindup: 0.5
   attackDuration: 1.58
   walkSpeedThreshold: 0.12
   walkAnimHold: 0.08
+  hurtDuration: 0.3

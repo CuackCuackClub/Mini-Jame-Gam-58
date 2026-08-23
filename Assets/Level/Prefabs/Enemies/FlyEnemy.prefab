@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1473928501847293651}
   - component: {fileID: 4920315869203148573}
   - component: {fileID: 6728491029384756102}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FlyEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -269,10 +269,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyBehavior
   detectionRange: 5
-  loseTargetRange: 6
-  groundedVerticalTolerance: 0.75
+  loseTargetRange: 12
+  targetMemory: 2
+  groundedVerticalTolerance: 2.5
   chaseStopDistance: 0.05
+  preferredAttackOffsetX: 1.2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  ledgeCheckDistance: 0.45
+  ledgeCheckDrop: 1.1
+  attackHitboxOffset: {x: 0.85, y: 0}
+  attackHitboxSize: {x: 1, y: 0.85}
   attackWindup: 0.3
   attackDuration: 0.92
   walkSpeedThreshold: 0.15
   walkAnimHold: 0.08
+  hurtDuration: 0.3

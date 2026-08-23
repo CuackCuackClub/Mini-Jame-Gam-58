@@ -14,20 +14,41 @@ public class S_EnemyBehavior : MonoBehaviour
     private static readonly int WalkingHash = Animator.StringToHash("IsWalking");
     private static readonly int AttackingHash = Animator.StringToHash("IsAttacking");
     private static readonly int HurtingHash = Animator.StringToHash("IsHurting");
-
     [Header("Detection")]
     [SerializeField, Min(0.1f)]
     private float detectionRange = 4f;
 
     [SerializeField, Min(0.1f)]
-    private float loseTargetRange = 5f;
+    private float loseTargetRange = 10f;
+
+    [SerializeField, Min(0f)]
+    private float targetMemory = 2f;
 
     [Header("Engagement")]
     [SerializeField, Min(0.05f)]
-    private float groundedVerticalTolerance = 0.75f;
+    private float groundedVerticalTolerance = 2.5f;
 
     [SerializeField, Min(0f)]
     private float chaseStopDistance = 0.05f;
+
+    [SerializeField, Min(0.1f)]
+    private float preferredAttackOffsetX = 1.15f;
+
+    [SerializeField]
+    private LayerMask groundLayer = 1 << 3;
+
+    [SerializeField, Min(0.05f)]
+    private float ledgeCheckDistance = 0.45f;
+
+    [SerializeField, Min(0.1f)]
+    private float ledgeCheckDrop = 1.1f;
+
+    [Header("Attack Hitbox")]
+    [SerializeField]
+    private Vector2 attackHitboxOffset = new Vector2(0.75f, 0f);
+
+    [SerializeField]
+    private Vector2 attackHitboxSize = new Vector2(1.2f, 1f);
 
     [Header("Attack Timing")]
     [SerializeField, Min(0f)]
@@ -44,7 +65,7 @@ public class S_EnemyBehavior : MonoBehaviour
     private float walkAnimHold = 0.08f;
 
     [SerializeField, Min(0.05f)]
-    private float hurtDuration = 0.28f;
+    private float hurtDuration = 0.3f;
 
     private EnemyState state = EnemyState.Idle;
     private bool hasTarget;
@@ -56,7 +77,10 @@ public class S_EnemyBehavior : MonoBehaviour
     private bool isActuallyWalking;
     private float stillHold;
     private float lastX;
+    private float lastY;
     private float hurtTimer;
+    private float targetMemoryTimer;
+    private float attackSide = -1f;
 
     private Rigidbody2D body;
     private Collider2D enemyCollider;
@@ -86,6 +110,7 @@ public class S_EnemyBehavior : MonoBehaviour
         CacheAnimatorParameters();
         CachePlayer();
         lastX = transform.position.x;
+        lastY = transform.position.y;
         UpdateAnimator();
     }
 
@@ -134,19 +159,23 @@ public class S_EnemyBehavior : MonoBehaviour
 
         if (ShouldStopChaseMovement())
         {
-            StopHorizontalChase();
+            StopChaseVelocity();
             FacePlayer();
             return;
         }
 
         float speed = enemyManagement.GetSpeed();
-        float newX = Mathf.MoveTowards(
-            body.position.x,
-            playerTransform.position.x,
-            speed * Time.fixedDeltaTime
-        );
+        Vector2 destination = GetChaseDestination();
+        Vector2 nextPosition = Vector2.MoveTowards(body.position, destination, speed * Time.fixedDeltaTime);
 
-        body.MovePosition(new Vector2(newX, body.position.y));
+        if (!IsHover && IsLedgeAhead(nextPosition.x - body.position.x))
+        {
+            StopChaseVelocity();
+            FacePlayer();
+            return;
+        }
+
+        body.MovePosition(nextPosition);
         FacePlayer();
     }
 
@@ -165,7 +194,9 @@ public class S_EnemyBehavior : MonoBehaviour
         isActuallyWalking = false;
         stillHold = 0f;
         hurtTimer = 0f;
+        targetMemoryTimer = 0f;
         lastX = transform.position.x;
+        lastY = transform.position.y;
 
         if (enemyPatrol != null)
         {
@@ -199,17 +230,31 @@ public class S_EnemyBehavior : MonoBehaviour
         if (playerTransform == null)
         {
             hasTarget = false;
+            targetMemoryTimer = 0f;
             return;
         }
 
         float distance = Vector2.Distance(transform.position, playerTransform.position);
-        if (!hasTarget)
+        if (distance <= detectionRange)
         {
-            hasTarget = distance <= detectionRange;
+            hasTarget = true;
+            targetMemoryTimer = targetMemory;
             return;
         }
 
-        if (distance > loseTargetRange)
+        if (!hasTarget)
+        {
+            return;
+        }
+
+        if (distance <= loseTargetRange)
+        {
+            targetMemoryTimer = targetMemory;
+            return;
+        }
+
+        targetMemoryTimer -= Time.deltaTime;
+        if (targetMemoryTimer <= 0f)
         {
             hasTarget = false;
         }
@@ -220,7 +265,7 @@ public class S_EnemyBehavior : MonoBehaviour
         if (hasTarget && IsPlayerInAttackRange())
         {
             SetPatrolSuspended(true);
-            StopHorizontalChase();
+            StopChaseVelocity();
             FacePlayer();
 
             if (contactDamage != null && contactDamage.CanDealDamage)
@@ -254,9 +299,14 @@ public class S_EnemyBehavior : MonoBehaviour
         state = EnemyState.Attack;
         attackElapsed = 0f;
         hitAttempted = false;
+        hurtTimer = 0f;
         SetPatrolSuspended(true);
-        StopHorizontalChase();
+        StopChaseVelocity();
         FacePlayer();
+        if (hasHurtingParameter && enemyAnimator != null)
+        {
+            enemyAnimator.SetBool(HurtingHash, false);
+        }
     }
 
     private void TickAttack()
@@ -267,16 +317,33 @@ public class S_EnemyBehavior : MonoBehaviour
         if (!hitAttempted && attackElapsed >= attackWindup)
         {
             hitAttempted = true;
-            if (hasTarget && IsPlayerInAttackRange() && contactDamage != null)
-            {
-                contactDamage.TryDealDamage(playerBlood);
-            }
+            TryStrikePlayer();
         }
 
         if (attackElapsed >= attackDuration)
         {
             state = EnemyState.Idle;
         }
+    }
+
+    private void TryStrikePlayer()
+    {
+        if (!hasTarget || contactDamage == null || playerBlood == null)
+        {
+            return;
+        }
+
+        if (!IsPlayerInsideHitbox())
+        {
+            return;
+        }
+
+        if (!HasClearStrikeLine())
+        {
+            return;
+        }
+
+        contactDamage.TryDealDamage(playerBlood);
     }
 
     private bool CanChasePlayer()
@@ -286,11 +353,30 @@ public class S_EnemyBehavior : MonoBehaviour
             return true;
         }
 
-        return IsVerticallyReachable() && !IsStackedOnPlayer();
+        if (playerTransform != null)
+        {
+            float maxVerticalChase = Mathf.Max(6f, groundedVerticalTolerance * 4f);
+            if (Mathf.Abs(playerTransform.position.y - transform.position.y) > maxVerticalChase)
+            {
+                return false;
+            }
+        }
+
+        return !IsStackedOnPlayer();
     }
 
     private bool ShouldStopChaseMovement()
     {
+        if (IsHover)
+        {
+            return Vector2.Distance(body.position, GetChaseDestination()) <= 0.12f;
+        }
+
+        if (IsPlayerInAttackRange())
+        {
+            return true;
+        }
+
         if (!TryGetColliderDistance(out ColliderDistance2D distance))
         {
             return false;
@@ -304,33 +390,124 @@ public class S_EnemyBehavior : MonoBehaviour
         return distance.distance <= chaseStopDistance;
     }
 
-    private bool IsPlayerInAttackRange()
+    private Vector2 GetChaseDestination()
     {
-        if (enemyManagement == null || !TryGetColliderDistance(out ColliderDistance2D distance))
+        if (playerTransform == null)
         {
-            return false;
+            return body != null ? body.position : (Vector2)transform.position;
         }
 
-        if (!IsHover)
+        if (IsHover)
         {
-            if (!IsVerticallyReachable() || IsStackedOnPlayer(distance))
+            return GetFlyAttackPosition();
+        }
+
+        return new Vector2(playerTransform.position.x, body.position.y);
+    }
+
+    private Vector2 GetFlyAttackPosition()
+    {
+        float deltaX = transform.position.x - playerTransform.position.x;
+        if (Mathf.Abs(deltaX) >= 0.2f)
+        {
+            attackSide = Mathf.Sign(deltaX);
+        }
+        else if (Mathf.Abs(attackSide) < 0.01f)
+        {
+            attackSide = GetFacingSign() < 0f ? -1f : 1f;
+        }
+
+        return new Vector2(
+            playerTransform.position.x + attackSide * preferredAttackOffsetX,
+            playerTransform.position.y
+        );
+    }
+
+    private bool IsPlayerInAttackRange()
+    {
+        if (IsHover)
+        {
+            if (playerTransform == null)
             {
                 return false;
             }
+
+            return IsPlayerInsideHitbox() || Vector2.Distance(transform.position, GetFlyAttackPosition()) <= 0.2f;
         }
 
-        float attackRange = enemyManagement.GetAttackRange();
-        return distance.isOverlapped || distance.distance <= attackRange;
-    }
-
-    private bool IsVerticallyReachable()
-    {
-        if (enemyCollider == null || playerCollider == null)
+        if (IsStackedOnPlayer())
         {
             return false;
         }
 
-        return GetVerticalSeparation(enemyCollider, playerCollider) <= groundedVerticalTolerance;
+        return IsPlayerInsideHitbox();
+    }
+
+    private bool IsPlayerInsideHitbox()
+    {
+        if (playerCollider == null)
+        {
+            return false;
+        }
+
+        GetAttackHitbox(out Vector2 center, out Vector2 size);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(center, size, 0f);
+        for (int i = 0; i < hits.Length; i++)
+        {
+            Collider2D hit = hits[i];
+            if (hit == null || hit == enemyCollider)
+            {
+                continue;
+            }
+
+            if (hit == playerCollider || hit.GetComponentInParent<S_PlayerBlood>() != null)
+            {
+                return true;
+            }
+        }
+
+        return playerCollider.bounds.Intersects(new Bounds(center, size));
+    }
+
+    private bool HasClearStrikeLine()
+    {
+        if (playerCollider == null)
+        {
+            return false;
+        }
+
+        GetAttackHitbox(out Vector2 center, out _);
+        Vector2 target = playerCollider.bounds.center;
+        RaycastHit2D wall = Physics2D.Linecast(center, target, groundLayer);
+        return wall.collider == null;
+    }
+
+    private void GetAttackHitbox(out Vector2 center, out Vector2 size)
+    {
+        float facing = GetFacingSign();
+        Vector2 offset = attackHitboxOffset;
+        offset.x *= facing;
+        center = (Vector2)transform.position + offset;
+        size = attackHitboxSize;
+    }
+
+    private float GetFacingSign()
+    {
+        float sign = Mathf.Sign(transform.lossyScale.x);
+        return sign == 0f ? 1f : sign;
+    }
+
+    private bool IsLedgeAhead(float moveX)
+    {
+        if (Mathf.Abs(moveX) < 0.0001f || body == null)
+        {
+            return false;
+        }
+
+        float facing = Mathf.Sign(moveX);
+        Vector2 origin = body.position + new Vector2(facing * ledgeCheckDistance, 0.15f);
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, ledgeCheckDrop, groundLayer);
+        return hit.collider == null;
     }
 
     private bool IsStackedOnPlayer()
@@ -349,21 +526,6 @@ public class S_EnemyBehavior : MonoBehaviour
         return close && Mathf.Abs(distance.normal.y) > 0.75f;
     }
 
-    private static float GetVerticalSeparation(Collider2D a, Collider2D b)
-    {
-        if (a.bounds.max.y < b.bounds.min.y)
-        {
-            return b.bounds.min.y - a.bounds.max.y;
-        }
-
-        if (b.bounds.max.y < a.bounds.min.y)
-        {
-            return a.bounds.min.y - b.bounds.max.y;
-        }
-
-        return 0f;
-    }
-
     private bool TryGetColliderDistance(out ColliderDistance2D distance)
     {
         distance = default;
@@ -376,7 +538,7 @@ public class S_EnemyBehavior : MonoBehaviour
         return distance.isValid;
     }
 
-    private void StopHorizontalChase()
+    private void StopChaseVelocity()
     {
         if (body == null)
         {
@@ -384,6 +546,16 @@ public class S_EnemyBehavior : MonoBehaviour
         }
 
         Vector2 velocity = body.linearVelocity;
+        if (IsHover)
+        {
+            if (velocity.sqrMagnitude > 0f)
+            {
+                body.linearVelocity = Vector2.zero;
+            }
+
+            return;
+        }
+
         if (Mathf.Abs(velocity.x) > 0f)
         {
             velocity.x = 0f;
@@ -411,9 +583,13 @@ public class S_EnemyBehavior : MonoBehaviour
 
     private void UpdateWalkFromDisplacement()
     {
-        float dx = Mathf.Abs(transform.position.x - lastX);
-        float speed = Time.deltaTime > 0f ? dx / Time.deltaTime : 0f;
+        float dx = transform.position.x - lastX;
+        float dy = transform.position.y - lastY;
+        float speed = Time.deltaTime > 0f
+            ? Mathf.Sqrt(dx * dx + dy * dy) / Time.deltaTime
+            : 0f;
         lastX = transform.position.x;
+        lastY = transform.position.y;
 
         if (state == EnemyState.Attack)
         {
@@ -441,7 +617,9 @@ public class S_EnemyBehavior : MonoBehaviour
             return;
         }
 
-        bool hurting = hurtTimer > 0f;
+        bool attacking = state == EnemyState.Attack;
+        bool hurting = hurtTimer > 0f && !attacking;
+
         if (hasHurtingParameter)
         {
             enemyAnimator.SetBool(HurtingHash, hurting);
@@ -449,18 +627,28 @@ public class S_EnemyBehavior : MonoBehaviour
 
         if (hasWalkingParameter)
         {
-            enemyAnimator.SetBool(WalkingHash, !hurting && isActuallyWalking);
+            enemyAnimator.SetBool(WalkingHash, !attacking && !hurting && isActuallyWalking);
         }
 
         if (hasAttackingParameter)
         {
-            enemyAnimator.SetBool(AttackingHash, !hurting && state == EnemyState.Attack);
+            enemyAnimator.SetBool(AttackingHash, attacking);
         }
     }
 
     private void OnDamaged()
     {
         if (enemyManagement != null && enemyManagement.GetEnemyType() == S_EnemyManagement.EnemyType.Boss)
+        {
+            return;
+        }
+
+        if (state == EnemyState.Attack)
+        {
+            return;
+        }
+
+        if (hurtTimer > 0f)
         {
             return;
         }
@@ -500,14 +688,37 @@ public class S_EnemyBehavior : MonoBehaviour
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        if (loseTargetRange < detectionRange)
+        if (loseTargetRange < detectionRange + 2f)
         {
-            loseTargetRange = detectionRange + 1f;
+            loseTargetRange = detectionRange + 2f;
         }
 
         if (attackDuration < attackWindup)
         {
             attackDuration = attackWindup + 0.05f;
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        GetAttackHitbox(out Vector2 center, out Vector2 size);
+        Gizmos.color = new Color(1f, 0.35f, 0.15f, 0.9f);
+        Gizmos.DrawWireCube(center, size);
+
+        Gizmos.color = new Color(1f, 0.85f, 0.2f, 0.8f);
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
+        Gizmos.color = new Color(0.4f, 0.7f, 1f, 0.8f);
+        Gizmos.DrawWireSphere(transform.position, loseTargetRange);
+
+        if (IsHover)
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(
+                Application.isPlaying && playerTransform != null
+                    ? GetFlyAttackPosition()
+                    : (Vector2)transform.position + Vector2.right * preferredAttackOffsetX,
+                0.15f
+            );
         }
     }
 #endif
