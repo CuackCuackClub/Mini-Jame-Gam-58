@@ -349,13 +349,15 @@ public class S_PlayerDeath : MonoBehaviour
         }
 
         float bottomOffset = offset.y - boxSize.y * 0.5f;
-        Vector2 origin = new Vector2(spawnPosition.x, spawnPosition.y + 1.5f);
+        int groundMask = LayerMask.GetMask("Ground");
+        Vector2 origin = new Vector2(spawnPosition.x, spawnPosition.y + 3.5f);
         RaycastHit2D[] hits = Physics2D.BoxCastAll(
             origin,
             new Vector2(Mathf.Max(0.08f, boxSize.x * 0.8f), 0.04f),
             0f,
             Vector2.down,
-            4f
+            8f,
+            groundMask
         );
 
         float groundY = float.NegativeInfinity;
@@ -377,6 +379,42 @@ public class S_PlayerDeath : MonoBehaviour
             {
                 groundY = hits[i].point.y;
                 foundGround = true;
+            }
+        }
+
+        if (!foundGround)
+        {
+            hits = Physics2D.BoxCastAll(
+                origin,
+                new Vector2(Mathf.Max(0.08f, boxSize.x * 0.8f), 0.04f),
+                0f,
+                Vector2.down,
+                8f
+            );
+
+            for (int i = 0; i < hits.Length; i++)
+            {
+                Collider2D hitCollider = hits[i].collider;
+                if (hitCollider == null || hitCollider.isTrigger || hitCollider == playerCollider)
+                {
+                    continue;
+                }
+
+                if (hitCollider.transform == transform || hitCollider.transform.IsChildOf(transform))
+                {
+                    continue;
+                }
+
+                if (hitCollider.CompareTag("Enemy"))
+                {
+                    continue;
+                }
+
+                if (hits[i].point.y > groundY)
+                {
+                    groundY = hits[i].point.y;
+                    foundGround = true;
+                }
             }
         }
 
