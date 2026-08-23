@@ -2433,7 +2433,7 @@ PrefabInstance:
       objectReference: {fileID: 401981152}
     - target: {fileID: 89209493095469793, guid: 72108351763207d4c8f89e2cc9f03efd, type: 3}
       propertyPath: restartSceneOnNoVial
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1400724558789629874, guid: 72108351763207d4c8f89e2cc9f03efd, type: 3}
       propertyPath: m_Name

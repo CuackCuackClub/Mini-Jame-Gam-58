@@ -125,6 +125,11 @@ public class S_GameEndUI : MonoBehaviour
 
     private void HandlePlayerDied()
     {
+        if (playerDeath == null || !playerDeath.IsFinalDeath)
+        {
+            return;
+        }
+
         ShowGameOver();
     }
 
@@ -198,6 +203,7 @@ public class S_GameEndUI : MonoBehaviour
             "GameOverPanel",
             gameOverPanelSprite,
             "GAME OVER",
+            "THE DAWN HAS COME",
             new Color(0f, 0f, 0f, 0.55f)
         );
         victoryPanel = CreateEndPanel(
@@ -205,6 +211,7 @@ public class S_GameEndUI : MonoBehaviour
             "VictoryPanel",
             victoryPanelSprite,
             "VICTORY",
+            null,
             new Color(0.18f, 0.02f, 0.02f, 0.45f)
         );
     }
@@ -214,6 +221,7 @@ public class S_GameEndUI : MonoBehaviour
         string panelName,
         Sprite panelSprite,
         string title,
+        string subtitle,
         Color blockerColor
     )
     {
@@ -245,7 +253,12 @@ public class S_GameEndUI : MonoBehaviour
         backgroundRect.anchoredPosition = Vector2.zero;
         backgroundRect.sizeDelta = new Vector2(760f, 560f);
 
-        CreateTitle(backgroundObject.transform, title);
+        CreateTitle(backgroundObject.transform, title, string.IsNullOrEmpty(subtitle) ? 160f : 175f);
+        if (!string.IsNullOrEmpty(subtitle))
+        {
+            CreateSubtitle(backgroundObject.transform, subtitle);
+        }
+
         CreateMenuButton(
             backgroundObject.transform,
             "RestartButton",
@@ -269,7 +282,7 @@ public class S_GameEndUI : MonoBehaviour
         return panelRoot;
     }
 
-    private void CreateTitle(Transform parent, string text)
+    private void CreateTitle(Transform parent, string text, float anchoredY)
     {
         GameObject titleObject = new GameObject("Title");
         titleObject.transform.SetParent(parent, false);
@@ -293,8 +306,36 @@ public class S_GameEndUI : MonoBehaviour
         rect.anchorMin = new Vector2(0.5f, 0.5f);
         rect.anchorMax = new Vector2(0.5f, 0.5f);
         rect.pivot = new Vector2(0.5f, 0.5f);
-        rect.anchoredPosition = new Vector2(0f, 160f);
+        rect.anchoredPosition = new Vector2(0f, anchoredY);
         rect.sizeDelta = new Vector2(640f, 120f);
+    }
+
+    private void CreateSubtitle(Transform parent, string text)
+    {
+        GameObject subtitleObject = new GameObject("Subtitle");
+        subtitleObject.transform.SetParent(parent, false);
+        subtitleObject.layer = 5;
+        TextMeshProUGUI label = subtitleObject.AddComponent<TextMeshProUGUI>();
+        if (titleFont != null)
+        {
+            label.font = titleFont;
+        }
+
+        label.text = text;
+        label.fontSize = 36f;
+        label.fontSizeMin = 18f;
+        label.fontSizeMax = 40f;
+        label.enableAutoSizing = true;
+        label.alignment = TextAlignmentOptions.Center;
+        label.color = Color.white;
+        label.raycastTarget = false;
+
+        RectTransform rect = label.rectTransform;
+        rect.anchorMin = new Vector2(0.5f, 0.5f);
+        rect.anchorMax = new Vector2(0.5f, 0.5f);
+        rect.pivot = new Vector2(0.5f, 0.5f);
+        rect.anchoredPosition = new Vector2(0f, 78f);
+        rect.sizeDelta = new Vector2(620f, 56f);
     }
 
     private void CreateMenuButton(
