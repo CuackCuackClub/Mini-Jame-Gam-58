@@ -5,9 +5,10 @@ public class MainMenu : MonoBehaviour
 {
     [Header("Panels")]
     [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private GameObject creditsPanel;
 
     [Header("Scene Target")]
-    [SerializeField] private string gameplaySceneName = "Lvl1"; // Sustituye por el nombre real de vuestra escena de juego
+    [SerializeField] private string gameplaySceneName = "Lvl1";
 
     public void PlayGame()
     {
@@ -24,6 +25,18 @@ public class MainMenu : MonoBehaviour
     {
         if (optionsPanel != null)
             optionsPanel.SetActive(false);
+    }
+
+    public void OpenCredits()
+    {
+        if (creditsPanel != null)
+            creditsPanel.SetActive(true);
+    }
+
+    public void CloseCredits()
+    {
+        if (creditsPanel != null)
+            creditsPanel.SetActive(false);
     }
 
     public void QuitGame()
