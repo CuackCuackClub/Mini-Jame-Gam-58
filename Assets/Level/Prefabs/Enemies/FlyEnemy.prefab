@@ -273,15 +273,19 @@ MonoBehaviour:
   targetMemory: 2
   groundedVerticalTolerance: 2.5
   chaseStopDistance: 0.05
-  preferredAttackOffsetX: 1.2
+  preferredAttackOffsetX: 1.5
   preferredAttackOffsetY: 0.25
   maxCombatVerticalSeparation: 0.75
-  flyDetectionRangeX: 7
-  flyDetectionRangeY: 26
-  flyLoseTargetRangeX: 14
-  flyLoseTargetRangeY: 32
-  flyHorizontalSpeed: 4.5
-  flyVerticalSpeed: 9
+  flyDetectionRangeX: 6
+  flyDetectionRangeY: 11
+  flyLoseTargetRangeX: 9
+  flyLoseTargetRangeY: 14
+  flyHorizontalSpeed: 3.4
+  flyVerticalSpeed: 6.5
+  maxChaseDistanceFromOrigin: 9
+  flyRetreatDistance: 2.4
+  flyRetreatDuration: 0.8
+  flyRetreatVerticalOffset: 0.75
   groundLayer:
     serializedVersion: 2
     m_Bits: 8

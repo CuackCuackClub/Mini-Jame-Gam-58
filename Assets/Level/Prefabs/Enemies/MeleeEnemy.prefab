@@ -269,11 +269,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_EnemyBehavior
   detectionRange: 4
-  loseTargetRange: 10
+  loseTargetRange: 6
   targetMemory: 2
   groundedVerticalTolerance: 2.5
   chaseStopDistance: 0.05
   preferredAttackOffsetX: 1.15
+  maxChaseDistanceFromOrigin: 6
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
