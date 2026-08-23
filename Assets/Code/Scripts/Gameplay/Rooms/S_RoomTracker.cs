@@ -12,6 +12,14 @@ public class S_RoomTracker : MonoBehaviour
         fallbackSpawnPosition = transform.position;
     }
 
+    private void Start()
+    {
+        if (currentRoom == null)
+        {
+            SetCurrentRoom(FindFirstObjectByType<S_RoomController>());
+        }
+    }
+
     public void SetCurrentRoom(S_RoomController room)
     {
         if (room == null)

@@ -43,6 +43,8 @@ public class S_PlayerAbilities : MonoBehaviour
     private CollisionDetectionMode2D previousCollisionDetection;
     private readonly List<Collider2D> ignoredEnemyColliders = new List<Collider2D>();
 
+    public bool IsDashing => isDashing;
+
     private void Awake()
     {
         if (playerBlood == null)

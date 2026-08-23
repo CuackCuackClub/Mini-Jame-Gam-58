@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_RoomController
   respawnPoint: {fileID: 3195840612938574017}
+  extraResetRoots: []
 --- !u!114 &3195840612938574015
 MonoBehaviour:
   m_ObjectHideFlags: 0

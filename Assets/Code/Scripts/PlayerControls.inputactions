@@ -137,6 +137,17 @@
                 },
                 {
                     "name": "",
+                    "id": "5e8a1c2b-3d4f-4a6e-9b0c-1d2e3f4a5b6c",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d319d6fc-304a-459e-8ad1-f34d84964515",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -148,8 +159,52 @@
                 },
                 {
                     "name": "",
+                    "id": "6f9b2d3c-4e5a-4b7f-8c1d-2e3f4a5b6c7d",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7a0c3e4d-5f6b-4c8a-9d2e-3f4a5b6c7d8e",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "8b3c4d5e-6f70-8901-cdef-012345678901",
                     "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Bloodstep",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b1d4f5e-6a7c-4d9b-0e3f-4a5b6c7d8e9f",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Bloodstep",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9c2e5a6f-7b8d-4e0c-1f4a-5b6c7d8e9f0a",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -172,6 +227,17 @@
                     "name": "",
                     "id": "ad5e6f70-8192-0123-ef01-234567890123",
                     "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BloodCrescent",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d3f6b7a-8c9e-4f1d-2a5b-6c7d8e9f0a1b",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
