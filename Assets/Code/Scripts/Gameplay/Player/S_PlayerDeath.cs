@@ -19,6 +19,8 @@ public class S_PlayerDeath : MonoBehaviour
     [SerializeField] private S_PlayerAnimation playerAnimation;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private bool restartSceneOnNoVial;
+    [SerializeField] private bool useFixedRespawn;
+    [SerializeField] private Transform fixedRespawnPoint;
 
     public bool IsDead { get; private set; }
     public bool IsFinalDeath { get; private set; }
@@ -224,13 +226,19 @@ public class S_PlayerDeath : MonoBehaviour
     {
         yield return WaitForDeathPresentation();
 
-        if (!IsFinalDeath && TryRecoverWithVial())
+        if (!IsFinalDeath && TryRecoverAtFixedPoint())
         {
             deathRoutine = null;
             yield break;
         }
 
-        if (!IsFinalDeath && restartSceneOnNoVial)
+        if (!IsFinalDeath && !useFixedRespawn && TryRecoverWithVial())
+        {
+            deathRoutine = null;
+            yield break;
+        }
+
+        if (!IsFinalDeath && !useFixedRespawn && restartSceneOnNoVial)
         {
             RestartLevel();
             yield break;
@@ -276,6 +284,27 @@ public class S_PlayerDeath : MonoBehaviour
             yield return null;
             state = playerAnimator.GetCurrentAnimatorStateInfo(0);
         }
+    }
+
+    private bool TryRecoverAtFixedPoint()
+    {
+        if (!useFixedRespawn || fixedRespawnPoint == null)
+        {
+            return false;
+        }
+
+        PlaceOnGround(fixedRespawnPoint.position);
+        ClearMotion();
+
+        if (playerBlood != null)
+        {
+            playerBlood.RestoreToFull();
+        }
+
+        Revive();
+        SnapCameraToPlayer();
+        Respawned?.Invoke();
+        return true;
     }
 
     private bool TryRecoverWithVial()

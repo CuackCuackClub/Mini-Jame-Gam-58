@@ -233,6 +233,8 @@ MonoBehaviour:
   playerAnimation: {fileID: 0}
   spriteRenderer: {fileID: 0}
   restartSceneOnNoVial: 0
+  useFixedRespawn: 0
+  fixedRespawnPoint: {fileID: 0}
 --- !u!114 &5847392018462910573
 MonoBehaviour:
   m_ObjectHideFlags: 0

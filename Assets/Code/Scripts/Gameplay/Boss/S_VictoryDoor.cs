@@ -5,6 +5,7 @@ public class S_VictoryDoor : MonoBehaviour
 {
     [SerializeField]
     private S_GameEndUI gameEndUI;
+    public GameObject sparksDoor;
 
     private void Reset()
     {
@@ -18,6 +19,8 @@ public class S_VictoryDoor : MonoBehaviour
     private void Awake()
     {
         Collider2D doorCollider = GetComponent<Collider2D>();
+        GameObject sparkDoor = GetComponent<GameObject>();
+
         if (doorCollider != null)
         {
             doorCollider.isTrigger = true;
@@ -26,6 +29,11 @@ public class S_VictoryDoor : MonoBehaviour
         if (gameEndUI == null)
         {
             gameEndUI = FindFirstObjectByType<S_GameEndUI>();
+        }
+
+        if (sparkDoor != null)
+        {
+            sparksDoor.SetActive(false);
         }
     }
 
@@ -46,8 +54,9 @@ public class S_VictoryDoor : MonoBehaviour
             gameEndUI = FindFirstObjectByType<S_GameEndUI>();
         }
 
-        if (gameEndUI != null)
+        if (gameEndUI != null && IsBossDefeated())
         {
+            sparksDoor.SetActive(true);
             gameEndUI.ShowVictory();
         }
     }
