@@ -939,6 +939,7 @@ GameObject:
   - component: {fileID: 1067587158}
   - component: {fileID: 1067587161}
   - component: {fileID: 1067587162}
+  - component: {fileID: 1067587163}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1086,6 +1087,18 @@ MonoBehaviour:
   lookAheadDistance: 1.2
   lookAheadSmoothTime: 0.18
   lookAheadMinSpeed: 0.8
+--- !u!114 &1067587163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067587157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66d3a2043af2e004082ad6a55ba31846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayGameMusic
 --- !u!4 &1275643953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3560787810331665609, guid: be4eff8bc29e91848bf2a0a14911ec62, type: 3}
@@ -3164,6 +3177,14 @@ PrefabInstance:
     - target: {fileID: 1400724558789629874, guid: 72108351763207d4c8f89e2cc9f03efd, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961213016421948592, guid: 72108351763207d4c8f89e2cc9f03efd, type: 3}
+      propertyPath: maxBlood
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961213016421948592, guid: 72108351763207d4c8f89e2cc9f03efd, type: 3}
+      propertyPath: startingBlood
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5593063530414592552, guid: 72108351763207d4c8f89e2cc9f03efd, type: 3}
       propertyPath: m_LocalPosition.x

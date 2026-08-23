@@ -10,6 +10,13 @@ public class MainMenu : MonoBehaviour
     [Header("Scene Target")]
     [SerializeField] private string gameplaySceneName = "Lvl1";
 
+    void Start()
+    {
+    if (MusicManager.Instance != null)
+    {
+        MusicManager.Instance.PlayMusic(MusicManager.Instance.musicMainMenu);
+    }
+    }
     public void PlayGame()
     {
         SceneManager.LoadScene(gameplaySceneName);
@@ -47,3 +54,4 @@ public class MainMenu : MonoBehaviour
         #endif
     }
 }
+
