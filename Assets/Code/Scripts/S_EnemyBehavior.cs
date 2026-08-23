@@ -35,6 +35,32 @@ public class S_EnemyBehavior : MonoBehaviour
     private float preferredAttackOffsetX = 1.15f;
 
     [SerializeField]
+    private float preferredAttackOffsetY = 0.25f;
+
+    [SerializeField, Min(0.1f)]
+    private float maxCombatVerticalSeparation = 0.75f;
+
+    [Header("Fly Detection")]
+    [SerializeField, Min(0.1f)]
+    private float flyDetectionRangeX = 7f;
+
+    [SerializeField, Min(0.1f)]
+    private float flyDetectionRangeY = 26f;
+
+    [SerializeField, Min(0.1f)]
+    private float flyLoseTargetRangeX = 14f;
+
+    [SerializeField, Min(0.1f)]
+    private float flyLoseTargetRangeY = 32f;
+
+    [Header("Fly Movement")]
+    [SerializeField, Min(0.1f)]
+    private float flyHorizontalSpeed = 4.5f;
+
+    [SerializeField, Min(0.1f)]
+    private float flyVerticalSpeed = 9f;
+
+    [SerializeField]
     private LayerMask groundLayer = 1 << 3;
 
     [SerializeField, Min(0.05f)]
@@ -164,9 +190,17 @@ public class S_EnemyBehavior : MonoBehaviour
             return;
         }
 
-        float speed = enemyManagement.GetSpeed();
         Vector2 destination = GetChaseDestination();
-        Vector2 nextPosition = Vector2.MoveTowards(body.position, destination, speed * Time.fixedDeltaTime);
+        Vector2 nextPosition = IsHover
+            ? new Vector2(
+                Mathf.MoveTowards(body.position.x, destination.x, flyHorizontalSpeed * Time.fixedDeltaTime),
+                Mathf.MoveTowards(body.position.y, destination.y, flyVerticalSpeed * Time.fixedDeltaTime)
+            )
+            : Vector2.MoveTowards(
+                body.position,
+                destination,
+                enemyManagement.GetSpeed() * Time.fixedDeltaTime
+            );
 
         if (!IsHover && IsLedgeAhead(nextPosition.x - body.position.x))
         {
@@ -234,8 +268,23 @@ public class S_EnemyBehavior : MonoBehaviour
             return;
         }
 
-        float distance = Vector2.Distance(transform.position, playerTransform.position);
-        if (distance <= detectionRange)
+        Vector2 delta = (Vector2)playerTransform.position - (Vector2)transform.position;
+        bool inDetect;
+        bool inLose;
+
+        if (IsHover)
+        {
+            inDetect = Mathf.Abs(delta.x) <= flyDetectionRangeX && Mathf.Abs(delta.y) <= flyDetectionRangeY;
+            inLose = Mathf.Abs(delta.x) <= flyLoseTargetRangeX && Mathf.Abs(delta.y) <= flyLoseTargetRangeY;
+        }
+        else
+        {
+            float distance = delta.magnitude;
+            inDetect = distance <= detectionRange;
+            inLose = distance <= loseTargetRange;
+        }
+
+        if (inDetect)
         {
             hasTarget = true;
             targetMemoryTimer = targetMemory;
@@ -247,7 +296,7 @@ public class S_EnemyBehavior : MonoBehaviour
             return;
         }
 
-        if (distance <= loseTargetRange)
+        if (inLose)
         {
             targetMemoryTimer = targetMemory;
             return;
@@ -369,7 +418,9 @@ public class S_EnemyBehavior : MonoBehaviour
     {
         if (IsHover)
         {
-            return Vector2.Distance(body.position, GetChaseDestination()) <= 0.12f;
+            float dx = Mathf.Abs(body.position.x - GetChaseDestination().x);
+            float dy = Mathf.Abs(body.position.y - GetChaseDestination().y);
+            return dx <= 0.15f && dy <= 0.12f;
         }
 
         if (IsPlayerInAttackRange())
@@ -419,7 +470,7 @@ public class S_EnemyBehavior : MonoBehaviour
 
         return new Vector2(
             playerTransform.position.x + attackSide * preferredAttackOffsetX,
-            playerTransform.position.y
+            playerTransform.position.y + preferredAttackOffsetY
         );
     }
 
@@ -432,7 +483,12 @@ public class S_EnemyBehavior : MonoBehaviour
                 return false;
             }
 
-            return IsPlayerInsideHitbox() || Vector2.Distance(transform.position, GetFlyAttackPosition()) <= 0.2f;
+            if (GetVerticalCombatError() > maxCombatVerticalSeparation)
+            {
+                return false;
+            }
+
+            return IsPlayerInsideHitbox();
         }
 
         if (IsStackedOnPlayer())
@@ -441,6 +497,16 @@ public class S_EnemyBehavior : MonoBehaviour
         }
 
         return IsPlayerInsideHitbox();
+    }
+
+    private float GetVerticalCombatError()
+    {
+        if (playerTransform == null)
+        {
+            return 0f;
+        }
+
+        return Mathf.Abs(transform.position.y - (playerTransform.position.y + preferredAttackOffsetY));
     }
 
     private bool IsPlayerInsideHitbox()
@@ -693,6 +759,16 @@ public class S_EnemyBehavior : MonoBehaviour
             loseTargetRange = detectionRange + 2f;
         }
 
+        if (flyLoseTargetRangeX < flyDetectionRangeX + 2f)
+        {
+            flyLoseTargetRangeX = flyDetectionRangeX + 2f;
+        }
+
+        if (flyLoseTargetRangeY < flyDetectionRangeY + 2f)
+        {
+            flyLoseTargetRangeY = flyDetectionRangeY + 2f;
+        }
+
         if (attackDuration < attackWindup)
         {
             attackDuration = attackWindup + 0.05f;
@@ -705,13 +781,21 @@ public class S_EnemyBehavior : MonoBehaviour
         Gizmos.color = new Color(1f, 0.35f, 0.15f, 0.9f);
         Gizmos.DrawWireCube(center, size);
 
-        Gizmos.color = new Color(1f, 0.85f, 0.2f, 0.8f);
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
-        Gizmos.color = new Color(0.4f, 0.7f, 1f, 0.8f);
-        Gizmos.DrawWireSphere(transform.position, loseTargetRange);
+        S_EnemyPatrol patrol = enemyPatrol != null ? enemyPatrol : GetComponent<S_EnemyPatrol>();
+        bool hover = patrol != null && patrol.HoverPatrol;
 
-        if (IsHover)
+        if (hover)
         {
+            Gizmos.color = new Color(1f, 0.85f, 0.2f, 0.8f);
+            Gizmos.DrawWireCube(
+                transform.position,
+                new Vector3(flyDetectionRangeX * 2f, flyDetectionRangeY * 2f, 0f)
+            );
+            Gizmos.color = new Color(0.4f, 0.7f, 1f, 0.8f);
+            Gizmos.DrawWireCube(
+                transform.position,
+                new Vector3(flyLoseTargetRangeX * 2f, flyLoseTargetRangeY * 2f, 0f)
+            );
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireSphere(
                 Application.isPlaying && playerTransform != null
@@ -719,6 +803,13 @@ public class S_EnemyBehavior : MonoBehaviour
                     : (Vector2)transform.position + Vector2.right * preferredAttackOffsetX,
                 0.15f
             );
+        }
+        else
+        {
+            Gizmos.color = new Color(1f, 0.85f, 0.2f, 0.8f);
+            Gizmos.DrawWireSphere(transform.position, detectionRange);
+            Gizmos.color = new Color(0.4f, 0.7f, 1f, 0.8f);
+            Gizmos.DrawWireSphere(transform.position, loseTargetRange);
         }
     }
 #endif

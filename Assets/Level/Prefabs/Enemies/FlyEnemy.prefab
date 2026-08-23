@@ -171,7 +171,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!95 &7376014910793006935
 Animator:
   serializedVersion: 7
@@ -274,6 +274,14 @@ MonoBehaviour:
   groundedVerticalTolerance: 2.5
   chaseStopDistance: 0.05
   preferredAttackOffsetX: 1.2
+  preferredAttackOffsetY: 0.25
+  maxCombatVerticalSeparation: 0.75
+  flyDetectionRangeX: 7
+  flyDetectionRangeY: 26
+  flyLoseTargetRangeX: 14
+  flyLoseTargetRangeY: 32
+  flyHorizontalSpeed: 4.5
+  flyVerticalSpeed: 9
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
