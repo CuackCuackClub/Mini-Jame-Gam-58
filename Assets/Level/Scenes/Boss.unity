@@ -191,6 +191,18 @@ PrefabInstance:
       propertyPath: hudPrefab
       value: 
       objectReference: {fileID: 551500170}
+    - target: {fileID: 89209493095469793, guid: 72108351763207d4c8f89e2cc9f03efd, type: 3}
+      propertyPath: useFixedRespawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 89209493095469793, guid: 72108351763207d4c8f89e2cc9f03efd, type: 3}
+      propertyPath: restartSceneOnNoVial
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 89209493095469793, guid: 72108351763207d4c8f89e2cc9f03efd, type: 3}
+      propertyPath: fixedRespawnPoint
+      value: 
+      objectReference: {fileID: 9100484002}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -201,6 +213,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5593063530414592552, guid: 72108351763207d4c8f89e2cc9f03efd, type: 3}
   m_PrefabInstance: {fileID: 510906179}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9100481915 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 89209493095469793, guid: 72108351763207d4c8f89e2cc9f03efd, type: 3}
+  m_PrefabInstance: {fileID: 510906179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162d034ae384bcd4fa0580f3203b59ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_PlayerDeath
 --- !u!1001 &551500169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1731,6 +1754,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ec57bac2535bb41989d62d815610e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayBossMusic
+--- !u!1 &9100484001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9100484002}
+  m_Layer: 0
+  m_Name: BossRespawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9100484002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100484001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.11, y: 18.76, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1748,3 +1802,4 @@ SceneRoots:
   - {fileID: 2084204947}
   - {fileID: 715350396}
   - {fileID: 9100483002}
+  - {fileID: 9100484002}
