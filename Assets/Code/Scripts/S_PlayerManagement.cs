@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,7 @@ public class S_PlayerManagement : MonoBehaviour
     [SerializeField] private float attackDamage = 10f;
     [SerializeField] private float attackCooldown = 1f;
     [SerializeField] private float attackRange = 1f;
+    [SerializeField] private GameObject hitImpactPrefab;
 
     [Header("Ground Check")]
     [SerializeField] private Transform groundCheck;
@@ -23,6 +25,8 @@ public class S_PlayerManagement : MonoBehaviour
     private Rigidbody2D rBody;
 
     public bool AbilityLocksMovement { get; set; }
+
+    public event Action AttackPerformed;
 
     private PlayerControls playerControls;
 
@@ -91,6 +95,7 @@ public class S_PlayerManagement : MonoBehaviour
             return;
 
         lastAttackTime = Time.time;
+        AttackPerformed?.Invoke();
 
         float direction = transform.localScale.x > 0 ? 1f : -1f;
 
@@ -107,6 +112,7 @@ public class S_PlayerManagement : MonoBehaviour
                 if (enemyScript != null)
                 {
                     enemyScript.TakeDamage(attackDamage);
+                    S_HitImpact.Spawn(hitImpactPrefab, enemy.transform.position);
                 }
             }
         }

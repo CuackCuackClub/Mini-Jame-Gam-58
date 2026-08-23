@@ -15,6 +15,9 @@ public class S_BloodCrescent : MonoBehaviour
     [SerializeField, Min(0.05f)]
     private float safetyLifetime = 1f;
 
+    [SerializeField]
+    private GameObject hitImpactPrefab;
+
     private float direction = 1f;
     private Vector3 spawnPosition;
     private bool initialized;
@@ -102,6 +105,7 @@ public class S_BloodCrescent : MonoBehaviour
             }
 
             enemy.TakeDamage(damage);
+            S_HitImpact.Spawn(hitImpactPrefab, other.ClosestPoint(transform.position));
             return;
         }
 

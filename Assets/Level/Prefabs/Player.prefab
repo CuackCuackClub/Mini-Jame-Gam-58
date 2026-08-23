@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 6958473829103847561}
   - component: {fileID: 7069584930214958672}
   - component: {fileID: 4182736450918273645}
+  - component: {fileID: 5129384756102938471}
+  - component: {fileID: 6129384756102938472}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -187,6 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::S_PlayerManagement
   speed: 2.5
   jumpSpeed: 5
+  hitImpactPrefab: {fileID: 4011001001001001001, guid: 15dae8e1c4e9b673152dfe809235679e, type: 3}
 --- !u!114 &1961213016421948592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,3 +287,42 @@ MonoBehaviour:
   bloodCrescentSpeed: 14
   bloodCrescentRange: 4
   bloodCrescentCooldown: 0.7
+--- !u!95 &5129384756102938471
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400724558789629874}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c1264744b99b02f4fadbdc24479ab4bf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6129384756102938472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400724558789629874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7c9e4a1f8d46c0a3e5b7d9c1f3a580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_PlayerAnimation
+  attackDuration: 0.75
+  hurtDuration: 0.25
+  walkSpeedThreshold: 0.1
+  groundCheckDistance: 0.08
+  groundCheckHeight: 0.12
