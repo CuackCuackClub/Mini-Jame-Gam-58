@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class S_PlayerDeath : MonoBehaviour
 {
-    private const float DeathPresentationTimeout = 0.75f;
+    private const float DeathPresentationTimeout = 0.85f;
     private const string DefeatedStateName = "A_PlayerDefeated";
 
     [SerializeField] private S_PlayerBlood playerBlood;
@@ -16,6 +16,9 @@ public class S_PlayerDeath : MonoBehaviour
     [SerializeField] private S_PlayerAbilities playerAbilities;
     [SerializeField] private Collider2D playerCollider;
     [SerializeField] private Animator playerAnimator;
+    [SerializeField] private S_PlayerAnimation playerAnimation;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private bool restartSceneOnNoVial;
 
     public bool IsDead { get; private set; }
 
@@ -66,6 +69,16 @@ public class S_PlayerDeath : MonoBehaviour
         if (playerAnimator == null)
         {
             playerAnimator = GetComponent<Animator>();
+        }
+
+        if (playerAnimation == null)
+        {
+            playerAnimation = GetComponent<S_PlayerAnimation>();
+        }
+
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
     }
 
@@ -120,8 +133,14 @@ public class S_PlayerDeath : MonoBehaviour
 
         IsDead = false;
 
+        if (playerCollider != null)
+        {
+            playerCollider.enabled = true;
+        }
+
         if (playerBody != null)
         {
+            playerBody.simulated = true;
             playerBody.bodyType = previousBodyType;
             playerBody.linearVelocity = Vector2.zero;
             playerBody.angularVelocity = 0f;
@@ -131,6 +150,13 @@ public class S_PlayerDeath : MonoBehaviour
         {
             playerManagement.enabled = wasMovementEnabled;
         }
+
+        if (playerAbilities != null)
+        {
+            playerAbilities.enabled = true;
+        }
+
+        RestoreAlivePresentation();
     }
 
     public void RestartLevel()
@@ -184,6 +210,12 @@ public class S_PlayerDeath : MonoBehaviour
         if (TryRecoverWithVial())
         {
             deathRoutine = null;
+            yield break;
+        }
+
+        if (restartSceneOnNoVial)
+        {
+            RestartLevel();
             yield break;
         }
 
@@ -259,6 +291,22 @@ public class S_PlayerDeath : MonoBehaviour
         return true;
     }
 
+    private void RestoreAlivePresentation()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.enabled = true;
+            Color color = spriteRenderer.color;
+            color.a = 1f;
+            spriteRenderer.color = color;
+        }
+
+        if (playerAnimation != null)
+        {
+            playerAnimation.ResetToAlivePresentation();
+        }
+    }
+
     private void PlaceOnGround(Vector3 spawnPosition)
     {
         Vector3 standingPosition = ResolveStandingPosition(spawnPosition);
@@ -288,6 +336,11 @@ public class S_PlayerDeath : MonoBehaviour
         {
             boxSize = Vector2.Scale(box.size, new Vector2(scaleX, scaleY));
             offset = Vector2.Scale(box.offset, new Vector2(scaleX, scaleY));
+        }
+        else if (playerCollider is CapsuleCollider2D capsule)
+        {
+            boxSize = Vector2.Scale(capsule.size, new Vector2(scaleX, scaleY));
+            offset = Vector2.Scale(capsule.offset, new Vector2(scaleX, scaleY));
         }
         else
         {
