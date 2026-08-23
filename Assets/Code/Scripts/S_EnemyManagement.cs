@@ -205,4 +205,29 @@ public class S_EnemyManagement : MonoBehaviour
     {
         return enemyType;
     }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public void Heal(float amount)
+    {
+        if (amount <= 0f || currentHealth <= 0f || deathProcessed)
+        {
+            return;
+        }
+
+        currentHealth += amount;
+
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
 }
