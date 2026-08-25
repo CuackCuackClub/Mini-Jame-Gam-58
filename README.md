@@ -657,18 +657,24 @@ The following assets were obtained from the **Unity Asset Store** and used durin
 
 ## License
 
-This project is licensed under the **MIT License**.
+The original source code created for **Duckula: Bloodbound** is licensed under the **MIT License**.
 
-See the repository's [LICENSE](LICENSE) file for more information.
+See the repository's [LICENSE](LICENSE) file for details.
 
-> Third-party assets, music, sound effects, fonts, artwork, and other externally sourced content remain subject to their respective authors' licenses and terms and are not covered by the project's MIT License unless explicitly stated otherwise.
-```
+### Third-Party Content
 
+The MIT License applies only to original project code and content created by the Duckula: Bloodbound development team, unless otherwise stated.
 
----
+Third-party assets are **not licensed under the MIT License** and remain subject to their respective licenses and terms.
 
-## License
+This project includes assets distributed under licenses including:
 
-This project is licensed under the **MIT License**.
+- **Standard Unity Asset Store EULA**
+- **Pixabay Content License**
+- Other asset-specific licenses where applicable
+
+Third-party assets remain the property of their respective authors and publishers.
+
+See the [Credits](#credits) section for attribution and asset information.
 
 See the repository's [LICENSE](LICENSE) file for more information.
