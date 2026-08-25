@@ -4,7 +4,7 @@
 
 **Duckula: Bloodbound** is a 2D action-platformer / hack-and-slash developed by **CuackCuackClub** for [**Mini Jame Gam #58**](https://itch.io/jam/mini-jame-gam-58).
 
-The game combines the jam themes of **Time** and **Swords** into its core mechanics.
+The game combines the jam themes of **Time** and **Swords** directly into its core mechanics.
 
 You play as a vampire duck cursed to wield a sword that feeds on his own blood. Your Blood is both your **health** and one of your most important resources: it continuously drains while you explore, is lost when taking damage, and can also be deliberately spent to use powerful abilities.
 
@@ -12,15 +12,17 @@ The only way to keep the curse under control is to fight.
 
 Defeating enemies restores Blood, turning combat into a resource-management decision rather than something you can simply avoid.
 
+---
+
 ## Play the Game
 
-The jam build is available on itch.io:
+The completed jam build is available on itch.io:
 
-**[Play / Download Duckula: Bloodbound](https://noemifar.itch.io/duckula-bloodbound)**
+### [Play / Download Duckula: Bloodbound](https://noemifar.itch.io/duckula-bloodbound)
 
 Repository:
 
-**[CuackCuackClub/Mini-Jame-Gam-58](https://github.com/CuackCuackClub/Mini-Jame-Gam-58)**
+### [CuackCuackClub/Mini-Jame-Gam-58](https://github.com/CuackCuackClub/Mini-Jame-Gam-58)
 
 ---
 
@@ -36,7 +38,7 @@ To survive, you must:
 - Spend Blood carefully on special abilities.
 - Use checkpoints and Blood Vials to survive fatal mistakes.
 - Navigate traps, pits and hostile encounters.
-- Reach and defeat the final boss.
+- Reach and defeat the Final Boss.
 - Escape before the curse — or the sunrise — finishes you.
 
 The core gameplay loop is:
@@ -49,9 +51,9 @@ The level also has a **five-minute night-to-day cycle**, creating a second time 
 
 ---
 
-## Gameplay
+# Gameplay
 
-### Cursed Blood
+## Cursed Blood
 
 Blood acts as the player's **health and combat resource**.
 
@@ -71,7 +73,9 @@ Blood is always clamped to its maximum value and the HUD updates immediately whe
 
 If Blood reaches zero, the death system is triggered.
 
-### Cursed Sword
+---
+
+## Cursed Sword
 
 The cursed sword is Duckula's main weapon and the central element of the game's combat.
 
@@ -86,7 +90,9 @@ Combat focuses on:
 
 Enemies restore Blood when defeated, meaning combat is directly tied to survival.
 
-### Blood Recovery
+---
+
+## Blood Recovery
 
 Enemies are not only obstacles — they are also resources.
 
@@ -100,7 +106,7 @@ Enemy Blood rewards are granted only once per legitimate death, preventing dupli
 
 ---
 
-## Blood Abilities
+# Blood Abilities
 
 Duckula can deliberately sacrifice Blood to use special combat abilities.
 
@@ -108,7 +114,7 @@ These abilities are powerful, but spending too much Blood can leave the player v
 
 Abilities cannot directly spend enough Blood to reduce the player to zero.
 
-### Bloodstep
+## Bloodstep
 
 **Blood Cost: 5**
 
@@ -123,7 +129,9 @@ It provides:
 
 Passive Blood drain continues during Bloodstep.
 
-### Blood Crescent
+---
+
+## Blood Crescent
 
 **Blood Cost: 15**
 
@@ -141,7 +149,7 @@ Enemies killed with Blood Crescent still restore Blood normally.
 
 ---
 
-## Blood Vials
+# Blood Vials
 
 Duckula can carry up to **3 Blood Vials**.
 
@@ -150,7 +158,7 @@ Blood Vials act as extra lives and are integrated with the room and respawn syst
 When a recoverable death occurs and a vial is available:
 
 1. One Blood Vial is consumed.
-2. The player returns to the current room/checkpoint.
+2. The player returns to the current room or checkpoint.
 3. Blood is restored.
 4. Player movement and physics are restored.
 5. Enemies belonging to the current room reset.
@@ -158,11 +166,11 @@ When a recoverable death occurs and a vial is available:
 
 Enemies outside the active room are not affected.
 
-This means Blood Vials are not simply health potions — they are part of the game's death and encounter-reset system.
+Blood Vials are therefore not simply health potions — they are part of the game's death and encounter-reset system.
 
 ---
 
-## Checkpoints & Death
+# Checkpoints & Death
 
 The level contains checkpoints that establish safer respawn positions as the player progresses.
 
@@ -177,11 +185,11 @@ Recoverable deaths can use Blood Vials.
 
 When normal recovery is no longer possible, the game transitions into its final death / Game Over flow.
 
-The boss encounter also contains dedicated respawn handling and visual feedback.
+The Final Boss encounter also contains dedicated respawn handling and visual feedback.
 
 ---
 
-## Race Against Dawn
+# Race Against Dawn
 
 In addition to the player's continuously draining Blood, the main level contains an independent **five-minute time limit**.
 
@@ -206,11 +214,11 @@ This gives the game two overlapping forms of time pressure:
 
 ---
 
-## Enemies
+# Enemies
 
 The final jam build includes multiple enemy archetypes with different movement, combat and Blood-reward characteristics.
 
-### Melee Enemy
+## Melee Enemy
 
 The standard grounded enemy.
 
@@ -229,7 +237,9 @@ Default statistics:
 - **Speed:** 2
 - **Blood Reward:** 10
 
-### Flying Enemy
+---
+
+## Flying Enemy
 
 A faster airborne enemy with dedicated movement behavior.
 
@@ -248,7 +258,9 @@ Default statistics:
 - **Speed:** 4
 - **Blood Reward:** 5
 
-### Heavy Melee Enemy
+---
+
+## Heavy Melee Enemy
 
 A slower but significantly more dangerous melee enemy.
 
@@ -268,7 +280,7 @@ Default statistics:
 
 ---
 
-## Final Boss
+# Final Boss
 
 The game culminates in a dedicated **Final Boss encounter**.
 
@@ -291,15 +303,15 @@ After defeating the boss, the victory route becomes available and the player can
 
 ---
 
-## Game Over & Victory
+# Game Over & Victory
 
-### Game Over
+## Game Over
 
 A Game Over state can be triggered when the player reaches an unrecoverable death condition.
 
 The player can then restart the game or return to the Main Menu.
 
-### Victory
+## Victory
 
 Victory is gated behind defeating the Final Boss.
 
@@ -314,7 +326,7 @@ The victory exit cannot be used to bypass the boss.
 
 ---
 
-## Player Movement
+# Player Movement
 
 The player movement system includes:
 
@@ -340,9 +352,9 @@ The camera follows the player smoothly while respecting the level boundaries.
 
 ---
 
-## Controls
+# Controls
 
-### Keyboard & Mouse
+## Keyboard & Mouse
 
 | Action | Controls |
 | --- | --- |
@@ -357,7 +369,7 @@ Some Blood abilities also include gamepad bindings through Unity's Input System.
 
 ---
 
-## HUD
+# HUD
 
 The gameplay HUD displays the player's most important survival information.
 
@@ -374,11 +386,11 @@ The HUD updates immediately when gameplay values change.
 
 ---
 
-## Audio
+# Audio
 
 Duckula: Bloodbound includes music and sound effects integrated across the final jam build.
 
-### Music
+## Music
 
 Dedicated music is used for:
 
@@ -386,7 +398,7 @@ Dedicated music is used for:
 - Main gameplay level.
 - Final Boss encounter.
 
-### Sound Effects
+## Sound Effects
 
 Sound effects are integrated with:
 
@@ -396,7 +408,7 @@ Sound effects are integrated with:
 - Boss encounter.
 - Gameplay feedback.
 
-### Audio Options
+## Audio Options
 
 The Options menu provides independent volume controls for:
 
@@ -405,14 +417,14 @@ The Options menu provides independent volume controls for:
 
 ---
 
-## Visual Effects & Polish
+# Visual Effects & Polish
 
-The final build also includes several gameplay and presentation effects, including:
+The final build includes several gameplay and presentation effects, including:
 
 - Dynamic night-to-day background.
 - Checkpoint visual feedback.
 - Respawn visual effects.
-- Holy-cross respawn feedback during the boss encounter.
+- Holy-cross respawn feedback during the Final Boss encounter.
 - Combat feedback.
 - Hurt animations.
 - Death animations.
@@ -421,7 +433,7 @@ The final build also includes several gameplay and presentation effects, includi
 
 ---
 
-## Development
+# Development
 
 The game was developed with:
 
@@ -432,7 +444,7 @@ The game was developed with:
 - **Git**
 - **GitHub**
 
-### Required Unity Version
+## Required Unity Version
 
 Use:
 
@@ -444,7 +456,7 @@ Using the same Unity version is strongly recommended to avoid unnecessary change
 
 ---
 
-## Running the Project
+# Running the Project
 
 1. Clone the repository:
 
@@ -473,11 +485,11 @@ Assets/Level/Scenes/Boss.unity
 
 6. Enter Play Mode.
 
-For the finished jam experience, start from the game's Main Menu flow.
+For the complete jam experience, start from the game's Main Menu flow.
 
 ---
 
-## Project Structure
+# Project Structure
 
 The repository follows the standard Unity project layout:
 
@@ -518,7 +530,7 @@ Examples include systems for:
 
 ---
 
-## Development Workflow
+# Development Workflow
 
 Development was managed through GitHub Issues and Pull Requests.
 
@@ -548,7 +560,7 @@ fix(boss): restore final boss combat
 
 ---
 
-## Game Jam
+# Game Jam
 
 Created for:
 
@@ -562,13 +574,13 @@ Game page:
 
 https://noemifar.itch.io/duckula-bloodbound
 
-### Theme
+## Theme
 
 **Time + Swords**
 
 Duckula: Bloodbound interprets both themes directly through gameplay.
 
-#### Time
+### Time
 
 Time is represented through two connected systems:
 
@@ -577,7 +589,7 @@ Time is represented through two connected systems:
 
 The player is therefore fighting against both an immediate resource timer and an absolute level timer.
 
-#### Swords
+### Swords
 
 The cursed sword is Duckula's primary weapon and the catalyst for the Blood-based survival mechanics.
 
@@ -585,7 +597,7 @@ Combat is not optional resource expenditure: defeating enemies is one of the pla
 
 ---
 
-## Status
+# Status
 
 **Jam build completed and published.**
 
@@ -620,17 +632,36 @@ The final jam build includes:
 
 ---
 
-## Credits
+# Team
 
-### Developed By
+## CuackCuackClub
+
+**CuackCuackClub** was founded by:
+
+- **Meritxell Alguero Manrique / Mei** — Co-Founder, Lead Developer, Programmer
+- **Iago Prieto Lamas / Koala** — Co-Founder, Programmer, Technical Writer
+
+## Associated Artist
+
+- **Noemi Farre Porta / MimiOnly** — Associated Artist (2026), Artist, Animator, UI & UX Designer
+
+---
+
+# Duckula: Bloodbound Credits
+
+## Developed By
 
 - **Meritxell Alguero Manrique / Mei** — Lead Developer, Programmer, Level Designer
 - **Iago Prieto Lamas / Koala** — Programmer, Technical Writer, UI & UX Designer
 - **Noemi Farre Porta / MimiOnly** — Artist, Animator, UI & UX Designer
 
-### Third-Party Assets
+---
 
-The following assets were obtained from the **Unity Asset Store** and used during the development of Duckula: Bloodbound:
+## Third-Party Assets
+
+The following third-party assets were used during the development of **Duckula: Bloodbound**.
+
+### Unity Asset Store
 
 - **BoldPixels Font** — YukiPixels
 - **2D Simple UI Pack** — OArielG
@@ -642,39 +673,52 @@ The following assets were obtained from the **Unity Asset Store** and used durin
 - **Pixel Art RPG VFX Lite** — Pixogen
 - **Asset FTTGR | Free Pixel Art Platform** — Superposition Principle
 
-### Audio & Sound Effects
+Unless otherwise stated by the original author or distributor, Unity Asset Store assets remain subject to their respective **Unity Asset Store license terms** and are not licensed under this project's MIT License.
 
-- Sound effects obtained from [**Pixabay**](https://pixabay.com/).
-- Music: **"[Song Name]"** via [Pixabay](https://pixabay.com/) — **[Artist / Author]**.
+---
 
-### Special Thanks
+## Audio & Sound Effects
+
+- Sound effects obtained from [**Pixabay**](https://pixabay.com/) and used under the applicable **Pixabay Content License**.
+- Music obtained from [**Pixabay**](https://pixabay.com/) and used under the applicable **Pixabay Content License**.
+
+### Music Credits
+
+- **"[Song Name]"** — [Artist / Author]
+- **"[Song Name]"** — [Artist / Author]
+- **"[Song Name]"** — [Artist / Author]
+
+> Replace the placeholders above with the exact track titles and authors before the final credits are considered complete.
+
+---
+
+## Special Thanks
 
 - **Jame Gam Community**
-- Everyone who played, tested, and supported the game during the jam.
+- Everyone who played, tested and supported the game during the jam.
 - **Thank you for playing Duckula: Bloodbound!**
 
 ---
 
-## License
+# License
 
 The original source code created for **Duckula: Bloodbound** is licensed under the **MIT License**.
 
 See the repository's [LICENSE](LICENSE) file for details.
 
-### Third-Party Content
+## Third-Party Content
 
-The MIT License applies only to original project code and content created by the Duckula: Bloodbound development team, unless otherwise stated.
+The MIT License applies only to original project code and content created by the **Duckula: Bloodbound** development team, unless otherwise stated.
 
-Third-party assets are **not licensed under the MIT License** and remain subject to their respective licenses and terms.
+Third-party assets are **not automatically licensed under the MIT License** and remain subject to their respective licenses and terms.
 
-This project includes assets distributed under licenses including:
+This project includes content distributed under licenses or terms including:
 
-- **Standard Unity Asset Store EULA**
+- **Unity Asset Store licensing terms**
 - **Pixabay Content License**
 - Other asset-specific licenses where applicable
 
-Third-party assets remain the property of their respective authors and publishers.
+Third-party assets, fonts, music, sound effects, artwork and other externally sourced content remain the property of their respective authors and publishers.
 
-See the [Credits](#credits) section for attribution and asset information.
-
-See the repository's [LICENSE](LICENSE) file for more information.
+See the [Third-Party Assets](#third-party-assets) and [Audio--Sound-Effects](#audio--sound-effects) sections for attribution information.
+````
