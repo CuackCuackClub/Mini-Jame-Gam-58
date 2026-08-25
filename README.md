@@ -721,4 +721,3 @@ This project includes content distributed under licenses or terms including:
 Third-party assets, fonts, music, sound effects, artwork and other externally sourced content remain the property of their respective authors and publishers.
 
 See the [Third-Party Assets](#third-party-assets) and [Audio--Sound-Effects](#audio--sound-effects) sections for attribution information.
-````
