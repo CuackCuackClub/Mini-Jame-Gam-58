@@ -651,9 +651,9 @@ The final jam build includes:
 
 ## Developed By
 
-- **Meritxell Alguero Manrique / Mei** — Lead Developer, Programmer, Level Designer
-- **Iago Prieto Lamas / Koala** — Programmer, Technical Writer, UI & UX Designer
-- **Noemi Farre Porta / MimiOnly** — Artist, Animator, UI & UX Designer
+- **[Meritxell Alguero Manrique / Mei](https://github.com/MeriAlguero)** — Lead Developer, Programmer, Level Designer
+- **[Iago Prieto Lamas / Koala](https://github.com/IagoPL)** — Programmer, Technical Writer, UI & UX Designer
+- **[Noemi Farre Porta / MimiOnly](https://github.com/noemifarre)** — Artist, Animator, UI & UX Designer
 
 ---
 
@@ -684,11 +684,10 @@ Unless otherwise stated by the original author or distributor, Unity Asset Store
 
 ### Music Credits
 
-- **"[Song Name]"** — [Artist / Author]
-- **"[Song Name]"** — [Artist / Author]
-- **"[Song Name]"** — [Artist / Author]
+- Main Menu Music: **"8-bit Halloween Story"** — Moodmode 
+- Game Music: **"ymphony for Immortal Hearts - Gothic and Vampiric Piano Music"** — JoelFazhari 
+- Boss Fight Music: **"Video Game Boss Fight Music"** — IHateTuesdays
 
-> Replace the placeholders above with the exact track titles and authors before the final credits are considered complete.
 
 ---
 
