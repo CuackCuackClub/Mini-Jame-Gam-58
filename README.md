@@ -14,6 +14,41 @@ Defeating enemies restores Blood, turning combat into a resource-management deci
 
 ---
 
+## Status
+
+**Jam build completed and published.**
+
+Duckula: Bloodbound was created for **Mini Jame Gam #58** and is available on itch.io.
+
+**Play / Download:**
+https://noemifar.itch.io/duckula-bloodbound
+
+The final jam build includes:
+
+* Complete player movement.
+* Sword combat.
+* Continuous Blood drain.
+* Blood recovery from enemies.
+* Bloodstep.
+* Blood Crescent.
+* Blood Vials.
+* Checkpoints.
+* Room-based enemy resets.
+* Multiple enemy archetypes.
+* Lethal environmental hazards.
+* Five-minute night-to-day cycle.
+* Dynamic background.
+* Gameplay HUD.
+* Music and sound effects.
+* Music and SFX volume settings.
+* Game Over flow.
+* Final Boss.
+* Boss-specific music and combat.
+* Victory flow.
+* Victory visual effects.
+
+---
+
 ## Play the Game
 
 The completed jam build is available on itch.io:
@@ -26,20 +61,57 @@ Repository:
 
 ---
 
+## Game Jam
+
+Created for:
+
+**Mini Jame Gam #58**
+
+Jam page:
+
+https://itch.io/jam/mini-jame-gam-58
+
+Game page:
+
+https://noemifar.itch.io/duckula-bloodbound
+
+### Theme
+
+**Time + Swords**
+
+Duckula: Bloodbound interprets both themes directly through gameplay.
+
+#### Time
+
+Time is represented through two connected systems:
+
+* Blood continuously drains while playing.
+* The level transitions from night to daylight over five minutes.
+
+The player is therefore fighting against both an immediate resource timer and an absolute level timer.
+
+#### Swords
+
+The cursed sword is Duckula's primary weapon and the catalyst for the Blood-based survival mechanics.
+
+Combat is not optional resource expenditure: defeating enemies is one of the player's primary methods of extending survival time.
+
+---
+
 ## Core Concept
 
 Your Blood is constantly running out.
 
 To survive, you must:
 
-- Explore the castle before dawn.
-- Fight enemies with your cursed sword.
-- Defeat enemies to recover Blood.
-- Spend Blood carefully on special abilities.
-- Use checkpoints and Blood Vials to survive fatal mistakes.
-- Navigate traps, pits and hostile encounters.
-- Reach and defeat the Final Boss.
-- Escape before the curse — or the sunrise — finishes you.
+* Explore the castle before dawn.
+* Fight enemies with your cursed sword.
+* Defeat enemies to recover Blood.
+* Spend Blood carefully on special abilities.
+* Use checkpoints and Blood Vials to survive fatal mistakes.
+* Navigate traps, pits and hostile encounters.
+* Reach and defeat the Final Boss.
+* Escape before the curse — or the sunrise — finishes you.
 
 The core gameplay loop is:
 
@@ -55,97 +127,87 @@ The level also has a **five-minute night-to-day cycle**, creating a second time 
 
 ## Cursed Blood
 
-Blood acts as the player's **health and combat resource**.
-
-It continuously decreases during gameplay, creating constant pressure to keep progressing.
-
-Blood is also lost by:
-
-- Taking enemy damage.
-- Using Blood-powered abilities.
-
-Blood can be restored by:
-
-- Defeating enemies.
-- Reviving through the Blood Vial system.
-
-Blood is always clamped to its maximum value and the HUD updates immediately whenever it changes.
-
-If Blood reaches zero, the death system is triggered.
+| Property            | Description                                                                                   |
+| ------------------- | --------------------------------------------------------------------------------------------- |
+| **Role**            | Blood acts as the player's **health and combat resource**.                                    |
+| **Passive Drain**   | Blood continuously decreases during gameplay, creating constant pressure to keep progressing. |
+| **Damage Loss**     | Blood is lost when Duckula takes enemy damage.                                                |
+| **Ability Cost**    | Blood is consumed when using Blood-powered abilities.                                         |
+| **Recovery**        | Blood can be restored by defeating enemies or through the **Blood Vial** system.              |
+| **Maximum Value**   | Blood is always clamped to its maximum value.                                                 |
+| **HUD Update**      | The HUD updates immediately whenever Blood changes.                                           |
+| **Death Condition** | If Blood reaches **0**, the death system is triggered.                                        |
 
 ---
 
 ## Cursed Sword
 
-The cursed sword is Duckula's main weapon and the central element of the game's combat.
-
-Combat focuses on:
-
-- Close-range positioning.
-- Attack timing.
-- Enemy attack patterns.
-- Movement.
-- Blood management.
-- Knowing when to attack aggressively and when to preserve resources.
-
-Enemies restore Blood when defeated, meaning combat is directly tied to survival.
+| Property             | Description                                                                  |
+| -------------------- | ---------------------------------------------------------------------------- |
+| **Role**             | The cursed sword is Duckula's main weapon and the central element of combat. |
+| **Combat Range**     | Combat focuses primarily on **close-range positioning**.                     |
+| **Attack Timing**    | Players must manage attack timing and react to enemy attack patterns.        |
+| **Movement**         | Movement and positioning are important parts of combat.                      |
+| **Blood Management** | Players must manage their Blood while engaging enemies.                      |
+| **Risk Management**  | Players must decide when to attack aggressively and when to preserve Blood.  |
+| **Enemy Rewards**    | Defeating enemies restores Blood, directly tying combat to survival.         |
 
 ---
 
 ## Blood Recovery
 
-Enemies are not only obstacles — they are also resources.
-
-Different enemy types restore different amounts of Blood when defeated.
-
-This creates an important trade-off:
-
-**Avoiding enemies reduces immediate risk, but also removes opportunities to recover Blood.**
-
-Enemy Blood rewards are granted only once per legitimate death, preventing duplicate recovery while remaining compatible with room resets and respawns.
+| Property                 | Description                                                                              |
+| ------------------------ | ---------------------------------------------------------------------------------------- |
+| **Role**                 | Enemies act as both combat obstacles and sources of Blood recovery.                      |
+| **Enemy Rewards**        | Different enemy types restore different amounts of Blood when defeated.                  |
+| **Risk vs. Reward**      | Avoiding enemies reduces immediate risk but also removes opportunities to recover Blood. |
+| **Reward Limit**         | Blood rewards are granted only once per legitimate enemy death.                          |
+| **Room Resets**          | The reward system remains compatible with room resets.                                   |
+| **Enemy Respawns**       | The reward system remains compatible with enemy respawns.                                |
+| **Duplicate Prevention** | The system prevents duplicate Blood recovery from the same legitimate death.             |
 
 ---
 
-# Blood Abilities
+## Blood Abilities
 
-Duckula can deliberately sacrifice Blood to use special combat abilities.
+| Property           | Description                                                                                           |
+| ------------------ | ----------------------------------------------------------------------------------------------------- |
+| **Role**           | Blood abilities allow Duckula to deliberately sacrifice Blood for powerful combat abilities.          |
+| **Blood Cost**     | Each ability consumes a specific amount of Blood when used.                                           |
+| **Power vs. Risk** | Abilities provide powerful combat options, but excessive Blood spending can leave Duckula vulnerable. |
+| **Minimum Blood**  | An ability cannot directly consume enough Blood to reduce Duckula's Blood to **0**.                   |
+| **Passive Drain**  | Passive Blood drain continues while Blood abilities are being used unless otherwise specified.        |
 
-These abilities are powerful, but spending too much Blood can leave the player vulnerable.
-
-Abilities cannot directly spend enough Blood to reduce the player to zero.
+---
 
 ## Bloodstep
 
-**Blood Cost: 5**
-
-Bloodstep is a fast horizontal dash.
-
-It provides:
-
-- Rapid horizontal movement.
-- A way to reposition during combat.
-- Brief protection from contact damage.
-- Collision-aware movement that respects level geometry.
-
-Passive Blood drain continues during Bloodstep.
+| Property          | Description                                              |
+| ----------------- | -------------------------------------------------------- |
+| **Type**          | Fast horizontal dash.                                    |
+| **Blood Cost**    | **5 Blood**.                                             |
+| **Movement**      | Provides rapid horizontal movement.                      |
+| **Repositioning** | Allows Duckula to quickly reposition during combat.      |
+| **Protection**    | Provides brief protection from contact damage.           |
+| **Collision**     | Movement is collision-aware and respects level geometry. |
+| **Passive Drain** | Passive Blood drain continues during Bloodstep.          |
 
 ---
 
 ## Blood Crescent
 
-**Blood Cost: 15**
-
-Blood Crescent launches a ranged Blood projectile in the direction Duckula is facing.
-
-By default, it:
-
-- Deals **25 damage**.
-- Travels horizontally.
-- Can damage multiple enemies once each.
-- Stops when hitting level geometry.
-- Uses the same enemy damage and death systems as sword combat.
-
-Enemies killed with Blood Crescent still restore Blood normally.
+| Property           | Description                                                      |
+| ------------------ | ---------------------------------------------------------------- |
+| **Type**           | Ranged Blood projectile.                                         |
+| **Blood Cost**     | **15 Blood**.                                                    |
+| **Direction**      | The projectile is launched in the direction Duckula is facing.   |
+| **Damage**         | Deals **25 damage** by default.                                  |
+| **Travel**         | Travels horizontally.                                            |
+| **Enemy Hits**     | Can damage multiple enemies.                                     |
+| **Hit Limit**      | Each enemy can only be damaged **once** by the projectile.       |
+| **Level Geometry** | The projectile stops when it hits level geometry.                |
+| **Damage System**  | Uses the same enemy damage and death systems as sword combat.    |
+| **Blood Recovery** | Enemies killed with Blood Crescent still restore Blood normally. |
 
 ---
 
@@ -176,10 +238,10 @@ The level contains checkpoints that establish safer respawn positions as the pla
 
 The player can die from several causes, including:
 
-- Blood depletion.
-- Enemy attacks.
-- Falling into pits or lethal zones.
-- Reaching daylight before completing the level.
+* Blood depletion.
+* Enemy attacks.
+* Falling into pits or lethal zones.
+* Reaching daylight before completing the level.
 
 Recoverable deaths can use Blood Vials.
 
@@ -201,10 +263,10 @@ The sky changes progressively throughout the level and can be seen through windo
 
 The timer:
 
-- Runs independently from Blood.
-- Continues after Blood Vial respawns.
-- Does not reset when the player dies and revives.
-- Creates an absolute limit on how long the player can remain in the level.
+* Runs independently from Blood.
+* Continues after Blood Vial respawns.
+* Does not reset when the player dies and revives.
+* Creates an absolute limit on how long the player can remain in the level.
 
 If daylight is reached before the player completes the level, the final death sequence is triggered.
 
@@ -220,86 +282,72 @@ The final jam build includes multiple enemy archetypes with different movement, 
 
 ## Melee Enemy
 
-The standard grounded enemy.
-
-Characteristics:
-
-- Patrols the environment.
-- Detects and chases the player.
-- Attacks at close range.
-- Medium movement speed.
-- Medium durability.
-
-Default statistics:
-
-- **Health:** 50
-- **Damage:** 10
-- **Speed:** 2
-- **Blood Reward:** 10
+| Property         | Description                                                  |
+| ---------------- | ------------------------------------------------------------ |
+| **Role**         | Standard grounded enemy.                                     |
+| **Movement**     | Patrols the environment and chases the player when detected. |
+| **Detection**    | Detects the player and initiates pursuit.                    |
+| **Attack**       | Attacks the player at close range.                           |
+| **Mobility**     | Has medium movement speed.                                   |
+| **Durability**   | Has medium durability.                                       |
+| **Health**       | **50**                                                       |
+| **Damage**       | **10**                                                       |
+| **Speed**        | **2**                                                        |
+| **Blood Reward** | **10 Blood**                                                 |
 
 ---
 
 ## Flying Enemy
 
-A faster airborne enemy with dedicated movement behavior.
-
-Characteristics:
-
-- Hover patrol.
-- Vertical movement.
-- Player detection.
-- Approach and retreat combat behavior.
-- Higher mobility but lower durability.
-
-Default statistics:
-
-- **Health:** 30
-- **Damage:** 5
-- **Speed:** 4
-- **Blood Reward:** 5
+| Property            | Description                                                    |
+| ------------------- | -------------------------------------------------------------- |
+| **Role**            | Faster airborne enemy with dedicated aerial movement behavior. |
+| **Movement**        | Uses hover patrol and vertical movement.                       |
+| **Detection**       | Detects the player and approaches when engaged.                |
+| **Combat Behavior** | Uses approach and retreat behavior during combat.              |
+| **Mobility**        | Has higher mobility than grounded enemies.                     |
+| **Durability**      | Has lower durability than grounded enemies.                    |
+| **Health**          | **30**                                                         |
+| **Damage**          | **5**                                                          |
+| **Speed**           | **4**                                                          |
+| **Blood Reward**    | **5 Blood**                                                    |
 
 ---
 
 ## Heavy Melee Enemy
 
-A slower but significantly more dangerous melee enemy.
-
-Characteristics:
-
-- High health.
-- Heavy attacks.
-- Slower movement.
-- High Blood reward.
-
-Default statistics:
-
-- **Health:** 150
-- **Damage:** 25
-- **Speed:** 1
-- **Blood Reward:** 20
+| Property         | Description                                          |
+| ---------------- | ---------------------------------------------------- |
+| **Role**         | Slower but significantly more dangerous melee enemy. |
+| **Movement**     | Moves slower than standard melee enemies.            |
+| **Attack**       | Uses heavy attacks that deal high damage.            |
+| **Durability**   | Has high health and durability.                      |
+| **Mobility**     | Has low movement speed.                              |
+| **Blood Reward** | Provides a high Blood reward when defeated.          |
+| **Health**       | **150**                                              |
+| **Damage**       | **25**                                               |
+| **Speed**        | **1**                                                |
+| **Blood Reward** | **20 Blood**                                         |
 
 ---
 
-# Final Boss
+## Final Boss
 
-The game culminates in a dedicated **Final Boss encounter**.
-
-The boss has its own:
-
-- Combat behavior.
-- Attack logic.
-- Damage and death flow.
-- Animations.
-- Music.
-- Sound effects.
-- Arena handling.
-- Respawn behavior.
-
-The boss restores **30 Blood** when defeated.
-
-The exit cannot trigger victory while the boss is still alive.
-
-After defeating the boss, the victory route becomes available and the player can complete the game.
+| Property              | Description                                                                |
+| --------------------- | -------------------------------------------------------------------------- |
+| **Role**              | Dedicated boss encounter that serves as the game's final combat challenge. |
+| **Combat Behavior**   | Uses its own dedicated combat behavior.                                    |
+| **Attack Logic**      | Uses unique attack logic separate from standard enemies.                   |
+| **Damage & Death**    | Uses a dedicated damage and death flow.                                    |
+| **Animations**        | Has dedicated boss animations.                                             |
+| **Music**             | Uses dedicated boss music.                                                 |
+| **Sound Effects**     | Uses dedicated boss sound effects.                                         |
+| **Arena**             | Uses dedicated arena handling.                                             |
+| **Respawn**           | Has dedicated respawn behavior.                                            |
+| **Blood Reward**      | Restores **30 Blood** when defeated.                                       |
+| **Victory Condition** | The exit cannot trigger victory while the boss is alive.                   |
+| **Victory Route**     | After defeating the boss, the victory route becomes available.             |
+| **Game Completion**   | The player can complete the game after defeating the boss.                 |
 
 ---
 
@@ -317,10 +365,10 @@ Victory is gated behind defeating the Final Boss.
 
 After the boss is defeated, reaching the victory exit triggers:
 
-- Victory validation.
-- Victory visual effects.
-- Fireworks.
-- Final Victory UI.
+* Victory validation.
+* Victory visual effects.
+* Fireworks.
+* Final Victory UI.
 
 The victory exit cannot be used to bypass the boss.
 
@@ -330,23 +378,23 @@ The victory exit cannot be used to bypass the boss.
 
 The player movement system includes:
 
-- Horizontal movement.
-- Jumping.
-- Coyote time.
-- Jump buffering.
-- Bloodstep dash.
-- Collision-aware movement.
-- Improved ground detection.
+* Horizontal movement.
+* Jumping.
+* Coyote time.
+* Jump buffering.
+* Bloodstep dash.
+* Collision-aware movement.
+* Improved ground detection.
 
 The player has animation states for:
 
-- Idle.
-- Walking.
-- Jumping.
-- Attacking.
-- Hurt.
-- Bloodstep / Dash.
-- Defeated.
+* Idle.
+* Walking.
+* Jumping.
+* Attacking.
+* Hurt.
+* Bloodstep / Dash.
+* Defeated.
 
 The camera follows the player smoothly while respecting the level boundaries.
 
@@ -356,14 +404,14 @@ The camera follows the player smoothly while respecting the level boundaries.
 
 ## Keyboard & Mouse
 
-| Action | Controls |
-| --- | --- |
-| Move Left | `A` / `Left Arrow` |
-| Move Right | `D` / `Right Arrow` |
-| Jump | `Space` / `W` |
-| Sword Attack | `Left Mouse Button` / `E` / `L` |
-| Bloodstep | `Left Shift` / `Right Shift` / `J` |
-| Blood Crescent | `Q` / `K` |
+| Action         | Controls                           |
+| -------------- | ---------------------------------- |
+| Move Left      | `A` / `Left Arrow`                 |
+| Move Right     | `D` / `Right Arrow`                |
+| Jump           | `Space` / `W`                      |
+| Sword Attack   | `Left Mouse Button` / `E` / `L`    |
+| Bloodstep      | `Left Shift` / `Right Shift` / `J` |
+| Blood Crescent | `Q` / `K`                          |
 
 Some Blood abilities also include gamepad bindings through Unity's Input System.
 
@@ -375,12 +423,12 @@ The gameplay HUD displays the player's most important survival information.
 
 It includes:
 
-- Current Blood.
-- Continuous Blood drain feedback.
-- Damage and healing updates.
-- Blood Vial count.
-- Support for **0–3 Blood Vials**.
-- Fully depleted Blood state.
+* Current Blood.
+* Continuous Blood drain feedback.
+* Damage and healing updates.
+* Blood Vial count.
+* Support for **0–3 Blood Vials**.
+* Fully depleted Blood state.
 
 The HUD updates immediately when gameplay values change.
 
@@ -394,26 +442,26 @@ Duckula: Bloodbound includes music and sound effects integrated across the final
 
 Dedicated music is used for:
 
-- Main Menu.
-- Main gameplay level.
-- Final Boss encounter.
+* Main Menu.
+* Main gameplay level.
+* Final Boss encounter.
 
 ## Sound Effects
 
 Sound effects are integrated with:
 
-- Player animations and actions.
-- Enemy animations and actions.
-- Combat.
-- Boss encounter.
-- Gameplay feedback.
+* Player animations and actions.
+* Enemy animations and actions.
+* Combat.
+* Boss encounter.
+* Gameplay feedback.
 
 ## Audio Options
 
 The Options menu provides independent volume controls for:
 
-- **Music Volume**
-- **SFX Volume**
+* **Music Volume**
+* **SFX Volume**
 
 ---
 
@@ -421,15 +469,15 @@ The Options menu provides independent volume controls for:
 
 The final build includes several gameplay and presentation effects, including:
 
-- Dynamic night-to-day background.
-- Checkpoint visual feedback.
-- Respawn visual effects.
-- Holy-cross respawn feedback during the Final Boss encounter.
-- Combat feedback.
-- Hurt animations.
-- Death animations.
-- Blood ability effects.
-- Victory fireworks.
+* Dynamic night-to-day background.
+* Checkpoint visual feedback.
+* Respawn visual effects.
+* Holy-cross respawn feedback during the Final Boss encounter.
+* Combat feedback.
+* Hurt animations.
+* Death animations.
+* Blood ability effects.
+* Victory fireworks.
 
 ---
 
@@ -437,12 +485,12 @@ The final build includes several gameplay and presentation effects, including:
 
 The game was developed with:
 
-- **Unity 6**
-- **Unity Editor 6000.3.22f1**
-- **C#**
-- **Unity Input System**
-- **Git**
-- **GitHub**
+* **Unity 6**
+* **Unity Editor 6000.3.22f1**
+* **C#**
+* **Unity Input System**
+* **Git**
+* **GitHub**
 
 ## Required Unity Version
 
@@ -501,32 +549,32 @@ ProjectSettings/
 
 The project separates game content into areas for:
 
-- Art.
-- Animations.
-- Audio.
-- Code.
-- Gameplay systems.
-- Levels and scenes.
-- Materials.
-- Prefabs.
-- UI.
-- Visual effects.
+* Art.
+* Animations.
+* Audio.
+* Code.
+* Gameplay systems.
+* Levels and scenes.
+* Materials.
+* Prefabs.
+* UI.
+* Visual effects.
 
 Scripts use the project's `S_` naming convention where applicable.
 
 Examples include systems for:
 
-- Player Blood.
-- Player death.
-- Enemy behavior.
-- Enemy damage.
-- Blood Vials.
-- Rooms and checkpoints.
-- Gameplay HUD.
-- Blood abilities.
-- Dynamic time.
-- Victory and Game Over.
-- Audio management.
+* Player Blood.
+* Player death.
+* Enemy behavior.
+* Enemy damage.
+* Blood Vials.
+* Rooms and checkpoints.
+* Gameplay HUD.
+* Blood abilities.
+* Dynamic time.
+* Victory and Game Over.
+* Audio management.
 
 ---
 
@@ -560,90 +608,18 @@ fix(boss): restore final boss combat
 
 ---
 
-# Game Jam
-
-Created for:
-
-**Mini Jame Gam #58**
-
-Jam page:
-
-https://itch.io/jam/mini-jame-gam-58
-
-Game page:
-
-https://noemifar.itch.io/duckula-bloodbound
-
-## Theme
-
-**Time + Swords**
-
-Duckula: Bloodbound interprets both themes directly through gameplay.
-
-### Time
-
-Time is represented through two connected systems:
-
-- Blood continuously drains while playing.
-- The level transitions from night to daylight over five minutes.
-
-The player is therefore fighting against both an immediate resource timer and an absolute level timer.
-
-### Swords
-
-The cursed sword is Duckula's primary weapon and the catalyst for the Blood-based survival mechanics.
-
-Combat is not optional resource expenditure: defeating enemies is one of the player's primary methods of extending survival time.
-
----
-
-# Status
-
-**Jam build completed and published.**
-
-Duckula: Bloodbound was created for **Mini Jame Gam #58** and is available on itch.io.
-
-**Play / Download:**  
-https://noemifar.itch.io/duckula-bloodbound
-
-The final jam build includes:
-
-- Complete player movement.
-- Sword combat.
-- Continuous Blood drain.
-- Blood recovery from enemies.
-- Bloodstep.
-- Blood Crescent.
-- Blood Vials.
-- Checkpoints.
-- Room-based enemy resets.
-- Multiple enemy archetypes.
-- Lethal environmental hazards.
-- Five-minute night-to-day cycle.
-- Dynamic background.
-- Gameplay HUD.
-- Music and sound effects.
-- Music and SFX volume settings.
-- Game Over flow.
-- Final Boss.
-- Boss-specific music and combat.
-- Victory flow.
-- Victory visual effects.
-
----
-
 # Team
 
 ## CuackCuackClub
 
 **CuackCuackClub** was founded by:
 
-- **Meritxell Alguero Manrique / Mei** — Co-Founder, Lead Developer, Programmer
-- **Iago Prieto Lamas / Koala** — Co-Founder, Programmer, Technical Writer
+* **Meritxell Alguero Manrique / Mei** — Co-Founder, Lead Developer, Programmer
+* **Iago Prieto Lamas / Koala** — Co-Founder, Programmer, Technical Writer
 
 ## Associated Artist
 
-- **Noemi Farre Porta / MimiOnly** — Associated Artist (2026), Artist, Animator, UI & UX Designer
+* **Noemi Farre Porta / MimiOnly** — Associated Artist (2026), Artist, Animator, UI & UX Designer
 
 ---
 
@@ -651,9 +627,9 @@ The final jam build includes:
 
 ## Developed By
 
-- **[Meritxell Alguero Manrique / Mei](https://github.com/MeriAlguero)** — Lead Developer, Programmer, Level Designer
-- **[Iago Prieto Lamas / Koala](https://github.com/IagoPL)** — Programmer, Technical Writer, UI & UX Designer
-- **[Noemi Farre Porta / MimiOnly](https://github.com/noemifarre)** — Artist, Animator, UI & UX Designer
+* **[Meritxell Alguero Manrique / Mei](https://github.com/MeriAlguero)** — Lead Developer, Programmer, Level Designer
+* **[Iago Prieto Lamas / Koala](https://github.com/IagoPL)** — Programmer, Technical Writer, UI & UX Designer
+* **[Noemi Farre Porta / MimiOnly](https://github.com/noemifarre)** — Artist, Animator, UI & UX Designer
 
 ---
 
@@ -663,15 +639,15 @@ The following third-party assets were used during the development of **Duckula: 
 
 ### Unity Asset Store
 
-- **BoldPixels Font** — YukiPixels
-- **2D Simple UI Pack** — OArielG
-- **Monsters_Creatures_Fantasy** — Luiz Melo
-- **Monsters_Creatures_Fantasy 2** — Luiz Melo
-- **Bringer Of Death (free)** — Clembod
-- **Pixel Art Potion Pack - Animated** — karsiori
-- **Pixel 2D Castle Tileset** — Szadi Art
-- **Pixel Art RPG VFX Lite** — Pixogen
-- **Asset FTTGR | Free Pixel Art Platform** — Superposition Principle
+* **BoldPixels Font** — YukiPixels
+* **2D Simple UI Pack** — OArielG
+* **Monsters_Creatures_Fantasy** — Luiz Melo
+* **Monsters_Creatures_Fantasy 2** — Luiz Melo
+* **Bringer Of Death (free)** — Clembod
+* **Pixel Art Potion Pack - Animated** — karsiori
+* **Pixel 2D Castle Tileset** — Szadi Art
+* **Pixel Art RPG VFX Lite** — Pixogen
+* **Asset FTTGR | Free Pixel Art Platform** — Superposition Principle
 
 Unless otherwise stated by the original author or distributor, Unity Asset Store assets remain subject to their respective **Unity Asset Store license terms** and are not licensed under this project's MIT License.
 
@@ -679,23 +655,22 @@ Unless otherwise stated by the original author or distributor, Unity Asset Store
 
 ## Audio & Sound Effects
 
-- Sound effects obtained from [**Pixabay**](https://pixabay.com/) and used under the applicable **Pixabay Content License**.
-- Music obtained from [**Pixabay**](https://pixabay.com/) and used under the applicable **Pixabay Content License**.
+* Sound effects obtained from [**Pixabay**](https://pixabay.com/) and used under the applicable **Pixabay Content License**.
+* Music obtained from [**Pixabay**](https://pixabay.com/) and used under the applicable **Pixabay Content License**.
 
 ### Music Credits
 
-- Main Menu Music: **"8-bit Halloween Story"** — Moodmode 
-- Game Music: **"ymphony for Immortal Hearts - Gothic and Vampiric Piano Music"** — JoelFazhari 
-- Boss Fight Music: **"Video Game Boss Fight Music"** — IHateTuesdays
-
+* Main Menu Music: **"8-bit Halloween Story"** — Moodmode
+* Game Music: **"ymphony for Immortal Hearts - Gothic and Vampiric Piano Music"** — JoelFazhari
+* Boss Fight Music: **"Video Game Boss Fight Music"** — IHateTuesdays
 
 ---
 
 ## Special Thanks
 
-- **Jame Gam Community**
-- Everyone who played, tested and supported the game during the jam.
-- **Thank you for playing Duckula: Bloodbound!**
+* **Jame Gam Community**
+* Everyone who played, tested and supported the game during the jam.
+* **Thank you for playing Duckula: Bloodbound!**
 
 ---
 
@@ -713,9 +688,9 @@ Third-party assets are **not automatically licensed under the MIT License** and 
 
 This project includes content distributed under licenses or terms including:
 
-- **Unity Asset Store licensing terms**
-- **Pixabay Content License**
-- Other asset-specific licenses where applicable
+* **Unity Asset Store licensing terms**
+* **Pixabay Content License**
+* Other asset-specific licenses where applicable
 
 Third-party assets, fonts, music, sound effects, artwork and other externally sourced content remain the property of their respective authors and publishers.
 
